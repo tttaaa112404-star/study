@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservation（WEBオンライン予約） | Trattoria SOLE（トラットリア ソーレ）</title>
+  <meta name="description" content="Trattoria SOLE（トラットリア ソーレ）のオンライン予約。ランチ、ディナー、記念日コースのご予約を24時間承っております。代々木上原駅徒歩3分。">
+
+  <!-- Google Fonts（欧文: Cormorant Garamond / 和文: Noto Serif JP） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Noto+Serif+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- 共通スタイルシート -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       共通ヘッダー
+       ========================================================================== -->
+  <header id="site-header">
+    <div class="container header-container">
+
+      <!-- 店舗ロゴ -->
+      <a href="index.html" class="site-logo-link">
+        <span class="logo-main-text">Trattoria SOLE</span>
+        <span class="logo-sub-text">Yoyogi-Uehara · Italian · 15th Anniv.</span>
+      </a>
+
+      <!-- ナビゲーション -->
+      <nav class="header-nav">
+        <ul class="nav-links-list">
+          <li class="nav-link-item">
+            <a href="index.html">HOME<span class="sub-ja">トップ</span></a>
+          </li>
+          <li class="nav-link-item">
+            <a href="menu.html">MENU<span class="sub-ja">お料理</span></a>
+          </li>
+          <li class="nav-link-item">
+            <a href="wine.html">WINE<span class="sub-ja">ワイン</span></a>
+          </li>
+          <li class="nav-link-item">
+            <a href="reservation.html" class="active">RESERVATION<span class="sub-ja">ご予約</span></a>
+          </li>
+        </ul>
+        <a href="reservation.html" class="btn btn-primary header-reserve-btn">ご予約</a>
+      </nav>
+
+      <!-- ハンバーガーボタン -->
+      <button id="hamburger-btn" class="hamburger-toggle-btn" aria-label="メニューを開く" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- モバイル用ドロワーメニュー -->
+  <div id="mobile-backdrop" class="mobile-nav-backdrop"></div>
+  <aside id="mobile-drawer" class="mobile-nav-drawer">
+    <a href="index.html" class="site-logo-link" style="margin-bottom: 2rem;">
+      <span class="logo-main-text" style="color: var(--color-wine);">Trattoria SOLE</span>
+      <span class="logo-sub-text">Yoyogi-Uehara · Italian</span>
+    </a>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="mobile-nav-link">HOME<span class="sub-ja">トップページ</span></a></li>
+      <li><a href="menu.html" class="mobile-nav-link">MENU<span class="sub-ja">お料理・コース</span></a></li>
+      <li><a href="wine.html" class="mobile-nav-link">WINE<span class="sub-ja">厳選ワインリスト</span></a></li>
+      <li><a href="reservation.html" class="mobile-nav-link active">RESERVATION<span class="sub-ja">WEBオンライン予約</span></a></li>
+    </ul>
+    <a href="reservation.html" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">ご予約はこちら</a>
+  </aside>
+
+  <!-- ==========================================================================
+       メインコンテンツ
+       ========================================================================== -->
+  <main>
+
+    <!-- サブページヒーローバナー -->
+    <section class="subpage-hero-banner">
+      <!-- 出典: Unsplash https://images.unsplash.com/photo-1517248135467-4c7edcad34c4 -->
+      <div class="subpage-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80&auto=format&fit=crop');"></div>
+      <div class="subpage-hero-overlay"></div>
+      <div class="subpage-hero-content fade-in-element">
+        <span class="section-label-en" style="color: var(--color-gold);">Prenotazione Tavoli</span>
+        <h1 class="subpage-en-title">Reservation</h1>
+        <p class="subpage-ja-subtitle">大切な方と過ごす特別な時間を、心温まる空間と共にご予約ください</p>
+      </div>
+    </section>
+
+    <!-- 予約セクション -->
+    <div class="section-padding bg-ivory">
+      <div class="container">
+        <div class="reservation-layout-grid">
+
+          <!-- ==================================================================
+               WEBオンライン予約フォームパネル
+               ================================================================== -->
+          <div class="fade-in-element">
+
+            <!-- 1. 入力フォーム本体 -->
+            <div class="reservation-form-panel">
+
+              <form id="reservation-form" novalidate>
+                <div style="margin-bottom: 2.2rem; border-bottom: 1px solid var(--color-border); padding-bottom: 1.2rem;">
+                  <span class="section-label-en">Online Booking</span>
+                  <h2 style="font-size: 1.8rem; color: var(--color-wine); margin-bottom: 0.4rem; font-weight: 500;">
+                    ご予約申し込みフォーム
+                  </h2>
+                  <p style="font-size: 0.9rem; color: var(--color-text-sub); line-height: 1.8;">
+                    必要事項をご入力の上、「ご予約内容を確認する」ボタンを押してください。<br>
+                    <span style="color: var(--color-wine);">＊</span> 印の項目は必須項目です。
+                  </p>
+                </div>
+
+                <!-- 1. ご希望の日付 ＆ 時間 -->
+                <div class="form-grid-two">
+                  <!-- 日付 -->
+                  <div class="form-field-group">
+                    <label for="res-date" class="form-label-title">
+                      ご希望日 <span class="form-badge-required">必須</span>
+                    </label>
+                    <input type="date" id="res-date" name="date" class="form-control-input" required>
+                    <div id="error-res-date" class="form-error-feedback"></div>
+                  </div>
+
+                  <!-- 時間 -->
+                  <div class="form-field-group">
+                    <label for="res-time" class="form-label-title">
+                      ご希望時間 <span class="form-badge-required">必須</span>
+                    </label>
+                    <select id="res-time" name="time" class="form-control-input select-dropdown-custom" required>
+                      <option value="">選択してください</option>
+                      <optgroup label="【ランチタイム】">
+                        <option value="11:30">11:30</option>
+                        <option value="12:00">12:00</option>
+                        <option value="12:30">12:30</option>
+                        <option value="13:00">13:00</option>
+                        <option value="13:30">13:30（最終入店）</option>
+                      </optgroup>
+                      <optgroup label="【ディナータイム】">
+                        <option value="17:30">17:30</option>
+                        <option value="18:00">18:00</option>
+                        <option value="18:30">18:30</option>
+                        <option value="19:00">19:00</option>
+                        <option value="19:30">19:30</option>
+                        <option value="20:00">20:00</option>
+                        <option value="20:30">20:30</option>
+                        <option value="21:00">21:00（最終入店）</option>
+                      </optgroup>
+                    </select>
+                    <div id="error-res-time" class="form-error-feedback"></div>
+                  </div>
+                </div>
+
+                <!-- 2. 人数（1〜10名から選択） -->
+                <div class="form-field-group">
+                  <label for="res-guests" class="form-label-title">
+                    ご人数 <span class="form-badge-required">必須</span>
+                  </label>
+                  <select id="res-guests" name="guests" class="form-control-input select-dropdown-custom" required>
+                    <option value="">人数を選択してください（1〜10名）</option>
+                    <option value="1">1名様</option>
+                    <option value="2">2名様</option>
+                    <option value="3">3名様</option>
+                    <option value="4">4名様</option>
+                    <option value="5">5名様</option>
+                    <option value="6">6名様</option>
+                    <option value="7">7名様</option>
+                    <option value="8">8名様</option>
+                    <option value="9">9名様</option>
+                    <option value="10">10名様</option>
+                  </select>
+                  <div id="error-res-guests" class="form-error-feedback"></div>
+                  <span style="font-size: 0.8rem; color: var(--color-text-sub); display: block; margin-top: 0.3rem;">
+                    ※11名様以上でのご利用やフロア貸切をご希望のお客様はお電話にてご相談ください。
+                  </span>
+                </div>
+
+                <!-- 3. お名前 -->
+                <div class="form-field-group">
+                  <label for="res-name" class="form-label-title">
+                    お名前（フルネーム） <span class="form-badge-required">必須</span>
+                  </label>
+                  <input type="text" id="res-name" name="name" class="form-control-input" placeholder="例：山田 太郎" required>
+                  <div id="error-res-name" class="form-error-feedback"></div>
+                </div>
+
+                <!-- 4. 電話番号 ＆ メールアドレス -->
+                <div class="form-grid-two">
+                  <!-- 電話番号 -->
+                  <div class="form-field-group">
+                    <label for="res-tel" class="form-label-title">
+                      お電話番号 <span class="form-badge-required">必須</span>
+                    </label>
+                    <input type="tel" id="res-tel" name="tel" class="form-control-input" placeholder="例：090-1234-5678" required>
+                    <div id="error-res-tel" class="form-error-feedback"></div>
+                  </div>
+
+                  <!-- メールアドレス -->
+                  <div class="form-field-group">
+                    <label for="res-email" class="form-label-title">
+                      メールアドレス <span class="form-badge-required">必須</span>
+                    </label>
+                    <input type="email" id="res-email" name="email" class="form-control-input" placeholder="例：sole@example.com" required>
+                    <div id="error-res-email" class="form-error-feedback"></div>
+                  </div>
+                </div>
+
+                <!-- 5. アレルギー・ご要望 -->
+                <div class="form-field-group">
+                  <label for="res-requests" class="form-label-title">
+                    アレルギー・ご要望 <span class="form-badge-optional">任意</span>
+                  </label>
+                  <textarea id="res-requests" name="requests" class="form-control-input" placeholder="アレルギー食材、お苦手な食材、お祝い（誕生日・記念日等）でのメッセージプレートのご希望、お席のご希望などがございましたらご自由にご記入ください。"></textarea>
+                </div>
+
+                <!-- 送信ボタン -->
+                <div style="margin-top: 2rem;">
+                  <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1.25rem;">
+                    ご予約を申し込む
+                  </button>
+                  <p style="font-size: 0.8rem; color: var(--color-text-sub); text-align: center; margin-top: 0.8rem;">
+                    ※ご送信後、担当スタッフより確認のご連絡を差し上げます。
+                  </p>
+                </div>
+
+              </form>
+
+              <!-- 2. 予約確認メッセージ演出（JavaScriptで切り替え表示） -->
+              <div id="reservation-confirmation" class="reservation-confirmation-panel">
+                <span class="confirmation-star-symbol">✦</span>
+                <h3 class="confirmation-heading">ご予約申し込みを受け付けました</h3>
+                <p class="text-paragraph" style="text-align: center; max-width: 520px; margin: 0 auto 1.5rem;">
+                  Trattoria SOLEへのご予約申し込み、誠にありがとうございます。<br>
+                  以下の内容にてお申し込みを承りました。
+                </p>
+
+                <div class="confirmation-summary-card">
+                  <table class="summary-data-table">
+                    <tbody>
+                      <tr>
+                        <th>ご希望日</th>
+                        <td id="summary-date">-</td>
+                      </tr>
+                      <tr>
+                        <th>ご希望時間</th>
+                        <td id="summary-time">-</td>
+                      </tr>
+                      <tr>
+                        <th>ご人数</th>
+                        <td id="summary-guests">-</td>
+                      </tr>
+                      <tr>
+                        <th>お名前</th>
+                        <td id="summary-name">-</td>
+                      </tr>
+                      <tr>
+                        <th>お電話番号</th>
+                        <td id="summary-tel">-</td>
+                      </tr>
+                      <tr>
+                        <th>メールアドレス</th>
+                        <td id="summary-email">-</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <p style="font-size: 0.88rem; color: var(--color-text-sub); line-height: 1.9; margin-bottom: 2rem;">
+                  ※ご入力いただいたメールアドレス宛に、自動確認メールをお送りしております。<br>
+                  当日のご来店を、シェフ松本ならびにスタッフ一同、心よりお待ち申し上げております。
+                </p>
+
+                <a href="index.html" class="btn btn-gold">トップページへ戻る</a>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- ==================================================================
+               サイドバー情報（電話案内・キャンセルポリシー・アクセス）
+               ================================================================== -->
+          <div class="fade-in-element">
+
+            <!-- 電話予約案内 -->
+            <div class="reserve-side-block">
+              <h3 class="reserve-side-title"><span>📞</span> お電話でのご予約</h3>
+              <p class="text-paragraph" style="font-size: 0.92rem; margin-bottom: 0.8rem;">
+                当日のご予約や11名様以上でのご利用、記念日の特別な演出、フロア貸切のご相談はお電話にて承っております。
+              </p>
+              <div class="tel-display-box">
+                <span style="font-size: 0.75rem; letter-spacing: 0.15em; color: var(--color-text-sub); text-transform: uppercase;">Telephone</span>
+                <span class="tel-digits-huge">03-XXXX-XXXX</span>
+                <span style="font-size: 0.82rem; color: var(--color-dark);">受付時間 : 11:00 〜 22:00</span>
+              </div>
+              <p style="font-size: 0.8rem; color: var(--color-text-sub); line-height: 1.8;">
+                ※定休日（毎週月曜・第2火曜）およびランチ・ディナーのピークタイム（12:00〜13:00 / 19:00〜20:30）はお電話が繋がりにくい場合がございます。
+              </p>
+            </div>
+
+            <!-- キャンセルポリシー -->
+            <div class="reserve-side-block">
+              <h3 class="reserve-side-title"><span>⚠️</span> キャンセルポリシー</h3>
+              <p class="text-paragraph" style="font-size: 0.9rem; margin-bottom: 0.8rem;">
+                当店では旬の食材を最も美味しい状態でお届けするため、ご予約に合わせて毎朝市場から厳選仕入れを行い、丁寧な仕込みを行っております。
+              </p>
+              <p class="text-paragraph" style="font-size: 0.9rem; margin-bottom: 1.2rem;">
+                仕込みや席確保の都合上、万が一日程のご変更やキャンセルが生じる場合は、お早めにご連絡をいただけますようお願い申し上げます。
+              </p>
+              <ul style="font-size: 0.9rem; color: var(--color-dark); line-height: 2.2;">
+                <li>✦ <strong>前日キャンセル</strong> : コース料金の 50%</li>
+                <li>✦ <strong>当日キャンセル・無断キャンセル</strong> : コース料金の 100%</li>
+              </ul>
+            </div>
+
+            <!-- 店舗アクセス -->
+            <div class="reserve-side-block">
+              <h3 class="reserve-side-title"><span>📍</span> 店舗情報・アクセス</h3>
+              <p style="font-size: 0.92rem; line-height: 2.0; color: var(--color-text-sub);">
+                <strong style="color: var(--color-dark);">Trattoria SOLE（トラットリア ソーレ）</strong><br>
+                〒151-0066 東京都渋谷区西原3-XX-XX<br>
+                小田急小田原線・東京メトロ千代田線<br>
+                「代々木上原駅」北口より徒歩3分（井の頭通り方面直進）
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ==========================================================================
+       共通フッター
+       ========================================================================== -->
+  <footer id="site-footer">
+    <div class="container">
+      <div class="footer-grid-layout">
+
+        <div>
+          <h2 class="footer-brand-title">Trattoria SOLE</h2>
+          <p class="footer-concept-quote">
+            「大切な人と、心に残るひとときを。」<br>
+            東京・代々木上原で15年。太陽のように温かい本場イタリアの味と、心地よい空間をお届けします。
+          </p>
+          <div class="footer-chef-badge">
+            オーナーシェフ : 松本 隆司
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer-nav-title">Navigation</h3>
+          <ul class="footer-nav-list">
+            <li><a href="index.html">トップページ</a></li>
+            <li><a href="menu.html">お料理・コース</a></li>
+            <li><a href="wine.html">ワインセレクション</a></li>
+            <li><a href="reservation.html">WEBオンライン予約</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-nav-title">Information</h3>
+          <dl class="footer-info-details">
+            <dt>Address</dt>
+            <dd>〒151-0066 東京都渋谷区西原3-XX-XX<br>代々木上原駅 北口徒歩3分</dd>
+
+            <dt>Telephone</dt>
+            <dd>03-XXXX-XXXX（受付 11:00〜22:00）</dd>
+
+            <dt>Opening Hours</dt>
+            <dd>
+              ランチ: 11:30 〜 14:30（L.O. 14:00）<br>
+              ディナー: 17:30 〜 23:00（L.O. 22:00）<br>
+              定休日: 毎週月曜・第2火曜
+            </dd>
+          </dl>
+        </div>
+
+      </div>
+
+      <div class="footer-copyright-bar">
+        &copy; 2026 Trattoria SOLE. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- 共通JavaScript -->
+  <script src="js/script.js"></script>
+
+</body>
+</html>

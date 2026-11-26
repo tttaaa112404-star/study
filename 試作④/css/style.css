@@ -1,0 +1,1653 @@
+@charset "UTF-8";
+
+/* ==========================================================================
+   Trattoria SOLE（トラットリア ソーレ）公式Webサイト
+   共通スタイルシート（css/style.css）
+   ========================================================================== */
+
+/* ---------- CSS変数（デザインシステム・カラーパレット） ---------- */
+:root {
+  /* 指定メインカラー */
+  --color-wine: #722F37;           /* ワインレッド（気品と深み） */
+  --color-beige: #F5E6D3;          /* ベージュ（温もりあるベースカラー） */
+  --color-gold: #C9A96E;           /* ゴールド（上質なアクセント装飾） */
+  --color-gold-hover: #b39257;     /* ゴールドホバー時 */
+  --color-dark: #3E2723;           /* ダークブラウン（引き締めの主テキスト色） */
+  --color-white: #FFFFFF;          /* ピュアホワイト */
+
+  /* 補助トーン */
+  --color-ivory: #FCF8F2;          /* 背景用ソフトアイボリー */
+  --color-text-sub: #634C45;       /* 本文サブカラー（可読性と温かみ） */
+  --color-border: #E8D7C4;         /* 上品な淡い境界線 */
+  --color-border-gold: rgba(201, 169, 110, 0.4);
+
+  /* タイポグラフィ（セリフ体ベース） */
+  --font-en: 'Cormorant Garamond', Garamond, 'Times New Roman', serif;
+  --font-ja: 'Noto Serif JP', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+
+  /* シャドウ ＆ トランジション */
+  --shadow-subtle: 0 4px 20px rgba(62, 39, 35, 0.06);
+  --shadow-medium: 0 8px 30px rgba(62, 39, 35, 0.12);
+  --shadow-deep: 0 16px 45px rgba(62, 39, 35, 0.18);
+  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---------- リセット ＆ 基本設定 ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  font-family: var(--font-ja);
+  background-color: var(--color-beige);
+  color: var(--color-dark);
+  line-height: 1.95;
+  letter-spacing: 0.05em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  background-color: #E2D3C0; /* 画像読み込み前のフォールバック */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ---------- 共通タイポグラフィ ---------- */
+h1, h2, h3, h4, h5 {
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.font-serif-en {
+  font-family: var(--font-en);
+}
+
+/* セクションタイトル周り */
+.section-header-block {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 5rem;
+}
+
+.section-label-en {
+  display: block;
+  font-family: var(--font-en);
+  font-size: 0.95rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--color-wine);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.section-main-heading {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  color: var(--color-dark);
+  line-height: 1.35;
+  margin-bottom: 1rem;
+}
+
+.gold-accent-line {
+  width: 50px;
+  height: 2px;
+  background-color: var(--color-gold);
+  margin: 1.2rem auto 2rem;
+}
+
+.gold-accent-line.left {
+  margin-left: 0;
+}
+
+.section-lead-text {
+  font-size: 1.05rem;
+  color: var(--color-text-sub);
+  line-height: 2.1;
+}
+
+/* 読みやすさを追求した段落クラス */
+.text-paragraph {
+  font-size: 0.98rem;
+  line-height: 2.25;
+  color: var(--color-text-sub);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.04em;
+}
+
+.text-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.dish-desc-block p,
+.wine-desc-block p {
+  font-size: 0.94rem;
+  line-height: 2.15;
+  color: var(--color-text-sub);
+  margin-bottom: 0.8rem;
+}
+
+.dish-desc-block p:last-child,
+.wine-desc-block p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- 汎用コンテナ ＆ セクション余白 ---------- */
+.container {
+  width: min(1200px, 92%);
+  margin-inline: auto;
+}
+
+.container-narrow {
+  width: min(880px, 90%);
+  margin-inline: auto;
+}
+
+.section-padding {
+  padding: clamp(5.5rem, 9vw, 9.5rem) 0;
+}
+
+.bg-beige {
+  background-color: var(--color-beige);
+}
+
+.bg-white {
+  background-color: var(--color-white);
+}
+
+.bg-ivory {
+  background-color: var(--color-ivory);
+}
+
+.bg-dark {
+  background-color: var(--color-dark);
+  color: var(--color-beige);
+}
+
+/* ---------- ボタン（上質な装飾 ＆ ホバーエフェクト） ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1.05rem 2.6rem;
+  font-family: var(--font-en);
+  font-size: 1.05rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+/* メイン予約ボタン（ワインレッド） */
+.btn-primary {
+  background-color: var(--color-wine);
+  color: #FFFFFF;
+  border: 1px solid var(--color-wine);
+  box-shadow: 0 4px 18px rgba(114, 47, 55, 0.35);
+}
+
+.btn-primary:hover {
+  background-color: #551f26;
+  border-color: #551f26;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(114, 47, 55, 0.45);
+}
+
+/* ゴールドアクセントボタン */
+.btn-gold {
+  background-color: var(--color-gold);
+  color: #FFFFFF;
+  border: 1px solid var(--color-gold);
+}
+
+.btn-gold:hover {
+  background-color: var(--color-gold-hover);
+  border-color: var(--color-gold-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(201, 169, 110, 0.4);
+}
+
+/* 枠線ボタン（ゴールドアウトライン） */
+.btn-outline-gold {
+  background-color: transparent;
+  color: var(--color-gold);
+  border: 1px solid var(--color-gold);
+}
+
+.btn-outline-gold:hover {
+  background-color: var(--color-gold);
+  color: #FFFFFF;
+  transform: translateY(-3px);
+}
+
+/* 枠線ボタン（ホワイト） */
+.btn-outline-white {
+  background-color: transparent;
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.btn-outline-white:hover {
+  background-color: #FFFFFF;
+  color: var(--color-dark);
+  border-color: #FFFFFF;
+  transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   共通ヘッダー（ロゴ、ナビゲーション、予約ボタン）
+   ========================================================================== */
+#site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+  background-color: rgba(245, 230, 211, 0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201, 169, 110, 0.25);
+  box-shadow: 0 2px 15px rgba(62, 39, 35, 0.05);
+}
+
+/* トップページの初期透過状態（スクロールで背景追加） */
+.header-transparent {
+  background-color: rgba(62, 39, 35, 0.35) !important;
+  backdrop-filter: blur(8px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.header-transparent.header-scrolled {
+  background-color: rgba(245, 230, 211, 0.96) !important;
+  backdrop-filter: blur(14px) !important;
+  border-bottom: 1px solid rgba(201, 169, 110, 0.3) !important;
+  box-shadow: var(--shadow-subtle) !important;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+/* ブランドロゴ */
+.site-logo-link {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-main-text {
+  font-family: var(--font-en);
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--color-wine);
+  line-height: 1.1;
+  transition: color 0.3s ease;
+}
+
+.header-transparent:not(.header-scrolled) .logo-main-text {
+  color: #FFFFFF;
+}
+
+.logo-sub-text {
+  font-family: var(--font-en);
+  font-size: 0.65rem;
+  letter-spacing: 0.24em;
+  color: var(--color-dark);
+  text-transform: uppercase;
+}
+
+.header-transparent:not(.header-scrolled) .logo-sub-text {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ナビゲーションメニュー */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.nav-links-list {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-link-item a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-en);
+  font-size: 0.95rem;
+  letter-spacing: 0.16em;
+  color: var(--color-dark);
+  font-weight: 500;
+  position: relative;
+  padding: 0.4rem 0.2rem;
+}
+
+.header-transparent:not(.header-scrolled) .nav-link-item a {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.nav-link-item a span.sub-ja {
+  font-family: var(--font-ja);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-sub);
+  margin-top: 2px;
+}
+
+.header-transparent:not(.header-scrolled) .nav-link-item a span.sub-ja {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.nav-link-item a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-gold);
+  transition: var(--transition-smooth);
+  transform: translateX(-50%);
+}
+
+.nav-link-item a:hover::after,
+.nav-link-item a.active::after {
+  width: 100%;
+}
+
+.nav-link-item a.active {
+  color: var(--color-wine);
+}
+
+.header-transparent:not(.header-scrolled) .nav-link-item a.active {
+  color: #FFFFFF;
+}
+
+/* ヘッダー内予約ボタン */
+.header-reserve-btn {
+  padding: 0.65rem 1.6rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  border-radius: 2px;
+}
+
+/* ハンバーガーボタン（SP用） */
+.hamburger-toggle-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  z-index: 1100;
+}
+
+.hamburger-line {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background-color: var(--color-dark);
+  transition: var(--transition-smooth);
+}
+
+.header-transparent:not(.header-scrolled) .hamburger-line {
+  background-color: #FFFFFF;
+}
+
+.hamburger-toggle-btn.is-active .hamburger-line {
+  background-color: var(--color-dark) !important;
+}
+
+.hamburger-toggle-btn.is-active .hamburger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-toggle-btn.is-active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-toggle-btn.is-active .hamburger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* モバイルドロワーナビ */
+.mobile-nav-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  max-width: 360px;
+  height: 100vh;
+  background-color: var(--color-ivory);
+  box-shadow: -5px 0 30px rgba(62, 39, 35, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 2rem;
+  gap: 2rem;
+  z-index: 1050;
+  transition: right 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-nav-drawer.is-open {
+  right: 0;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.8rem;
+  width: 100%;
+}
+
+.mobile-nav-link {
+  font-family: var(--font-en);
+  font-size: 1.35rem;
+  color: var(--color-dark);
+  letter-spacing: 0.18em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mobile-nav-link span.sub-ja {
+  font-family: var(--font-ja);
+  font-size: 0.8rem;
+  color: var(--color-text-sub);
+  letter-spacing: 0.1em;
+  margin-top: 3px;
+}
+
+.mobile-nav-link.active {
+  color: var(--color-wine);
+}
+
+.mobile-nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1040;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.mobile-nav-backdrop.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ==========================================================================
+   常時固定予約ボタン（画面右下に浮遊する上質なCTA）
+   ========================================================================== */
+.fixed-floating-cta {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 990;
+  background: var(--color-wine);
+  color: #FFFFFF;
+  padding: 1.05rem 1.9rem;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--font-ja);
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  box-shadow: 0 8px 25px rgba(114, 47, 55, 0.45);
+  border: 1px solid var(--color-gold);
+  transition: var(--transition-smooth);
+}
+
+.fixed-floating-cta:hover {
+  background: #551f26;
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 12px 32px rgba(114, 47, 55, 0.6);
+  color: #FFFFFF;
+}
+
+.fixed-floating-cta .cta-sparkle {
+  color: var(--color-gold);
+  font-size: 1.15rem;
+}
+
+/* ==========================================================================
+   サブページ共通ヒーローヘッダー
+   ========================================================================== */
+.subpage-hero-banner {
+  position: relative;
+  height: 50vh;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #FFFFFF;
+  overflow: hidden;
+}
+
+.subpage-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.05);
+  transition: transform 8s ease;
+}
+
+.subpage-hero-banner:hover .subpage-hero-bg {
+  transform: scale(1.1);
+}
+
+.subpage-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(30, 16, 12, 0.6), rgba(30, 16, 12, 0.75));
+}
+
+.subpage-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 1.5rem;
+}
+
+.subpage-en-title {
+  font-family: var(--font-en);
+  font-size: clamp(2.8rem, 6vw, 4.2rem);
+  letter-spacing: 0.15em;
+  color: #FFFFFF;
+  margin-bottom: 0.6rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.subpage-ja-subtitle {
+  font-family: var(--font-ja);
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  color: var(--color-beige);
+  letter-spacing: 0.12em;
+  font-weight: 300;
+}
+
+/* ==========================================================================
+   共通フッター
+   ========================================================================== */
+#site-footer {
+  background-color: var(--color-dark);
+  color: var(--color-beige);
+  padding: 5.5rem 0 2.5rem;
+  border-top: 2px solid var(--color-gold);
+}
+
+.footer-grid-layout {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.3fr;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  margin-bottom: 4rem;
+}
+
+.footer-brand-title {
+  font-family: var(--font-en);
+  font-size: 2rem;
+  color: var(--color-beige);
+  letter-spacing: 0.12em;
+  margin-bottom: 0.5rem;
+}
+
+.footer-concept-quote {
+  font-size: 0.9rem;
+  line-height: 2.1;
+  color: rgba(245, 230, 211, 0.8);
+  margin-bottom: 1.5rem;
+}
+
+.footer-chef-badge {
+  font-size: 0.88rem;
+  color: var(--color-gold);
+  border-left: 2px solid var(--color-gold);
+  padding-left: 0.8rem;
+}
+
+.footer-nav-title {
+  font-family: var(--font-en);
+  font-size: 1.25rem;
+  color: var(--color-gold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.footer-nav-list li {
+  margin-bottom: 0.9rem;
+}
+
+.footer-nav-list a {
+  color: rgba(245, 230, 211, 0.85);
+  font-size: 0.92rem;
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+
+.footer-nav-list a:hover {
+  color: var(--color-gold);
+  transform: translateX(4px);
+}
+
+.footer-info-details dt {
+  font-family: var(--font-en);
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-top: 1.1rem;
+}
+
+.footer-info-details dt:first-child {
+  margin-top: 0;
+}
+
+.footer-info-details dd {
+  font-size: 0.9rem;
+  line-height: 2.0;
+  color: rgba(245, 230, 211, 0.85);
+  margin-top: 0.2rem;
+}
+
+.footer-copyright-bar {
+  border-top: 1px solid rgba(201, 169, 110, 0.2);
+  padding-top: 2rem;
+  text-align: center;
+  font-family: var(--font-en);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  color: rgba(245, 230, 211, 0.5);
+}
+
+/* ==========================================================================
+   スクロールアニメーション（Intersection Observer）
+   ========================================================================== */
+.fade-in-element {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.fade-in-element.is-in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   レスポンシブ共通設定
+   ========================================================================== */
+/* ==========================================================================
+   ページ別固有コンポーネント（共通CSS内に統合）
+   ========================================================================== */
+
+/* ---------- 【トップページ】全画面ヒーローセクション ---------- */
+.hero-fullscreen {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 650px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-bg-media {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=2000&q=85&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.68);
+  transform: scale(1.04);
+  animation: heroZoomIn 20s infinite alternate ease-in-out;
+}
+
+@keyframes heroZoomIn {
+  0% { transform: scale(1.04); }
+  100% { transform: scale(1.12); }
+}
+
+.hero-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(30, 16, 12, 0.3) 0%, rgba(30, 16, 12, 0.75) 100%);
+}
+
+.hero-center-box {
+  position: relative;
+  z-index: 2;
+  color: #FFFFFF;
+  max-width: 860px;
+  padding: 0 1.5rem;
+}
+
+.hero-subcopy-en {
+  display: block;
+  font-family: var(--font-en);
+  font-size: clamp(1rem, 2.2vw, 1.35rem);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1.2rem;
+  font-weight: 500;
+}
+
+.hero-main-catch {
+  font-size: clamp(2.4rem, 5.8vw, 4.4rem);
+  line-height: 1.35;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.08em;
+}
+
+.hero-sub-catch {
+  font-size: clamp(1.05rem, 2.2vw, 1.45rem);
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 2.8rem;
+  font-weight: 300;
+  line-height: 1.9;
+  letter-spacing: 0.08em;
+}
+
+.hero-action-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---------- 【トップページ】コンセプト＆シェフこだわり ---------- */
+.chef-story-flex {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: center;
+}
+
+.chef-photo-wrapper {
+  position: relative;
+}
+
+.chef-photo-wrapper img {
+  width: 100%;
+  height: 560px;
+  box-shadow: var(--shadow-deep);
+  border-radius: 2px;
+}
+
+.chef-years-badge {
+  position: absolute;
+  bottom: -1.5rem;
+  right: -1.5rem;
+  background-color: var(--color-wine);
+  color: #FFFFFF;
+  padding: 1.5rem 2rem;
+  border: 1px solid var(--color-gold);
+  box-shadow: var(--shadow-medium);
+  text-align: center;
+}
+
+.chef-years-badge .years-num {
+  font-family: var(--font-en);
+  font-size: 2.5rem;
+  display: block;
+  line-height: 1;
+  color: var(--color-gold);
+}
+
+.chef-years-badge .years-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.chef-quote-card {
+  background: var(--color-ivory);
+  border-left: 3px solid var(--color-wine);
+  padding: 1.5rem 2rem;
+  margin: 1.8rem 0;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 2.0;
+  color: var(--color-dark);
+}
+
+/* ---------- 【トップページ】おすすめメニュー紹介（大迫力ビジュアル） ---------- */
+.featured-dishes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 3.5rem;
+}
+
+.dish-large-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-subtle);
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+}
+
+.dish-large-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-deep);
+  border-color: var(--color-gold);
+}
+
+.dish-card-media {
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+}
+
+.dish-card-media img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease;
+}
+
+.dish-large-card:hover .dish-card-media img {
+  transform: scale(1.08);
+}
+
+.dish-card-body {
+  padding: 2.2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dish-it-headline {
+  font-family: var(--font-en);
+  font-size: 1.45rem;
+  color: var(--color-wine);
+  margin-bottom: 0.3rem;
+}
+
+.dish-ja-headline {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--color-dark);
+  margin-bottom: 1.2rem;
+}
+
+.dish-price-tag {
+  font-family: var(--font-en);
+  font-size: 1.35rem;
+  color: var(--color-dark);
+  font-weight: 600;
+  margin-top: 1.2rem;
+  border-top: 1px dashed var(--color-border-gold);
+  padding-top: 0.8rem;
+}
+
+/* ---------- 【トップページ】コース料理導線 ＆ ワイン導線 ---------- */
+.dual-banner-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.visual-link-banner {
+  position: relative;
+  height: 440px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 3rem;
+  color: #FFFFFF;
+  box-shadow: var(--shadow-medium);
+}
+
+.visual-link-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.8s ease;
+}
+
+.visual-link-banner:hover .visual-link-bg {
+  transform: scale(1.06);
+}
+
+.visual-link-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(30, 16, 12, 0.9) 0%, rgba(30, 16, 12, 0.3) 70%, transparent 100%);
+}
+
+.visual-link-content {
+  position: relative;
+  z-index: 2;
+}
+
+.visual-banner-label {
+  font-family: var(--font-en);
+  font-size: 0.85rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.visual-banner-title {
+  font-size: 2rem;
+  color: #FFFFFF;
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+}
+
+.visual-banner-text {
+  font-size: 0.95rem;
+  line-height: 2.0;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.6rem;
+}
+
+/* ---------- 【トップページ】記念日利用の紹介 ---------- */
+.anniversary-showcase {
+  background-color: var(--color-ivory);
+  border: 1px solid var(--color-border);
+  padding: clamp(3rem, 6vw, 5.5rem);
+  box-shadow: var(--shadow-medium);
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(3rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.anniversary-gallery {
+  position: relative;
+}
+
+.anniversary-gallery img {
+  width: 100%;
+  height: 460px;
+  box-shadow: var(--shadow-deep);
+  border-radius: 2px;
+}
+
+/* ---------- 【トップページ】店舗情報＆アクセス ---------- */
+.access-content-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: clamp(3rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.info-table-custom {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.96rem;
+  line-height: 2.1;
+}
+
+.info-table-custom th {
+  width: 120px;
+  vertical-align: top;
+  padding: 0.9rem 0;
+  font-family: var(--font-en);
+  color: var(--color-wine);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.info-table-custom td {
+  padding: 0.9rem 0 0.9rem 1rem;
+  color: var(--color-dark);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.map-embed-placeholder {
+  width: 100%;
+  height: 380px;
+  background-color: var(--color-ivory);
+  border: 1px dashed var(--color-gold);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  color: var(--color-wine);
+}
+
+/* ---------- 【メニューページ】カテゴリ別リスト ＆ コース紹介 ---------- */
+.menu-category-section {
+  margin-bottom: 7rem;
+}
+
+.menu-cat-header {
+  border-bottom: 1px solid var(--color-gold);
+  padding-bottom: 1rem;
+  margin-bottom: 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.menu-cat-title-en {
+  font-family: var(--font-en);
+  font-size: 2.6rem;
+  color: var(--color-wine);
+  line-height: 1;
+}
+
+.menu-cat-title-ja {
+  font-size: 1.15rem;
+  color: var(--color-gold);
+  margin-left: 1.2rem;
+  letter-spacing: 0.15em;
+}
+
+.menu-items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 3rem;
+}
+
+.menu-item-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-subtle);
+  overflow: hidden;
+  transition: var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-item-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-deep);
+  border-color: var(--color-gold);
+}
+
+.menu-item-photo {
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+}
+
+.menu-item-photo img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease;
+}
+
+.menu-item-card:hover .menu-item-photo img {
+  transform: scale(1.06);
+}
+
+.menu-item-details {
+  padding: 2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.item-top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.4rem;
+  border-bottom: 1px dashed var(--color-border-gold);
+  padding-bottom: 0.5rem;
+}
+
+.item-name-it {
+  font-family: var(--font-en);
+  font-size: 1.45rem;
+  color: var(--color-wine);
+  font-weight: 500;
+}
+
+.item-price-text {
+  font-family: var(--font-en);
+  font-size: 1.35rem;
+  color: var(--color-dark);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.item-name-ja {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--color-dark);
+  margin-bottom: 1rem;
+}
+
+/* コース料理カード */
+.courses-container-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.course-plan-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  padding: 3rem 2.2rem;
+  box-shadow: var(--shadow-subtle);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.course-plan-card.is-anniversary {
+  border: 2px solid var(--color-wine);
+  background: var(--color-ivory);
+  box-shadow: var(--shadow-medium);
+}
+
+.course-ribbon-tag {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-wine);
+  color: #FFFFFF;
+  font-family: var(--font-en);
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 0.35rem 1.4rem;
+}
+
+.course-plan-name-en {
+  font-family: var(--font-en);
+  font-size: 2.2rem;
+  color: var(--color-wine);
+  text-align: center;
+  margin-bottom: 0.3rem;
+}
+
+.course-plan-name-ja {
+  font-size: 1.15rem;
+  font-weight: 500;
+  text-align: center;
+  color: var(--color-dark);
+  margin-bottom: 1.2rem;
+}
+
+.course-plan-price {
+  font-family: var(--font-en);
+  font-size: 2.4rem;
+  color: var(--color-dark);
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.8rem;
+}
+
+.course-bullets-list {
+  font-size: 0.92rem;
+  line-height: 2.3;
+  color: var(--color-text-sub);
+  margin-bottom: 2.2rem;
+}
+
+.course-bullets-list li::before {
+  content: '✦ ';
+  color: var(--color-gold);
+}
+
+/* ---------- 【ワインページ】ワインリスト ＆ ペアリング ---------- */
+.wine-passion-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: clamp(3rem, 5vw, 5.5rem);
+  align-items: center;
+  margin-bottom: 6.5rem;
+}
+
+.wine-passion-media img {
+  width: 100%;
+  height: 480px;
+  box-shadow: var(--shadow-deep);
+  border-radius: 2px;
+}
+
+.wine-section-block {
+  margin-bottom: 6.5rem;
+}
+
+.wine-cat-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 2px solid var(--color-gold);
+  padding-bottom: 0.8rem;
+  margin-bottom: 2.8rem;
+}
+
+.wine-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2.4rem;
+}
+
+.wine-glass-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  padding: 2.4rem;
+  box-shadow: var(--shadow-subtle);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition-smooth);
+}
+
+.wine-glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-deep);
+  border-color: var(--color-gold);
+}
+
+.wine-type-pill {
+  display: inline-block;
+  font-family: var(--font-en);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.85rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.wine-type-pill.red { background: rgba(114, 47, 55, 0.12); color: var(--color-wine); }
+.wine-type-pill.white { background: rgba(201, 169, 110, 0.2); color: #8e6c28; }
+.wine-type-pill.sparkling { background: rgba(176, 200, 212, 0.25); color: #3b6b80; }
+
+.wine-title-it {
+  font-family: var(--font-en);
+  font-size: 1.55rem;
+  color: var(--color-dark);
+  margin-bottom: 0.4rem;
+  line-height: 1.35;
+  font-weight: 600;
+}
+
+.wine-origin-tags {
+  font-size: 0.85rem;
+  color: var(--color-gold);
+  margin-bottom: 1.2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.wine-pricing-row {
+  border-top: 1px dashed var(--color-border-gold);
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.wine-price-tag {
+  font-family: var(--font-en);
+  font-size: 1.25rem;
+  color: var(--color-wine);
+  font-weight: 600;
+}
+
+.wine-price-tag span.unit {
+  font-family: var(--font-ja);
+  font-size: 0.75rem;
+  color: var(--color-text-sub);
+  margin-right: 0.35rem;
+  font-weight: normal;
+}
+
+/* ペアリング提案 */
+.pairing-triplet-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 3.5rem;
+}
+
+.pairing-box-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-subtle);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.pairing-photo-area {
+  width: 100%;
+  height: 240px;
+}
+
+.pairing-photo-area img {
+  width: 100%;
+  height: 100%;
+}
+
+.pairing-body-content {
+  padding: 2.2rem;
+  flex-grow: 1;
+}
+
+.pairing-index-tag {
+  font-family: var(--font-en);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.pairing-title {
+  font-size: 1.3rem;
+  color: var(--color-wine);
+  margin-bottom: 1.2rem;
+  font-weight: 500;
+}
+
+.pairing-formula-box {
+  background: var(--color-ivory);
+  border-left: 3px solid var(--color-gold);
+  padding: 1.2rem;
+  margin-bottom: 1.2rem;
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+/* ---------- 【予約ページ】フォーム ＆ 確認演出 ---------- */
+.reservation-layout-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: clamp(3rem, 5vw, 5.5rem);
+  align-items: start;
+}
+
+.reservation-form-panel {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  padding: clamp(2rem, 5vw, 4rem);
+  box-shadow: var(--shadow-deep);
+  border-radius: 2px;
+}
+
+.form-field-group {
+  margin-bottom: 1.8rem;
+}
+
+.form-grid-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.form-label-title {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--color-dark);
+  font-weight: 500;
+  margin-bottom: 0.55rem;
+}
+
+.form-badge-required {
+  background-color: var(--color-wine);
+  color: #FFFFFF;
+  font-size: 0.68rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+  margin-left: 0.4rem;
+  font-weight: normal;
+}
+
+.form-badge-optional {
+  background-color: #8C7873;
+  color: #FFFFFF;
+  font-size: 0.68rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+  margin-left: 0.4rem;
+  font-weight: normal;
+}
+
+.form-control-input {
+  width: 100%;
+  padding: 0.95rem 1.15rem;
+  font-family: var(--font-ja);
+  font-size: 0.96rem;
+  color: var(--color-dark);
+  background-color: var(--color-ivory);
+  border: 1.5px solid var(--color-border);
+  border-radius: 2px;
+  transition: var(--transition-smooth);
+  outline: none;
+}
+
+.form-control-input:focus {
+  border-color: var(--color-wine);
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(114, 47, 55, 0.15);
+}
+
+.form-control-input.form-input-error {
+  border-color: #C62828 !important;
+  background-color: #FFF9F9 !important;
+}
+
+.form-error-feedback {
+  display: none;
+  color: #C62828;
+  font-size: 0.82rem;
+  margin-top: 0.4rem;
+  line-height: 1.5;
+}
+
+.select-dropdown-custom {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23722F37'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1.1rem center;
+  background-size: 1.4em;
+  padding-right: 2.8rem;
+}
+
+textarea.form-control-input {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.8;
+}
+
+/* 予約完了・確認メッセージ演出パネル */
+.reservation-confirmation-panel {
+  display: none;
+  text-align: center;
+  padding: clamp(3rem, 6vw, 4.5rem) 2rem;
+  background: var(--color-white);
+  border: 1px solid var(--color-gold);
+  box-shadow: var(--shadow-deep);
+  border-radius: 2px;
+}
+
+.confirmation-star-symbol {
+  font-size: 3.2rem;
+  color: var(--color-gold);
+  margin-bottom: 1.2rem;
+  display: inline-block;
+  animation: pulseGold 2s infinite ease-in-out;
+}
+
+@keyframes pulseGold {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.confirmation-heading {
+  font-size: 2rem;
+  color: var(--color-wine);
+  margin-bottom: 1rem;
+}
+
+.confirmation-summary-card {
+  background: var(--color-ivory);
+  border: 1px solid var(--color-border);
+  padding: 2rem;
+  margin: 2.2rem auto;
+  max-width: 580px;
+  text-align: left;
+}
+
+.summary-data-table {
+  width: 100%;
+  font-size: 0.95rem;
+  line-height: 2.1;
+}
+
+.summary-data-table th {
+  width: 130px;
+  color: var(--color-text-sub);
+  font-weight: 500;
+  vertical-align: top;
+}
+
+.summary-data-table td {
+  color: var(--color-dark);
+  font-weight: 600;
+}
+
+/* 予約サイドバー情報 */
+.reserve-side-block {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  padding: 2.4rem;
+  box-shadow: var(--shadow-subtle);
+  margin-bottom: 2rem;
+}
+
+.reserve-side-title {
+  font-size: 1.25rem;
+  color: var(--color-wine);
+  margin-bottom: 1.2rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.tel-display-box {
+  background: var(--color-ivory);
+  border: 1px solid var(--color-border-gold);
+  padding: 1.4rem;
+  text-align: center;
+  margin: 1.2rem 0;
+}
+
+.tel-digits-huge {
+  font-family: var(--font-en);
+  font-size: 1.9rem;
+  color: var(--color-wine);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  display: block;
+}
+
+/* ==========================================================================
+   レスポンシブ個別対応（タブレット・スマートフォン）
+   ========================================================================== */
+@media (max-width: 992px) {
+  .chef-story-flex {
+    grid-template-columns: 1fr;
+  }
+  .chef-photo-wrapper img {
+    height: 420px;
+  }
+  .featured-dishes-grid {
+    grid-template-columns: 1fr;
+  }
+  .dual-banner-grid {
+    grid-template-columns: 1fr;
+  }
+  .anniversary-showcase {
+    grid-template-columns: 1fr;
+  }
+  .access-content-grid {
+    grid-template-columns: 1fr;
+  }
+  .courses-container-grid {
+    grid-template-columns: 1fr;
+  }
+  .wine-passion-grid {
+    grid-template-columns: 1fr;
+  }
+  .pairing-triplet-grid {
+    grid-template-columns: 1fr;
+  }
+  .reservation-layout-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-grid-two {
+    grid-template-columns: 1fr;
+  }
+}
+

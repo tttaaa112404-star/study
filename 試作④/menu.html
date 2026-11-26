@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu（お料理・コース） | Trattoria SOLE（トラットリア ソーレ）</title>
+  <meta name="description" content="Trattoria SOLEのお料理メニュー。前菜、自家製手打ちパスタ、メイン肉・魚料理、ドルチェ、そしてランチ・ディナー・記念日コースをご紹介します。">
+
+  <!-- Google Fonts（欧文: Cormorant Garamond / 和文: Noto Serif JP） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Noto+Serif+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- 共通スタイルシート -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       画面常時固定 予約ボタン
+       ========================================================================== -->
+  <a href="reservation.html" class="fixed-floating-cta" aria-label="オンラインご予約ページへ">
+    <span class="cta-sparkle">✦</span>
+    <span>WEBオンライン予約</span>
+  </a>
+
+  <!-- ==========================================================================
+       共通ヘッダー
+       ========================================================================== -->
+  <header id="site-header">
+    <div class="container header-container">
+
+      <!-- 店舗ロゴ -->
+      <a href="index.html" class="site-logo-link">
+        <span class="logo-main-text">Trattoria SOLE</span>
+        <span class="logo-sub-text">Yoyogi-Uehara · Italian · 15th Anniv.</span>
+      </a>
+
+      <!-- ナビゲーション -->
+      <nav class="header-nav">
+        <ul class="nav-links-list">
+          <li class="nav-link-item">
+            <a href="index.html">HOME<span class="sub-ja">トップ</span></a>
+          </li>
+          <li class="nav-link-item">
+            <a href="menu.html" class="active">MENU<span class="sub-ja">お料理</span></a>
+          </li>
+          <li class="nav-link-item">
+            <a href="wine.html">WINE<span class="sub-ja">ワイン</span></a>
+          </li>
+          <li class="nav-link-item">
+            <a href="reservation.html">RESERVATION<span class="sub-ja">ご予約</span></a>
+          </li>
+        </ul>
+        <a href="reservation.html" class="btn btn-primary header-reserve-btn">ご予約</a>
+      </nav>
+
+      <!-- ハンバーガーボタン -->
+      <button id="hamburger-btn" class="hamburger-toggle-btn" aria-label="メニューを開く" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- モバイル用ドロワーメニュー -->
+  <div id="mobile-backdrop" class="mobile-nav-backdrop"></div>
+  <aside id="mobile-drawer" class="mobile-nav-drawer">
+    <a href="index.html" class="site-logo-link" style="margin-bottom: 2rem;">
+      <span class="logo-main-text" style="color: var(--color-wine);">Trattoria SOLE</span>
+      <span class="logo-sub-text">Yoyogi-Uehara · Italian</span>
+    </a>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="mobile-nav-link">HOME<span class="sub-ja">トップページ</span></a></li>
+      <li><a href="menu.html" class="mobile-nav-link active">MENU<span class="sub-ja">お料理・コース</span></a></li>
+      <li><a href="wine.html" class="mobile-nav-link">WINE<span class="sub-ja">厳選ワインリスト</span></a></li>
+      <li><a href="reservation.html" class="mobile-nav-link">RESERVATION<span class="sub-ja">WEBオンライン予約</span></a></li>
+    </ul>
+    <a href="reservation.html" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">ご予約はこちら</a>
+  </aside>
+
+  <!-- ==========================================================================
+       メインコンテンツ
+       ========================================================================== -->
+  <main>
+
+    <!-- サブページヒーローバナー -->
+    <section class="subpage-hero-banner">
+      <!-- 出典: Unsplash https://images.unsplash.com/photo-1555396273-367ea4eb4db5 -->
+      <div class="subpage-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1920&q=80&auto=format&fit=crop');"></div>
+      <div class="subpage-hero-overlay"></div>
+      <div class="subpage-hero-content fade-in-element">
+        <span class="section-label-en" style="color: var(--color-gold);">Autentico & Raffinato</span>
+        <h1 class="subpage-en-title">Menu</h1>
+        <p class="subpage-ja-subtitle">旬の息吹と本場イタリアの情熱を一皿に込めて</p>
+      </div>
+    </section>
+
+    <!-- メニュー一覧セクション -->
+    <div class="section-padding bg-ivory">
+      <div class="container">
+
+        <!-- ====================================================================
+             1. 前菜（ANTIPASTO）
+             ==================================================================== -->
+        <section class="menu-category-section fade-in-element">
+          <div class="menu-cat-header">
+            <div>
+              <span class="menu-cat-title-en">ANTIPASTO</span>
+              <span class="menu-cat-title-ja">前菜</span>
+            </div>
+            <p style="font-size: 0.88rem; color: var(--color-text-sub);">※表示価格はすべて消費税込となっております</p>
+          </div>
+
+          <div class="menu-items-grid">
+
+            <!-- 1. 前菜の盛り合わせ -->
+            <article class="menu-item-card">
+              <div class="menu-item-photo">
+                <img src="https://images.unsplash.com/photo-1543362906-acfc16c67564?w=700&q=80&auto=format&fit=crop" alt="Antipasto Misto 前菜の盛り合わせ">
+              </div>
+              <div class="menu-item-details">
+                <div>
+                  <div class="item-top-header">
+                    <h3 class="item-name-it">Antipasto Misto</h3>
+                    <span class="item-price-text">¥2,400</span>
+                  </div>
+                  <h4 class="item-name-ja">旬の厳選前菜 盛り合わせ（2名様分）</h4>
+                  <div class="dish-desc-block">
+                    <p>
+                      パルマ産24ヶ月熟成生ハム、水牛モッツァレラ、季節野菜のグリルマリネ、鮮魚のカルパッチョを一皿に美しく仕立てました。
+                    </p>
+                    <p>
+                      スパークリングや白ワインの乾杯に最適な、SOLE不動のスターターです。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- 2. カプレーゼ -->
+            <article class="menu-item-card">
+              <div class="menu-item-photo">
+                <img src="https://images.unsplash.com/photo-1592417817098-8f3d6910985b?w=700&q=80&auto=format&fit=crop" alt="Caprese カプレーゼ">
+              </div>
+              <div class="menu-item-details">
+                <div>
+                  <div class="item-top-header">
+                    <h3 class="item-name-it">Caprese di Bufala</h3>
+                    <span class="item-price-text">¥1,400</span>
+                  </div>
+                  <h4 class="item-name-ja">水牛モッツァレラと完熟トマトのカプレーゼ</h4>
+                  <div class="dish-desc-block">
+                    <p>
+                      カンパーニャ州から空輸される新鮮な水牛モッツァレラ「ブッファラ」と、高糖度のアメーラトマトを贅沢に使用。
+                    </p>
+                    <p>
+                      摘みたてバジルとシチリア産初摘みオリーブオイルの爽快な香りが広がります。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- 3. 本日の鮮魚カルパッチョ -->
+            <article class="menu-item-card">
+              <div class="menu-item-photo">
+                <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?w=700&q=80&auto=format&fit=crop" alt="Carpaccio di Pesce 鮮魚カルパッチョ">
+              </div>
+              <div class="menu-item-details">
+                <div>
+                  <div class="item-top-header">
+                    <h3 class="item-name-it">Carpaccio di Pesce</h3>
+                    <span class="item-price-text">¥1,800</span>
+                  </div>
+                  <h4 class="item-name-ja">本日水揚げ 鮮魚のカルパッチョ 柑橘仕立て</h4>
+                  <div class="dish-desc-block">
+                    <p>
+                      毎朝豊洲市場から届く天然スズキやヒラメなど、旬の白身魚を美しく薄切りに。
+                    </p>
+                    <p>
+                      シチリア産レモンの搾り汁とハーブ、ピンクペッパーが繊細な甘みを鮮やかに引き立てます。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             2. パスタ（PASTA）
+             ==================================================================== -->
+        <section class="menu-category-section fade-in-element">
+          <div class="menu-cat-header">
+            <div>
+              <span class="menu-cat-title-en">PASTA</span>
+              <span class="menu-cat-title-ja">パスタ</span>
+            </div>
+          </div>
+
+          <div class="menu-items-grid">
+
+            <!-- 1. カルボナーラ -->
+            <article class="menu-item-card">
+              <div class="menu-item-photo">
+                <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=700&q=80&auto=format&fit=crop" alt="Carbonara カルボナーラ">
+              </div>
+              <div class="menu-item-details">
+                <div>
+                  <div class="item-top-header">
+                    <h3 class="item-name-it">Carbonara Tradizionale</h3>
+                    <span class="item-price-text">¥2,000</span>
+                  </div>
+                  <h4 class="item-name-ja">ローマ風 濃厚カルボナーラ トリュフの香り</h4>
+                  <div class="dish-desc-block">
+                    <p>
+                      生クリームを使わず、濃厚な地鶏卵黄、羊乳チーズ「ペコリーノ・ロマーノ」、カリカリに炒めた豚ホホ肉塩漬け「グアンチャーレ」で仕上げる正統派ローマスタイル。
+                    </p>
+                    <p>
+                      仕上げに削りかける黒トリュフの高貴な香りが食欲をそそります。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- 2. タリアテッレ ラグー -->
+            <article class="menu-item-card">
+              <div class="menu-item-photo">
+                <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=700&q=80&auto=format&fit=crop" alt="Tagliatelle al Ragù タリアテッレ ラグー">
+              </div>
+              <div class="menu-item-details">
+                <div>
+                  <div class="item-top-header">
+                    <h3 class="item-name-it">Tagliatelle al Ragù</h3>
+                    <span class="item-price-text">¥1,800</span>
+                  </div>
+                  <h4 class="item-name-ja">自家製手打ちタリアテッレ 和牛のラグーソース</h4>
+                  <div class="dish-desc-block">
+                    <p>
+                      毎朝シェフが新鮮な卵とセモリナ粉を手ごねして作る手打ち平打ち生パスタ。
+                    </p>
+                    <p>
+                      黒毛和牛と香味野菜を赤ワインで8時間じっくり煮込み、24ヶ月熟成パルミジャーノを贅沢に削りかけた至極のスペシャリテです。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- 3. ボンゴレビアンコ -->
+            <article class="menu-item-card">
+              <div class="menu-item-photo">
+                <img src="https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=700&q=80&auto=format&fit=crop" alt="Spaghetti alle Vongole ボンゴレビアンコ">
+              </div>
+              <div class="menu-item-details">
+                <div>
+                  <div class="item-top-header">
+                    <h3 class="item-name-it">Spaghetti alle Vongole</h3>
+                    <span class="item-price-text">¥1,900</span>
+                  </div>
+                  <h4 class="item-name-ja">大粒アサリとカラスミのボンゴレビアンコ</h4>
+                  <div class="dish-desc-block">
+                    <p>
+                      静岡・浜名湖産の大粒アサリをふんだんに使用。辛口白ワインと刻みイタリアンパセリで一気に蒸し上げました。
+                    </p>
+                    <p>
+                      濃厚な貝の出汁をパスタに吸い込ませ、仕上げにサルデーニャ産ボッタルガ（カラスミ）を削りかけた贅沢な一品です。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             3. メイン料理（SECONDO）
+             ==================================================================== -->
+        <section class="menu-category-section fade-in-element">
+          <div class="menu-cat-header">
+            <div>
+              <span class="menu-cat-title-en">SECONDO</span>
+              <span class="menu-cat-title-ja">メイン料理</span>
+            </div>
+          </div>
+
+          <div class="menu-items-grid">
+
+            <!-- 1. フィレンツェ風ステーキ -->
+            <article class="menu-item-card">
+              <div class="menu-item-photo">
+                <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=700&q=80&auto=format&fit=crop" alt="Bistecca alla Fiorentina フィレンツェ風ステーキ">
+              </div>
+              <div class="menu-item-details">
+                <div>
+                  <div class="item-top-header">
+                    <h3 class="item-name-it">Bistecca alla Fiorentina</h3>
+                    <span class="item-price-text">¥4,800</span>
+                  </div>
+                  <h4 class="item-name-ja">特選黒毛和牛のフィレンツェ風ステーキ（300g）</h4>
+                  <div class="dish-desc-block">
+                    <p>
+                      上質な黒毛和牛を炭火で香ばしく焼き上げ、中は美しいロゼ色に。
+                    </p>
+                    <p>
+                      噛むほどに溢れる肉汁の甘みと旨味を、トスカーナ産海塩とレモン、最高峰オリーブオイルでお楽しみください。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- 2. 鮮魚のアクアパッツァ -->
+            <article class="menu-item-card">
+              <div class="menu-item-photo">
+                <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=700&q=80&auto=format&fit=crop" alt="Acqua Pazza di Stagione 鮮魚のアクアパッツァ">
+              </div>
+              <div class="menu-item-details">
+                <div>
+                  <div class="item-top-header">
+                    <h3 class="item-name-it">Acqua Pazza di Stagione</h3>
+                    <span class="item-price-text">¥2,800</span>
+                  </div>
+                  <h4 class="item-name-ja">五島列島 鮮魚のアクアパッツァ ナポリ仕立て</h4>
+                  <div class="dish-desc-block">
+                    <p>
+                      長崎・五島列島直送の白身魚を一尾丸ごと使用。<br>
+                      アサリ、ドライトマト、ケッパー、オリーブと白ワインだけで蒸し煮にしました。
+                    </p>
+                    <p>
+                      素材から溶け出た濃厚な海の旨味スープは、最後の一滴までパンに浸して味わいたくなる美味しさです。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- 3. ミラノ風カツレツ -->
+            <article class="menu-item-card">
+              <div class="menu-item-photo">
+                <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=700&q=80&auto=format&fit=crop" alt="Cotoletta alla Milanese ミラノ風カツレツ">
+              </div>
+              <div class="menu-item-details">
+                <div>
+                  <div class="item-top-header">
+                    <h3 class="item-name-it">Cotoletta alla Milanese</h3>
+                    <span class="item-price-text">¥2,900</span>
+                  </div>
+                  <h4 class="item-name-ja">仔牛のミラノ風カツレツ 澄ましバターの香り</h4>
+                  <div class="dish-desc-block">
+                    <p>
+                      きめ細やかで柔らかい仔牛ロース肉を叩いて薄く伸ばし、パルミジャーノを混ぜたパン粉をまとわせました。
+                    </p>
+                    <p>
+                      発酵澄ましバターでサクッと黄金色に揚げ焼きにした伝統料理。<br>
+                      絞りたてレモンと野生種ルッコラを添えて軽やかにお召し上がりいただけます。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             4. デザート（DOLCE）
+             ==================================================================== -->
+        <section class="menu-category-section fade-in-element">
+          <div class="menu-cat-header">
+            <div>
+              <span class="menu-cat-title-en">DOLCE</span>
+              <span class="menu-cat-title-ja">デザート</span>
+            </div>
+          </div>
+
+          <div class="menu-items-grid">
+
+            <!-- 1. ティラミス -->
+            <article class="menu-item-card">
+              <div class="menu-item-photo">
+                <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=700&q=80&auto=format&fit=crop" alt="Tiramisù ティラミス">
+              </div>
+              <div class="menu-item-details">
+                <div>
+                  <div class="item-top-header">
+                    <h3 class="item-name-it">Tiramisù Tradizionale</h3>
+                    <span class="item-price-text">¥850</span>
+                  </div>
+                  <h4 class="item-name-ja">自家製クラシック ティラミス</h4>
+                  <div class="dish-desc-block">
+                    <p>
+                      ロンバルディア産最高級マスカルポーネと、抽出したてのエスプレッソをたっぷり染み込ませたビスコッティで仕立てる王道のティラミス。
+                    </p>
+                    <p>
+                      とろけるような滑らかな口どけと、ほろ苦いココアパウダーの余韻が至福の食後を演出します。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- 2. パンナコッタ -->
+            <article class="menu-item-card">
+              <div class="menu-item-photo">
+                <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=700&q=80&auto=format&fit=crop" alt="Panna Cotta パンナコッタ">
+              </div>
+              <div class="menu-item-details">
+                <div>
+                  <div class="item-top-header">
+                    <h3 class="item-name-it">Panna Cotta ai Frutti</h3>
+                    <span class="item-price-text">¥750</span>
+                  </div>
+                  <h4 class="item-name-ja">濃厚パンナコッタ 季節のベリーソース</h4>
+                  <div class="dish-desc-block">
+                    <p>
+                      北海道産純生クリームとマダガスカル産天然バニラビーンズを贅沢に使用したピエモンテ伝統ドルチェ。
+                    </p>
+                    <p>
+                      自家製の甘酸っぱい木苺とブルーベリーのソースが、ミルクの優しい甘さと抜群のハーモニーを奏でます。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- 3. ジェラート -->
+            <article class="menu-item-card">
+              <div class="menu-item-photo">
+                <img src="https://images.unsplash.com/photo-1560008581-09826d1de69e?w=700&q=80&auto=format&fit=crop" alt="Gelato Artigianale 手作りジェラート">
+              </div>
+              <div class="menu-item-details">
+                <div>
+                  <div class="item-top-header">
+                    <h3 class="item-name-it">Gelato Artigianale</h3>
+                    <span class="item-price-text">¥650</span>
+                  </div>
+                  <h4 class="item-name-ja">本日の手作りジェラート（2種盛り）</h4>
+                  <div class="dish-desc-block">
+                    <p>
+                      旬の国産フルーツやシチリア産ピスタチオ、ビターチョコレートなど、その日シェフが丹精込めて練り上げる手作りジェラート。
+                    </p>
+                    <p>
+                      素材本来のみずみずしい香りと優しい甘みが口いっぱいに爽やかに広がります。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- ====================================================================
+             5. コース料理（ランチ・ディナー・記念日）
+             ==================================================================== -->
+        <section id="courses" class="menu-category-section fade-in-element" style="padding-top: 2rem;">
+          <div class="menu-cat-header">
+            <div>
+              <span class="menu-cat-title-en">COURSE MENU</span>
+              <span class="menu-cat-title-ja">コース料理のご案内</span>
+            </div>
+          </div>
+
+          <div class="courses-container-grid">
+
+            <!-- ランチコース -->
+            <div class="course-plan-card">
+              <div>
+                <h3 class="course-plan-name-en">Pranzo</h3>
+                <h4 class="course-plan-name-ja">ランチコース</h4>
+                <div class="course-plan-price">¥3,800 <span style="font-size: 0.85rem; font-weight: normal;">（税込）</span></div>
+                <ul class="course-bullets-list">
+                  <li>季節の旬前菜 盛り合わせ</li>
+                  <li>本日のおすすめ手打ちパスタ（選択）</li>
+                  <li>シェフ特製本日のドルチェ</li>
+                  <li>エスプレッソ / カフェ / 紅茶</li>
+                  <li>自家製焼きたてフォカッチャ</li>
+                </ul>
+              </div>
+              <a href="reservation.html" class="btn btn-outline-gold" style="width: 100%;">ランチを予約する</a>
+            </div>
+
+            <!-- ディナーコース -->
+            <div class="course-plan-card">
+              <div>
+                <h3 class="course-plan-name-en">Cena</h3>
+                <h4 class="course-plan-name-ja">ディナーコース</h4>
+                <div class="course-plan-price">¥8,500 <span style="font-size: 0.85rem; font-weight: normal;">（税込）</span></div>
+                <ul class="course-bullets-list">
+                  <li>季節のアミューズ ＆ 厳選前菜 2品</li>
+                  <li>自家製手打ちパスタ（ラグー または 鮮魚）</li>
+                  <li>本日のメイン（黒毛和牛 または 鮮魚料理）</li>
+                  <li>シェフ特製ドルチェ ＆ 小菓子</li>
+                  <li>カフェ ＆ 自家製フォカッチャ</li>
+                </ul>
+              </div>
+              <a href="reservation.html" class="btn btn-outline-gold" style="width: 100%;">ディナーを予約する</a>
+            </div>
+
+            <!-- 記念日コース（おすすめ） -->
+            <div class="course-plan-card is-anniversary">
+              <span class="course-ribbon-tag">Anniversary Special</span>
+              <div>
+                <h3 class="course-plan-name-en">Anniversario</h3>
+                <h4 class="course-plan-name-ja">記念日コース</h4>
+                <div class="course-plan-price">¥12,000 <span style="font-size: 0.85rem; font-weight: normal;">（税込）</span></div>
+                <ul class="course-bullets-list">
+                  <li>乾杯グラス フランチャコルタ（最高峰泡）</li>
+                  <li>贅沢食材の彩り前菜 2品</li>
+                  <li>黒トリュフ香る自家製生パスタ</li>
+                  <li>特選黒毛和牛のメインディッシュ</li>
+                  <li>記念日特製ドルチェ ＆ メッセージプレート</li>
+                  <li>カフェ ＆ プティフール</li>
+                </ul>
+              </div>
+              <a href="reservation.html" class="btn btn-primary" style="width: 100%;">記念日コースを予約</a>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ==========================================================================
+       共通フッター
+       ========================================================================== -->
+  <footer id="site-footer">
+    <div class="container">
+      <div class="footer-grid-layout">
+
+        <div>
+          <h2 class="footer-brand-title">Trattoria SOLE</h2>
+          <p class="footer-concept-quote">
+            「大切な人と、心に残るひとときを。」<br>
+            東京・代々木上原で15年。太陽のように温かい本場イタリアの味と、心地よい空間をお届けします。
+          </p>
+          <div class="footer-chef-badge">
+            オーナーシェフ : 松本 隆司
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer-nav-title">Navigation</h3>
+          <ul class="footer-nav-list">
+            <li><a href="index.html">トップページ</a></li>
+            <li><a href="menu.html">お料理・コース</a></li>
+            <li><a href="wine.html">ワインセレクション</a></li>
+            <li><a href="reservation.html">WEBオンライン予約</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-nav-title">Information</h3>
+          <dl class="footer-info-details">
+            <dt>Address</dt>
+            <dd>〒151-0066 東京都渋谷区西原3-XX-XX<br>代々木上原駅 北口徒歩3分</dd>
+
+            <dt>Telephone</dt>
+            <dd>03-XXXX-XXXX（受付 11:00〜22:00）</dd>
+
+            <dt>Opening Hours</dt>
+            <dd>
+              ランチ: 11:30 〜 14:30（L.O. 14:00）<br>
+              ディナー: 17:30 〜 23:00（L.O. 22:00）<br>
+              定休日: 毎週月曜・第2火曜
+            </dd>
+          </dl>
+        </div>
+
+      </div>
+
+      <div class="footer-copyright-bar">
+        &copy; 2026 Trattoria SOLE. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- 共通JavaScript -->
+  <script src="js/script.js"></script>
+
+</body>
+</html>

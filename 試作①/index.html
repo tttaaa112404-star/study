@@ -1,0 +1,1989 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Blossom（カフェ ブロッサム） | 地元商店街のちいさな癒やしカフェ</title>
+    <meta name="description"
+        content="地元商店街にオープンする小さなカフェ「Cafe Blossom（カフェ ブロッサム）」。手作りの焼き菓子とこだわりの珈琲で、花束を受け取ったような温かいひとときをお届けします。">
+
+    <!-- ========================================================
+       Google Fonts
+       ・Zen Maru Gothic: 丸みのある可愛らしく優しい日本語フォント
+       ・Cormorant Garamond: 上品でやわらかな英字フォント
+  ======================================================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400&family=Zen+Maru+Gothic:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ========================================================
+       CSSカスタム変数（配色・テーマ設定）
+       ※サイト全体のカラーやフォントはここを変更するだけで一括調整できます
+    ======================================================== */
+        :root {
+            /* カラーパレット：ピンクベージュ、クリーム色、白を基調とした優しい配色 */
+            --color-bg-main: #fbf8f5;
+            /* メイン背景：柔らかなクリーム */
+            --color-bg-sub: #f6efe9;
+            /* サブ背景：淡いピンクベージュ */
+            --color-card-bg: #ffffff;
+            /* カード背景：クリーンな白 */
+
+            --color-primary: #cf9b8f;
+            /* メインアクセント：温かみのあるダスティピンク */
+            --color-primary-dark: #b67f73;
+            /* 濃いめのピンクベージュ（ボタンホバー等） */
+            --color-primary-light: #faedea;
+            /* ごく淡いピンク（バッジ・装飾等） */
+
+            --color-text-main: #4d4442;
+            /* 基本テキスト：真っ黒を避けたソフトなダークブラウン */
+            --color-text-sub: #786e6b;
+            /* 補助テキスト：やわらかなグレーブラウン */
+            --color-border: #ede4dc;
+            /* 繊細な境界線 */
+
+            /* フォント指定 */
+            --font-base: 'Zen Maru Gothic', sans-serif;
+            --font-en: 'Cormorant Garamond', serif;
+
+            /* トランジション */
+            --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* ========================================================
+       ベースリセット & 共通スタイル
+    ======================================================== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-base);
+            color: var(--color-text-main);
+            background-color: var(--color-bg-main);
+            line-height: 1.85;
+            letter-spacing: 0.04em;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            vertical-align: middle;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        ul,
+        ol {
+            list-style: none;
+        }
+
+        /* コンテナ共通幅 */
+        .container {
+            width: 100%;
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* セクション共通見出し */
+        .section {
+            padding: 90px 0;
+            position: relative;
+            scroll-margin-top: 68px;
+            /* 固定ヘッダーに被らないスクロール位置 */
+        }
+
+        .section-title-wrap {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-en-title {
+            display: block;
+            font-family: var(--font-en);
+            font-size: 2.2rem;
+            font-weight: 500;
+            color: var(--color-primary);
+            letter-spacing: 0.08em;
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+
+        .section-ja-title {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--color-text-sub);
+            letter-spacing: 0.12em;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-ja-title::before,
+        .section-ja-title::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 1px;
+            background-color: var(--color-primary);
+            opacity: 0.6;
+        }
+
+        /* ふわっと浮かび上がるアニメーション用クラス */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========================================================
+       1. ヘッダー（1行で美しく収まるサイズ設計）
+    ======================================================== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(251, 248, 245, 0.94);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(237, 228, 220, 0.8);
+            transition: var(--transition-smooth);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+            flex-wrap: nowrap;
+        }
+
+        /* 店名ロゴエリア（横並び1行で収まるすっきりとした配置） */
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+        /* ロゴアイコン（仮のブロッサムアイコン） */
+        .logo-icon {
+            width: 28px;
+            height: 28px;
+            fill: var(--color-primary);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .logo-area:hover .logo-icon {
+            transform: rotate(15deg);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .logo-en {
+            font-family: var(--font-en);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-text-main);
+            letter-spacing: 0.05em;
+            line-height: 1;
+        }
+
+        .logo-ja {
+            font-size: 0.72rem;
+            color: var(--color-text-sub);
+            letter-spacing: 0.08em;
+        }
+
+        /* PCナビゲーション */
+        .nav-pc {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+        .nav-pc a {
+            font-size: 0.92rem;
+            font-weight: 500;
+            color: var(--color-text-main);
+            position: relative;
+            padding: 6px 0;
+            white-space: nowrap;
+        }
+
+        .nav-pc a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background-color: var(--color-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-pc a:hover::after {
+            width: 100%;
+        }
+
+        .nav-pc .nav-insta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: var(--color-primary-light);
+            color: var(--color-primary-dark);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            border: 1px solid var(--color-primary);
+            white-space: nowrap;
+        }
+
+        .nav-pc .nav-insta-btn:hover {
+            background-color: var(--color-primary);
+            color: #fff;
+        }
+
+        .nav-pc .nav-insta-btn svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+        }
+
+        /* ハンバーガーメニューボタン（スマホ用） */
+        .hamburger {
+            display: none;
+            width: 44px;
+            height: 44px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            z-index: 110;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--color-text-main);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .hamburger span:nth-child(1) {
+            margin-bottom: 6px;
+        }
+
+        .hamburger span:nth-child(2) {
+            margin-bottom: 6px;
+        }
+
+        /* ハンバーガー展開時（×マーク） */
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* スマホ用ドロワーメニュー（画面右外に待機） */
+        .nav-sp {
+            display: flex;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 320px;
+            height: 100vh;
+            background-color: var(--color-bg-main);
+            box-shadow: -4px 0 20px rgba(0, 0, 0, 0.08);
+            z-index: 105;
+            padding: 100px 32px 40px;
+            flex-direction: column;
+            gap: 24px;
+            transition: right 0.4s ease;
+        }
+
+        .nav-sp.active {
+            right: 0;
+        }
+
+        .nav-sp a {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--color-text-main);
+            border-bottom: 1px dashed var(--color-border);
+            padding-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-sp a::after {
+            content: '›';
+            font-size: 1.2rem;
+            color: var(--color-primary);
+        }
+
+        .nav-sp .nav-insta-btn {
+            margin-top: 10px;
+            background-color: var(--color-primary);
+            color: #fff;
+            text-align: center;
+            padding: 12px;
+            border-radius: 25px;
+            justify-content: center;
+            gap: 8px;
+            border: none;
+        }
+
+        .nav-sp .nav-insta-btn::after {
+            display: none;
+        }
+
+        /* ドロワー背景オーバーレイ */
+        .menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.35);
+            z-index: 102;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .menu-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* ========================================================
+       2. メインビジュアル（Heroセクション）
+    ======================================================== */
+        .hero {
+            padding-top: 120px;
+            padding-bottom: 80px;
+            background: linear-gradient(180deg, #fbf8f5 0%, #f7f1eb 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 背景の淡い花びら風アクセント装飾 */
+        .hero-decor-petal {
+            position: absolute;
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, rgba(232, 207, 199, 0.45) 0%, rgba(251, 248, 245, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-decor-1 {
+            top: 40px;
+            right: -50px;
+        }
+
+        .hero-decor-2 {
+            bottom: -80px;
+            left: -60px;
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            padding-right: 10px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: #ffffff;
+            color: var(--color-primary-dark);
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 30px;
+            border: 1px solid var(--color-primary);
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(207, 155, 143, 0.15);
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            line-height: 1.45;
+            font-weight: 700;
+            color: var(--color-text-main);
+            margin-bottom: 20px;
+        }
+
+        .hero-title .highlight {
+            color: var(--color-primary-dark);
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .hero-lead {
+            font-size: 1rem;
+            color: var(--color-text-sub);
+            line-height: 1.9;
+            margin-bottom: 32px;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #d9a59b 0%, #c48c82 100%);
+            color: #ffffff;
+            padding: 13px 28px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(196, 140, 130, 0.3);
+            transition: var(--transition-smooth);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(196, 140, 130, 0.45);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: #ffffff;
+            color: var(--color-text-main);
+            padding: 13px 24px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border: 1px solid var(--color-border);
+            transition: var(--transition-smooth);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-primary-light);
+            border-color: var(--color-primary);
+            color: var(--color-primary-dark);
+        }
+
+        /* メインビジュアルの画像コラージュ枠 */
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-image-main {
+            width: 100%;
+            height: 420px;
+            border-radius: 200px 200px 24px 24px;
+            /* おしゃれなアーチ型フレーム */
+            overflow: hidden;
+            box-shadow: 0 16px 36px rgba(77, 68, 66, 0.08);
+            border: 6px solid #ffffff;
+            background-color: #f0e6e0;
+        }
+
+        .hero-image-main img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .hero-visual:hover .hero-image-main img {
+            transform: scale(1.03);
+        }
+
+        /* サブ画像（小窓カード） */
+        .hero-image-sub {
+            position: absolute;
+            bottom: -20px;
+            left: -24px;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(77, 68, 66, 0.12);
+            border: 5px solid #ffffff;
+            background-color: #ebdcd5;
+        }
+
+        .hero-image-sub img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* スクロール誘導インジケーター */
+        .scroll-indicator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+            gap: 8px;
+        }
+
+        .scroll-text {
+            font-family: var(--font-en);
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            color: var(--color-text-sub);
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background-color: var(--color-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scroll-line::after {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-primary-dark);
+            animation: scrollAnim 2s infinite ease-in-out;
+        }
+
+        @keyframes scrollAnim {
+            0% {
+                top: -40px;
+            }
+
+            50% {
+                top: 0;
+            }
+
+            100% {
+                top: 40px;
+            }
+        }
+
+        /* ========================================================
+       3. コンセプト紹介（Concept：大人な落ち着きと大判写真）
+    ======================================================== */
+        .concept {
+            background-color: #ffffff;
+            position: relative;
+        }
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: 1.18fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        /* 写真エリア：大人なギャラリースタイル */
+        .concept-images {
+            position: relative;
+            padding: 10px 20px 30px 10px;
+        }
+
+        .concept-images::before {
+            content: '';
+            position: absolute;
+            top: -12px;
+            left: -6px;
+            width: 75%;
+            height: 90%;
+            border: 1px solid var(--color-primary);
+            opacity: 0.35;
+            border-radius: 12px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .concept-img-large {
+            position: relative;
+            z-index: 1;
+            width: 90%;
+            height: 520px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 18px 40px rgba(77, 68, 66, 0.1);
+            background-color: #f5eee8;
+        }
+
+        .concept-img-large img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .concept-images:hover .concept-img-large img {
+            transform: scale(1.025);
+        }
+
+        .concept-img-small {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 52%;
+            height: 270px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 14px 32px rgba(77, 68, 66, 0.14);
+            border: 5px solid #ffffff;
+            z-index: 2;
+            background-color: #ebdcd5;
+        }
+
+        .concept-img-small img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .concept-images:hover .concept-img-small img {
+            transform: scale(1.03);
+        }
+
+        /* テキストエリア：品格と落ち着きのあるタイポグラフィ */
+        .concept-body {
+            padding: 10px 0;
+        }
+
+        .concept-sub-phrase {
+            display: inline-block;
+            font-family: var(--font-en);
+            font-size: 1.15rem;
+            letter-spacing: 0.14em;
+            color: var(--color-primary-dark);
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+
+        .concept-tagline {
+            font-size: 1.6rem;
+            font-weight: 700;
+            line-height: 1.65;
+            color: var(--color-text-main);
+            margin-bottom: 24px;
+            letter-spacing: 0.06em;
+        }
+
+        .concept-text {
+            color: var(--color-text-sub);
+            font-size: 0.96rem;
+            line-height: 2.1;
+            margin-bottom: 20px;
+        }
+
+        /* オーナーメッセージ枠：大人なエッセイ・レター風デザイン */
+        .owner-box {
+            margin-top: 32px;
+            padding: 24px 28px;
+            background-color: #faf6f2;
+            border-radius: 12px;
+            border: 1px solid var(--color-border);
+            position: relative;
+        }
+
+        .owner-box::before {
+            content: '“';
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-family: var(--font-en);
+            font-size: 3.5rem;
+            line-height: 1;
+            color: var(--color-primary);
+            opacity: 0.25;
+            pointer-events: none;
+        }
+
+        .owner-box-header {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .owner-box-title {
+            font-family: var(--font-en);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--color-primary-dark);
+            letter-spacing: 0.08em;
+        }
+
+        .owner-box-subtitle {
+            font-size: 0.78rem;
+            color: var(--color-text-sub);
+            letter-spacing: 0.05em;
+        }
+
+        .owner-box-text {
+            font-size: 0.91rem;
+            color: var(--color-text-main);
+            line-height: 1.95;
+            margin-bottom: 14px;
+        }
+
+        .owner-signature {
+            text-align: right;
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--color-text-sub);
+        }
+
+        .owner-signature span {
+            color: var(--color-text-main);
+            font-weight: 700;
+            margin-left: 6px;
+        }
+
+        /* Instagram誘導バナー */
+        .insta-banner {
+            margin-top: 24px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: transparent;
+            border: 1px solid var(--color-primary);
+            border-radius: 30px;
+            font-size: 0.86rem;
+            color: var(--color-primary-dark);
+            transition: var(--transition-smooth);
+        }
+
+        .insta-banner:hover {
+            background-color: var(--color-primary);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .insta-banner svg {
+            width: 17px;
+            height: 17px;
+            fill: currentColor;
+        }
+
+        /* ========================================================
+       4. おすすめメニュー（Menu：4品グリッド）
+    ======================================================== */
+        .menu {
+            background-color: var(--color-bg-main);
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .menu-card {
+            background: var(--color-card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(77, 68, 66, 0.05);
+            border: 1px solid var(--color-border);
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 30px rgba(207, 155, 143, 0.18);
+        }
+
+        /* メニュー画像エリア（差し替え可能枠） */
+        .menu-card-img-wrap {
+            width: 100%;
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+            background-color: #f2ebe6;
+        }
+
+        .menu-card-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .menu-card:hover .menu-card-img-wrap img {
+            transform: scale(1.06);
+        }
+
+        .menu-tag {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--color-primary-dark);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            letter-spacing: 0.05em;
+        }
+
+        .menu-card-body {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed var(--color-border);
+            padding-bottom: 8px;
+        }
+
+        .menu-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-text-main);
+        }
+
+        .menu-price {
+            font-family: var(--font-en);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--color-primary-dark);
+            white-space: nowrap;
+        }
+
+        .menu-desc {
+            font-size: 0.86rem;
+            color: var(--color-text-sub);
+            line-height: 1.75;
+            margin-top: 4px;
+        }
+
+        .menu-note {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.85rem;
+            color: var(--color-text-sub);
+        }
+
+        /* ========================================================
+       5. 店舗情報（Shop Info：独立セクション）
+    ======================================================== */
+        .shop-section {
+            background-color: #ffffff;
+            scroll-margin-top: 70px;
+        }
+
+        .shop-container {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        /* 店舗詳細カード */
+        .shop-info-card {
+            background-color: var(--color-bg-main);
+            padding: 36px 32px;
+            border-radius: 24px;
+            border: 1px solid var(--color-border);
+        }
+
+        .shop-info-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--color-primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .shop-info-card h3 svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .shop-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .shop-table tr {
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .shop-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .shop-table th {
+            padding: 14px 10px 14px 0;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--color-text-main);
+            vertical-align: top;
+            width: 90px;
+            white-space: nowrap;
+        }
+
+        .shop-table td {
+            padding: 14px 0;
+            font-size: 0.9rem;
+            color: var(--color-text-sub);
+            line-height: 1.7;
+        }
+
+        .badge-holiday {
+            display: inline-block;
+            background: var(--color-primary-light);
+            color: var(--color-primary-dark);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-left: 6px;
+        }
+
+        /* 店舗の雰囲気ビジュアル */
+        .shop-visual-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .shop-visual-img {
+            width: 100%;
+            height: 340px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(77, 68, 66, 0.08);
+            border: 4px solid #ffffff;
+            background-color: #f2ebe6;
+        }
+
+        .shop-visual-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .shop-visual-wrap:hover .shop-visual-img img {
+            transform: scale(1.03);
+        }
+
+        .shop-visual-note {
+            background-color: var(--color-bg-sub);
+            padding: 18px 22px;
+            border-radius: 14px;
+            font-size: 0.88rem;
+            color: var(--color-text-main);
+            line-height: 1.8;
+            border-left: 3px solid var(--color-primary);
+        }
+
+        /* ========================================================
+       6. アクセス・道案内（Access：独立セクション）
+    ======================================================== */
+        .access-section {
+            background-color: var(--color-bg-main);
+            scroll-margin-top: 70px;
+        }
+
+        .access-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 1fr;
+            gap: 40px;
+            align-items: stretch;
+        }
+
+        /* Googleマップ埋め込みエリア（レスポンシブ枠） */
+        .map-frame {
+            width: 100%;
+            min-height: 380px;
+            height: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--color-border);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            position: relative;
+            background-color: #f2ede9;
+        }
+
+        .map-frame iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 380px;
+            border: 0;
+            display: block;
+        }
+
+        /* アクセス案内カード群 */
+        .access-info-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            justify-content: center;
+        }
+
+        .access-card-item {
+            background: #ffffff;
+            padding: 16px 20px;
+            border-radius: 14px;
+            border: 1px solid var(--color-border);
+            box-shadow: 0 4px 16px rgba(77, 68, 66, 0.04);
+        }
+
+        .access-card-title {
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: var(--color-primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .access-card-title svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        .access-card-desc {
+            font-size: 0.88rem;
+            color: var(--color-text-sub);
+            line-height: 1.8;
+        }
+
+        /* ========================================================
+       7. フッター
+    ======================================================== */
+        .footer {
+            background-color: #3b3332;
+            color: #ede4dc;
+            padding: 60px 0 30px;
+            position: relative;
+        }
+
+        .footer-content {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .footer-logo-en {
+            font-family: var(--font-en);
+            font-size: 2rem;
+            letter-spacing: 0.06em;
+            color: #ffffff;
+        }
+
+        .footer-logo-ja {
+            font-size: 0.75rem;
+            color: #b5a9a4;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-sns {
+            display: flex;
+            gap: 14px;
+            margin-top: 6px;
+        }
+
+        .sns-circle-link {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-smooth);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .sns-circle-link:hover {
+            background: var(--color-primary);
+            transform: translateY(-3px);
+            border-color: var(--color-primary);
+        }
+
+        .sns-circle-link svg {
+            width: 20px;
+            height: 20px;
+            fill: #ffffff;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            font-size: 0.85rem;
+        }
+
+        .footer-nav a {
+            color: #cfc5bf;
+        }
+
+        .footer-nav a:hover {
+            color: #ffffff;
+        }
+
+        .footer-copyright {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.78rem;
+            color: #9c918c;
+            letter-spacing: 0.05em;
+        }
+
+        /* トップへ戻るボタン */
+        .back-to-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 46px;
+            height: 46px;
+            background-color: #ffffff;
+            color: var(--color-primary-dark);
+            border-radius: 50%;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+            border: 1px solid var(--color-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 90;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--color-primary);
+            color: #ffffff;
+            transform: translateY(-3px);
+        }
+
+        .back-to-top svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        /* ========================================================
+       レスポンシブ対応（スマホ・タブレット表示の最適化）
+    ======================================================== */
+        @media (max-width: 900px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .hero-content {
+                padding-right: 0;
+                order: 1;
+            }
+
+            .hero-visual {
+                order: 2;
+                max-width: 440px;
+                margin: 0 auto;
+            }
+
+            .hero-cta-group {
+                justify-content: center;
+            }
+
+            .concept-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .concept-images {
+                max-width: 520px;
+                margin: 0 auto 20px;
+                padding: 0 16px 24px 0;
+            }
+
+            .concept-img-large {
+                width: 92%;
+                height: 380px;
+            }
+
+            .concept-img-small {
+                width: 52%;
+                height: 200px;
+                bottom: 0;
+                right: 0;
+            }
+
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 680px;
+                margin: 0 auto;
+                gap: 20px;
+            }
+
+            .shop-container {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+
+            .access-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .map-frame {
+                min-height: 320px;
+                height: 320px;
+            }
+
+            /* 中画面〜タブレットでPCナビからハンバーガーにすっきり切り替え */
+            .nav-pc {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 70px 0;
+            }
+
+            .hero {
+                padding-top: 100px;
+                padding-bottom: 60px;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .hero-image-main {
+                height: 320px;
+            }
+
+            .hero-image-sub {
+                width: 120px;
+                height: 120px;
+                bottom: -15px;
+                left: -10px;
+            }
+
+            .concept-tagline {
+                font-size: 1.25rem;
+            }
+
+            .shop-info-card {
+                padding: 24px 20px;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+                max-width: 360px;
+                margin: 0 auto;
+            }
+        }
+
+        /* 極小スマホでもヘッダーが1行で美しく収まる微調整 */
+        @media (max-width: 480px) {
+            .header-inner {
+                height: 58px;
+            }
+
+            .logo-icon {
+                width: 24px;
+                height: 24px;
+            }
+
+            .logo-en {
+                font-size: 1.35rem;
+            }
+
+            .logo-ja {
+                font-size: 0.65rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ========================================================
+       1. ヘッダー
+  ======================================================== -->
+    <header class="header" id="header">
+        <div class="container header-inner">
+
+            <!-- 
+        【ロゴ差し替えエリア】
+        現在は仮のSVG花アイコン＋テキストロゴですが、画像ロゴが完成した場合は
+        下記の「ロゴ画像用タグ」のコメントアウトを解除し、パスを指定してください。
+      -->
+            <a href="#hero" class="logo-area" aria-label="Cafe Blossom ホームへ">
+                <!-- ▼ 画像ロゴを使う場合はこちらを使用 ▼
+        <img src="images/logo.png" alt="Cafe Blossom" class="logo-img" style="height: 36px;">
+        -->
+
+                <!-- ▼ 仮ロゴ（SVGアイコン + テキスト：横並び1行） ▼ -->
+                <svg class="logo-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <!-- 桜・花びらをモチーフにしたナチュラルなアイコン -->
+                    <path
+                        d="M12 2C13.2 4.2 15 5.5 17.5 6C17 8.5 17.5 10.5 19 12C17.5 13.5 17 15.5 17.5 18C15 18.5 13.2 19.8 12 22C10.8 19.8 9 18.5 6.5 18C7 15.5 6.5 13.5 5 12C6.5 10.5 7 8.5 6.5 6C9 5.5 10.8 4.2 12 2Z"
+                        fill="currentColor" />
+                    <circle cx="12" cy="12" r="2.5" fill="#ffffff" />
+                </svg>
+                <div class="logo-text">
+                    <span class="logo-en">Cafe Blossom</span>
+                    <span class="logo-ja">カフェ ブロッサム</span>
+                </div>
+            </a>
+
+            <!-- PCナビゲーション -->
+            <nav class="nav-pc" aria-label="メインナビゲーション">
+                <a href="#concept">こだわり</a>
+                <a href="#menu">メニュー</a>
+                <a href="#shop">店舗情報</a>
+                <a href="#access">アクセス</a>
+                <!-- Instagramリンク（オーナー佐藤さんのアカウントURLに差し替え） -->
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="nav-insta-btn">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                    </svg>
+                    <span>Instagram</span>
+                </a>
+            </nav>
+
+            <!-- スマホ用ハンバーガーメニューボタン -->
+            <button class="hamburger" id="hamburgerBtn" aria-label="メニューを開く" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- スマホ用ドロワーメニュー -->
+            <div class="nav-sp" id="navSp">
+                <a href="#concept" class="sp-link">こだわり</a>
+                <a href="#menu" class="sp-link">メニュー</a>
+                <a href="#shop" class="sp-link">店舗情報</a>
+                <a href="#access" class="sp-link">アクセス</a>
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="nav-insta-btn">
+                    Instagramを見る
+                </a>
+            </div>
+
+            <!-- 背景オーバーレイ -->
+            <div class="menu-overlay" id="menuOverlay"></div>
+
+        </div>
+    </header>
+
+    <!-- ========================================================
+       2. メインビジュアル（Heroセクション）
+  ======================================================== -->
+    <section class="hero" id="hero">
+        <!-- 装飾用背景サークル -->
+        <div class="hero-decor-petal hero-decor-1"></div>
+        <div class="hero-decor-petal hero-decor-2"></div>
+
+        <div class="container hero-inner">
+            <!-- テキストエリア -->
+            <div class="hero-content fade-in-up">
+                <span class="hero-badge">2026年12月 商店街にNEW OPEN</span>
+                <h1 class="hero-title">
+                    日々に、<br>
+                    <span class="highlight">ちいさな花束</span>のような<br>
+                    温かな休息を。
+                </h1>
+                <p class="hero-lead">
+                    「Cafe Blossom」は、地元の商店街にひっそり佇む小さなカフェです。<br>
+                    香り高い珈琲と、毎日焼き上げる優しい甘さの手作りスイーツ。<br>
+                    お買い物帰りやお散歩のついでに、心がふわりとほどける穏やかな時間をお過ごしください。
+                </p>
+                <div class="hero-cta-group">
+                    <a href="#menu" class="btn-primary">おすすめメニューを見る</a>
+                    <a href="#access" class="btn-secondary">店舗の場所を確認する</a>
+                </div>
+            </div>
+
+            <!-- 画像コラージュエリア（仮画像：Unsplashのおしゃれなカフェ画像） -->
+            <div class="hero-visual fade-in-up">
+                <!-- メイン写真（店内の温かみある雰囲気） -->
+                <div class="hero-image-main">
+                    <!-- 
+            【画像差し替えエリア】
+            src属性を実際の店舗写真や看板メニュー写真のURL/相対パスに差し替えてください。
+          -->
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=900&q=80"
+                        alt="Cafe Blossom 温かみのある店内風景" loading="lazy">
+                </div>
+                <!-- サブ写真（季節のラテアート） -->
+                <div class="hero-image-sub">
+                    <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=500&q=80"
+                        alt="花びらをイメージしたラテアート" loading="lazy">
+                </div>
+            </div>
+        </div>
+
+        <!-- スクロール誘導 -->
+        <div class="scroll-indicator">
+            <span class="scroll-text">SCROLL</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ========================================================
+       3. コンセプト紹介（Concept：大人な落ち着きと大判写真）
+  ======================================================== -->
+    <section class="section concept" id="concept">
+        <div class="container">
+            <div class="section-title-wrap fade-in-up">
+                <span class="section-en-title">Concept</span>
+                <h2 class="section-ja-title">私たちのおもい</h2>
+            </div>
+
+            <div class="concept-grid">
+                <!-- 写真エリア（大人っぽい落ち着きと存在感のある大判レイアウト） -->
+                <div class="concept-images fade-in-up">
+                    <div class="concept-img-large">
+                        <!-- 【画像差し替えエリア】：丁寧に淹れられた珈琲と心地よい自然光 -->
+                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=85"
+                            alt="丁寧にハンドドリップされた珈琲と落ち着いた店内" loading="lazy">
+                    </div>
+                    <div class="concept-img-small">
+                        <!-- 【画像差し替えエリア】：テーブルを彩る可憐な生花と陶器 -->
+                        <img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=600&q=85"
+                            alt="店内に飾られた季節の生花" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- テキストエリア -->
+                <div class="concept-body fade-in-up">
+                    <span class="concept-sub-phrase">A gentle sanctuary in everyday life</span>
+                    <p class="concept-tagline">
+                        「今日もおつかれさま」と、<br>
+                        笑顔で迎える街の止まり木。
+                    </p>
+                    <p class="concept-text">
+                        活気ある商店街を少し入ったところにある「Cafe Blossom（カフェ ブロッサム）」は、誰もがホッと肩の力を抜いて素顔に戻れる、ちいさな隠れ家のようなカフェです。
+                    </p>
+                    <p class="concept-text">
+                        こだわりの豆から丁寧に抽出するエスプレッソや、店内で毎日焼き上げる優しい甘さのマフィン・スコーン。<br>
+                        お気に入りの本を片手にゆったり過ごしたり、店主やご近所さんとの世間話に花を咲かせたり……。<br>
+                        日常のなかに咲く小さな花のように、あなたの一日にそっと彩りを添えられますように。
+                    </p>
+
+                    <!-- オーナーからのメッセージ（大人なエッセイ・レター風） -->
+                    <div class="owner-box">
+                        <div class="owner-box-header">
+                            <span class="owner-box-title">Owner's Thought</span>
+                            <span class="owner-box-subtitle">— 店主の想い —</span>
+                        </div>
+                        <p class="owner-box-text">
+                            生まれ育った大好きな地元商店街に、ずっと夢だった「誰もが気兼ねなく息抜きできる場所」を作りました。
+                            忙しい日々の合間に、淹れたての珈琲の香りに包まれて、自分だけの静かな時間を味わっていただけたら嬉しいです。
+                        </p>
+                        <p class="owner-signature">Cafe Blossom 店主 <span>佐藤 美咲</span></p>
+                    </div>
+
+                    <!-- Instagram紹介バナー -->
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="insta-banner">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                        <span>日々の焼き上がりやお店の様子はInstagramで配信中</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================
+       4. おすすめメニュー（Menu：4品紹介）
+  ======================================================== -->
+    <section class="section menu" id="menu">
+        <div class="container">
+            <div class="section-title-wrap fade-in-up">
+                <span class="section-en-title">Recommended Menu</span>
+                <h2 class="section-ja-title">おすすめメニュー</h2>
+            </div>
+
+            <div class="menu-grid">
+
+                <!-- メニュー 1 -->
+                <article class="menu-card fade-in-up">
+                    <div class="menu-card-img-wrap">
+                        <span class="menu-tag">看板ドリンク</span>
+                        <!-- 【画像差し替えエリア】：ドリンク写真 -->
+                        <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=600&q=80"
+                            alt="ブロッサム・ハニーラテ" loading="lazy">
+                    </div>
+                    <div class="menu-card-body">
+                        <div class="menu-header">
+                            <h3 class="menu-name">ブロッサム・ハニーラテ</h3>
+                            <span class="menu-price">¥620</span>
+                        </div>
+                        <p class="menu-desc">
+                            自家製のエディブルフラワーシロップとほんのり香るハチミツをブレンド。優しい甘さとまろやかなミルクが溶け合う、当店のシグネチャードリンクです。
+                        </p>
+                    </div>
+                </article>
+
+                <!-- メニュー 2 -->
+                <article class="menu-card fade-in-up">
+                    <div class="menu-card-img-wrap">
+                        <span class="menu-tag">季節限定</span>
+                        <!-- 【画像差し替えエリア】：スイーツ写真 -->
+                        <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=600&q=80"
+                            alt="季節のベリータルト" loading="lazy">
+                    </div>
+                    <div class="menu-card-body">
+                        <div class="menu-header">
+                            <h3 class="menu-name">季節のベリータルト</h3>
+                            <span class="menu-price">¥680</span>
+                        </div>
+                        <p class="menu-desc">
+                            香ばしく焼き上げたサクサクタルト生地に、特製カスタードと旬のみずみずしいベリーをたっぷり。コーヒーとの相性も抜群な人気の一皿です。
+                        </p>
+                    </div>
+                </article>
+
+                <!-- メニュー 3 -->
+                <article class="menu-card fade-in-up">
+                    <div class="menu-card-img-wrap">
+                        <span class="menu-tag">焼きたて</span>
+                        <!-- 【画像差し替えエリア】：スコーン・焼き菓子写真 -->
+                        <img src="https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=600&q=80"
+                            alt="全粒粉のバターミルクスコーン" loading="lazy">
+                    </div>
+                    <div class="menu-card-body">
+                        <div class="menu-header">
+                            <h3 class="menu-name">バターミルクスコーン</h3>
+                            <span class="menu-price">¥480</span>
+                        </div>
+                        <p class="menu-desc">
+                            外はカリッ、中はふんわりしっとり。手作りの季節果実ジャムとクロテッドクリームを添えてお届けします。テイクアウトにも大好評です。
+                        </p>
+                    </div>
+                </article>
+
+                <!-- メニュー 4 -->
+                <article class="menu-card fade-in-up">
+                    <div class="menu-card-img-wrap">
+                        <span class="menu-tag">特製スイーツ</span>
+                        <!-- 【画像差し替えエリア】：マカロン写真 -->
+                        <img src="https://images.unsplash.com/photo-1569864358642-9d1684040f43?auto=format&fit=crop&w=600&q=80"
+                            alt="自家製マカロン" loading="lazy">
+                    </div>
+                    <div class="menu-card-body">
+                        <div class="menu-header">
+                            <h3 class="menu-name">自家製マカロン</h3>
+                            <span class="menu-price">¥250</span>
+                        </div>
+                        <p class="menu-desc">
+                            アーモンドが香るサクッとした生地に、口どけ滑らかな特製ガナッシュを贅沢にサンド。日替わりのフレーバーをお楽しみいただけます。
+                        </p>
+                    </div>
+                </article>
+
+            </div>
+
+            <p class="menu-note fade-in-up">
+                ※価格はすべて税込表記です。テイクアウトも承っております。<br>
+                ※この他にも季節のスムージーや軽食サンドイッチなど多数ご用意しております。
+            </p>
+        </div>
+    </section>
+
+    <!-- ========================================================
+       5. 店舗情報（Shop Info：独立セクション）
+  ======================================================== -->
+    <section class="section shop-section" id="shop">
+        <div class="container">
+            <div class="section-title-wrap fade-in-up">
+                <span class="section-en-title">Shop Information</span>
+                <h2 class="section-ja-title">店舗情報</h2>
+            </div>
+
+            <div class="shop-container">
+                <!-- 店舗情報テーブル -->
+                <div class="shop-info-card fade-in-up">
+                    <h3>
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                        </svg>
+                        店舗概要
+                    </h3>
+                    <table class="shop-table">
+                        <tbody>
+                            <tr>
+                                <th>店名</th>
+                                <td>Cafe Blossom（カフェ ブロッサム）</td>
+                            </tr>
+                            <tr>
+                                <th>オーナー</th>
+                                <td>佐藤 美咲（さとう みさき）</td>
+                            </tr>
+                            <tr>
+                                <th>住所</th>
+                                <td>
+                                    〒123-4567<br>
+                                    東京都〇〇区桜並木通り 3-12-8<br>
+                                    さくら商店街中央広場すぐ
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>営業時間</th>
+                                <td>
+                                    10:00 〜 18:00<br>
+                                    （ラストオーダー 17:30）
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>定休日</th>
+                                <td>
+                                    毎週水曜日・第2木曜日
+                                    <span class="badge-holiday">臨時休業あり</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>座席数</th>
+                                <td>14席（テーブル10席 / カウンター4席）全席禁煙</td>
+                            </tr>
+                            <tr>
+                                <th>設備</th>
+                                <td>Wi-Fi完備 / 電源席あり / テイクアウト対応</td>
+                            </tr>
+                            <tr>
+                                <th>お支払い</th>
+                                <td>現金 / クレジットカード / 各種電子マネー・QRコード決済対応</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 店舗の雰囲気ビジュアル・ご案内 -->
+                <div class="shop-visual-wrap fade-in-up">
+                    <div class="shop-visual-img">
+                        <!-- 【画像差し替えエリア】：店内の客席や温かみのあるインテリア写真 -->
+                        <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=800&q=80"
+                            alt="Cafe Blossom 温かみのある客席空間" loading="lazy">
+                    </div>
+                    <div class="shop-visual-note">
+                        <strong>ほっと心が休まる、優しい空間づくり</strong><br>
+                        女性お一人でも気兼ねなくお過ごしいただけるカウンター席から、ゆったりとしたテーブル席までご用意しております。お買い物やお散歩の休憩に、いつでもお気軽にお立ち寄りください。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================
+       6. アクセス・道案内（Access & Map：独立セクション）
+  ======================================================== -->
+    <section class="section access-section" id="access">
+        <div class="container">
+            <div class="section-title-wrap fade-in-up">
+                <span class="section-en-title">Access & Map</span>
+                <h2 class="section-ja-title">アクセス・道案内</h2>
+            </div>
+
+            <div class="access-grid">
+                <!-- Googleマップ埋め込みエリア -->
+                <div class="map-frame fade-in-up">
+                    <!-- 
+            【Googleマップ差し替えエリア】
+            現在はGoogleマップのサンプル（東京駅周辺）を埋め込んでいます。
+            実際の店舗住所のGoogleマップに差し替える場合は：
+            1. Googleマップで店舗所在地を検索
+            2. 「共有」→「地図を埋め込む」をクリック
+            3. 表示されたコードの「src="..."」部分を下記iframeのsrc属性に貼り替えてください。
+          -->
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.828010574041!2d139.7649361152588!3d35.68123618019437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bfbd89f700b%3A0x277c49ba34ed38!2z5p2x5Lqs6aeF!5e0!3m2!1sja!2sjp!4v1620000000000!5m2!1sja!2sjp"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" title="Cafe Blossom アクセスマップ">
+                    </iframe>
+                </div>
+
+                <!-- アクセス道案内カード群 -->
+                <div class="access-info-cards fade-in-up">
+                    <div class="access-card-item">
+                        <h3 class="access-card-title">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-4-4-8-4zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V7h12v4z" />
+                            </svg>
+                            電車・徒歩でお越しの方
+                        </h3>
+                        <p class="access-card-desc">
+                            最寄り駅「桜並木駅」東口より徒歩5分。<br>
+                            駅前ロータリーを抜け、さくら商店街のメイン通りを直進してください。
+                        </p>
+                    </div>
+
+                    <div class="access-card-item">
+                        <h3 class="access-card-title">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M12 2c-4.42 0-8 .5-8 4v10c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4zm3.5 14c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm-7 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm8.5-5H5V6h14v5z" />
+                            </svg>
+                            バスでお越しの方
+                        </h3>
+                        <p class="access-card-desc">
+                            各線「〇〇駅」北口バスターミナル2番のりばより、〇〇バス「さくら商店街前」バス停下車 徒歩1分。<br>
+                            バス停を降りてすぐ正面の横断歩道を渡った先にございます。
+                        </p>
+                    </div>
+
+                    <div class="access-card-item">
+                        <h3 class="access-card-title">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                            </svg>
+                            お店の目印
+                        </h3>
+                        <p class="access-card-desc">
+                            商店街中央広場・郵便局のちょうど向かい側にある、白いオーニングテントと丸い木製看板が目印です。
+                        </p>
+                    </div>
+
+                    <div class="access-card-item">
+                        <h3 class="access-card-title">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M15.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM5 12c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5zm14-8.5c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 8.5c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z" />
+                            </svg>
+                            自転車・お車でお越しの方
+                        </h3>
+                        <p class="access-card-desc">
+                            店舗前に自転車数台分の駐輪スペースがございます。お車でお越しの際は、商店街提携のコインパーキング（徒歩2分）をご利用ください。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================
+       7. フッター
+  ======================================================== -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <span class="footer-logo-en">Cafe Blossom</span>
+                <span class="footer-logo-ja">カフェ ブロッサム</span>
+            </div>
+
+            <!-- SNSアイコンリンク -->
+            <div class="footer-sns">
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="sns-circle-link"
+                    aria-label="公式Instagram">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                    </svg>
+                </a>
+            </div>
+
+            <!-- フッターナビ -->
+            <nav class="footer-nav" aria-label="フッターナビゲーション">
+                <a href="#hero">ホーム</a>
+                <a href="#concept">こだわり</a>
+                <a href="#menu">おすすめメニュー</a>
+                <a href="#shop">店舗情報</a>
+                <a href="#access">アクセス</a>
+            </nav>
+        </div>
+
+        <!-- コピーライト -->
+        <div class="footer-copyright">
+            <div class="container">
+                &copy; 2026 Cafe Blossom. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- トップへ戻るボタン -->
+    <button class="back-to-top" id="backToTop" aria-label="ページの先頭へ戻る">
+        <svg viewBox="0 0 24 24">
+            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+        </svg>
+    </button>
+
+    <!-- ========================================================
+       JavaScript（インタラクション・ハンバーガー・スクロール）
+  ======================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. ハンバーガーメニュー制御
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const navSp = document.getElementById('navSp');
+            const menuOverlay = document.getElementById('menuOverlay');
+            const spLinks = document.querySelectorAll('.sp-link');
+
+            function toggleMenu() {
+                const isOpen = hamburgerBtn.classList.toggle('active');
+                navSp.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                hamburgerBtn.setAttribute('aria-expanded', isOpen);
+                document.body.style.overflow = isOpen ? 'hidden' : '';
+            }
+
+            function closeMenu() {
+                hamburgerBtn.classList.remove('active');
+                navSp.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+
+            hamburgerBtn.addEventListener('click', toggleMenu);
+            menuOverlay.addEventListener('click', closeMenu);
+            spLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+            // 2. スクロールに応じたふわっとフェードイン演出（Intersection Observer）
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        obs.unobserve(entry.target); // 一度表示されたら監視解除
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            fadeElements.forEach(el => observer.observe(el));
+
+            // 3. トップへ戻るボタン表示制御
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 400) {
+                    backToTop.classList.add('show');
+                } else {
+                    backToTop.classList.remove('show');
+                }
+            });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

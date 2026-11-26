@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SALON &amp; ACCESS（サロン案内・アクセス） | Hair Salon RICHE 表参道</title>
+  <meta name="description"
+    content="表参道駅A2出口より徒歩3分。大人の女性のためのプライベートヘアサロン「Hair Salon RICHE（ヘアサロン リッシュ）」の店舗空間、所在地、営業時間、アクセス詳細をご案内します。">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+JP:wght@300;400;500;600&family=Shippori+Mincho:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+  <!-- ==========================================================================
+       ヘッダー（全ページ共通）
+       ========================================================================== -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        <span class="header__logo-text">Hair Salon <span>RICHE</span></span>
+        <span class="header__logo-sub">Omotesando</span>
+      </a>
+
+      <nav class="header__nav">
+        <ul class="header__menu">
+          <li><a href="index.html" class="header__menu-link">TOP</a></li>
+          <li><a href="menu.html" class="header__menu-link">MENU &amp; PRICE</a></li>
+          <li><a href="salon.html" class="header__menu-link is-active">SALON</a></li>
+        </ul>
+
+        <div class="header__actions">
+          <button type="button" class="btn btn-primary header__btn-reserve" data-open-modal="reservation">WEB予約</button>
+          <!-- 【リンク差し替え箇所】サロン専用ホットペッパービューティーURL -->
+          <a href="https://beauty.hotpepper.jp/" target="_blank" rel="noopener noreferrer"
+            class="btn btn-hotpepper header__btn-hpb">HOT PEPPER</a>
+        </div>
+      </nav>
+
+      <button type="button" class="hamburger" aria-label="メニューを開く">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- スマホ用ドロワーメニュー -->
+  <div class="mobile-nav">
+    <ul class="mobile-nav__menu">
+      <li>
+        <a href="index.html" class="mobile-nav__link">
+          TOP
+          <span class="mobile-nav__sub">トップページ</span>
+        </a>
+      </li>
+      <li>
+        <a href="menu.html" class="mobile-nav__link">
+          MENU &amp; PRICE
+          <span class="mobile-nav__sub">メニュー＆料金</span>
+        </a>
+      </li>
+      <li>
+        <a href="salon.html" class="mobile-nav__link">
+          SALON
+          <span class="mobile-nav__sub">サロン案内・アクセス</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="mobile-nav__actions">
+      <button type="button" class="btn btn-primary" data-open-modal="reservation"
+        style="width: 100%;">公式WEB予約（限定特典付）</button>
+      <!-- 【リンク差し替え箇所】サロン専用ホットペッパービューティーURL -->
+      <a href="https://beauty.hotpepper.jp/" target="_blank" rel="noopener noreferrer" class="btn btn-hotpepper"
+        style="width: 100%;">HOT PEPPER 予約</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         サブページ ヒーローセクション
+         ========================================================================== -->
+    <section class="subhero"
+      style="background-image: url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1920&q=80');">
+      <div class="subhero__overlay"></div>
+      <div class="subhero__content">
+        <h1 class="subhero__title">SALON &amp; ACCESS</h1>
+        <p class="subhero__sub">サロン案内・店内空間・アクセス</p>
+        <div class="breadcrumb">
+          <a href="index.html">HOME</a>
+          <span>/</span>
+          <span>SALON &amp; ACCESS</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         店内空間の紹介（ギャラリー）
+         ========================================================================== -->
+    <section class="section-salon-space">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-header__en">INTERIOR &amp; ATMOSPHERE</span>
+          <span class="section-header__ja">洗練された寛ぎの空間</span>
+          <div class="section-header__divider"></div>
+        </div>
+
+        <div class="salon-space-grid">
+          <!-- 空間1: セット面 -->
+          <div class="salon-space-card fade-in">
+            <div class="salon-space-card__img-wrap">
+              <!-- 【画像差し替え箇所】セット面の写真（推奨: 600×400px） -->
+              <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=800&q=80"
+                alt="半個室プライベートセット面" class="salon-space-card__img">
+            </div>
+            <div class="salon-space-card__body">
+              <h3 class="salon-space-card__title">半個室プライベートブース</h3>
+              <p class="salon-space-card__desc">
+                隣の席との間隔を贅沢に取り、柔らかな仕切りを設けた半個室空間。周囲の視線を気にすることなく、心からリラックスして施術をお受けいただけます。
+              </p>
+            </div>
+          </div>
+
+          <!-- 空間2: シャンプーブース -->
+          <div class="salon-space-card fade-in">
+            <div class="salon-space-card__img-wrap">
+              <!-- 【画像差し替え箇所】シャンプーブースの写真（推奨: 600×400px） -->
+              <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80"
+                alt="フルフラットシャンプー台 YUME SUITE" class="salon-space-card__img">
+            </div>
+            <div class="salon-space-card__body">
+              <h3 class="salon-space-card__title">フルフラットシャンプー YUME SUITE</h3>
+              <p class="salon-space-card__desc">
+                照明の照度を落としたヒーリング空間に、タカラベルモント最高峰「YUME SUITE」を配備。首や腰に負担をかけず、包み込まれるような極上の寝心地をお届けします。
+              </p>
+            </div>
+          </div>
+
+          <!-- 空間3: レセプション・待合 -->
+          <div class="salon-space-card fade-in">
+            <div class="salon-space-card__img-wrap">
+              <!-- 【画像差し替え箇所】受付・カウンセリングエリアの写真（推奨: 600×400px） -->
+              <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=800&q=80"
+                alt="レセプション＆カウンセリングラウンジ" class="salon-space-card__img">
+            </div>
+            <div class="salon-space-card__body">
+              <h3 class="salon-space-card__title">カウンセリングラウンジ</h3>
+              <p class="salon-space-card__desc">
+                厳選されたウェルカムハーブティーと心地よいアロマでお迎え。施術前にマイクロスコープによる毛髪・頭皮診断を行い、お悩みを丁寧にお伺いします。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         サロン基本情報 ＆ アクセス案内
+         ========================================================================== -->
+    <section class="section-salon-info">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-header__en">INFORMATION &amp; ACCESS</span>
+          <span class="section-header__ja">店舗情報・アクセス</span>
+          <div class="section-header__divider"></div>
+        </div>
+
+        <div class="salon-info-wrapper">
+          <!-- サロン情報テーブル -->
+          <div class="fade-in">
+            <table class="salon-table">
+              <tbody>
+                <tr>
+                  <th>サロン名</th>
+                  <td><strong>Hair Salon RICHE（ヘアサロン リッシュ）</strong></td>
+                </tr>
+                <tr>
+                  <th>オーナースタイリスト</th>
+                  <td>田中 翔（SHO TANAKA）</td>
+                </tr>
+                <tr>
+                  <th>所在地</th>
+                  <td>
+                    〒150-0001<br>
+                    東京都渋谷区神宮前4丁目XX-XX 表参道テラス 2F<br>
+                    <small style="color: var(--color-text-muted);">※表参道ヒルズ裏手の閑静な通り沿いにございます。</small>
+                  </td>
+                </tr>
+                <tr>
+                  <th>電話番号</th>
+                  <td>
+                    <!-- 【電話番号差し替え箇所】 -->
+                    <a href="tel:03-1234-5678"
+                      style="font-weight: 600; color: var(--color-primary);">03-1234-5678</a><br>
+                    <small style="color: var(--color-text-muted);">※施術中はお電話に出られない場合がございます。WEB予約のご利用を推奨しております。</small>
+                  </td>
+                </tr>
+                <tr>
+                  <th>営業時間</th>
+                  <td>
+                    平日：11:00 〜 21:00（最終カット受付 20:00）<br>
+                    土日祝：10:00 〜 20:00（最終カット受付 19:00）
+                  </td>
+                </tr>
+                <tr>
+                  <th>定休日</th>
+                  <td>毎週火曜日・第3水曜日</td>
+                </tr>
+                <tr>
+                  <th>席数</th>
+                  <td>セット面 6席（すべて半個室） / シャンプー台 3台</td>
+                </tr>
+                <tr>
+                  <th>決済方法</th>
+                  <td>
+                    クレジットカード（VISA / Master / JCB / AMEX / Diners）<br>
+                    電子マネー（Suica / PASMO / iD / QUICPay）<br>
+                    QRコード決済（PayPay / LINE Pay / 楽天ペイ）
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- アクセス案内 & Googleマップ埋め込みエリア -->
+          <div class="fade-in">
+            <div class="salon-access-box">
+              <h3 class="salon-access-box__title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                表参道駅からの徒歩ルート
+              </h3>
+
+              <div class="salon-access-route">
+                <div class="salon-access-route__step">
+                  <span class="salon-access-route__num">STEP 1</span>
+                  <p>東京メトロ銀座線・半蔵門線・千代田線<strong>「表参道駅」A2出口</strong>を出て、そのまま直進します（右手側にApple表参道が見えます）。</p>
+                </div>
+                <div class="salon-access-route__step">
+                  <span class="salon-access-route__num">STEP 2</span>
+                  <p>伊藤病院の手前の角を右に曲がり、原宿通り（まい泉通り）を約150m直進します。</p>
+                </div>
+                <div class="salon-access-route__step">
+                  <span class="salon-access-route__num">STEP 3</span>
+                  <p>左手に見えるガラス張りのデザイナーズビル「表参道テラス」の2Fが当サロンです。エレベーターで2階へお上がりください。</p>
+                </div>
+              </div>
+
+              <!-- Googleマップ埋め込みエリア（プレースホルダー） -->
+              <!-- 【Googleマップ差し替え箇所】正式なGoogle Mapsの「共有 > 地図を埋め込む」iframeコードに置き換えてください -->
+              <div class="map-container">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.393437517909!2d139.7088188764045!3d35.66731993077366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188ca298f98ec3%3A0x6b1b5e5f5f403e0!2z5p2x5Lqs6YO95riL6LC35Yy656We5a6u5YmN77yU5LiB55uu!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp"
+                  width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade" title="Hair Salon RICHE 所在地マップ">
+                </iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         全ページ共通：予約導線（CTAセクション）
+         ========================================================================== -->
+    <section class="section-cta">
+      <div class="container">
+        <div class="cta-box fade-in">
+          <h2 class="cta-box__title">RESERVATION</h2>
+          <p class="cta-box__sub">ご予約・お問い合わせ</p>
+          <p class="cta-box__text">
+            Hair Salon RICHEでは、ゆったりとお過ごしいただくため完全予約優先制となっております。<br>
+            当公式サイトからのWEB予約、またはホットペッパービューティーより24時間いつでもご予約いただけます。
+          </p>
+
+          <div class="cta-box__buttons">
+            <button type="button" class="btn btn-primary cta-box__btn" data-open-modal="reservation">
+              公式WEB予約（限定特典付）
+            </button>
+            <!-- 【リンク差し替え箇所】サロン専用ホットペッパービューティーURL -->
+            <a href="https://beauty.hotpepper.jp/" target="_blank" rel="noopener noreferrer"
+              class="btn btn-hotpepper cta-box__btn">
+              HOT PEPPER BEAUTY で予約
+            </a>
+          </div>
+
+          <div class="cta-box__tel">
+            <span>お電話でのご予約・お問い合わせ：</span>
+            <a href="tel:03-1234-5678">03-1234-5678</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       フッター（全ページ共通）
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">Hair Salon <span>RICHE</span></div>
+          <p class="footer-desc">
+            〒150-0001<br>
+            東京都渋谷区神宮前4丁目XX-XX 表参道テラス 2F<br>
+            表参道駅 A2出口より徒歩3分<br>
+            TEL: 03-1234-5678<br>
+            営業時間: 平日 11:00〜21:00 / 土日祝 10:00〜20:00<br>
+            定休日: 毎週火曜日・第3水曜日
+          </p>
+          <div class="footer-sns">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-sns__link"
+              aria-label="Instagram">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-links-wrap">
+          <div class="footer-col">
+            <h4 class="footer-col__title">PAGES</h4>
+            <ul class="footer-col__list">
+              <li><a href="index.html" class="footer-col__link">トップページ</a></li>
+              <li><a href="menu.html" class="footer-col__link">メニュー＆料金一覧</a></li>
+              <li><a href="salon.html" class="footer-col__link">サロン案内・アクセス</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col__title">RESERVATION</h4>
+            <ul class="footer-col__list">
+              <li><a href="#" class="footer-col__link" data-open-modal="reservation">公式WEB予約（特典付）</a></li>
+              <li><a href="https://beauty.hotpepper.jp/" target="_blank" rel="noopener noreferrer"
+                  class="footer-col__link">HOT PEPPER BEAUTY</a></li>
+              <li><a href="tel:03-1234-5678" class="footer-col__link">電話予約：03-1234-5678</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; Hair Salon RICHE. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- スマホ用 画面下部追従予約バー -->
+  <aside class="floating-reserve-bar">
+    <div class="floating-reserve-bar__inner">
+      <button type="button" class="btn btn-primary floating-reserve-bar__btn" data-open-modal="reservation">
+        公式WEB予約
+      </button>
+      <a href="https://beauty.hotpepper.jp/" target="_blank" rel="noopener noreferrer"
+        class="btn btn-hotpepper floating-reserve-bar__btn">
+        HOT PEPPER 予約
+      </a>
+    </div>
+  </aside>
+
+  <!-- 自社WEB予約モーダル -->
+  <div class="modal-overlay" id="webReservationModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-container">
+      <button type="button" class="modal-close" aria-label="予約画面を閉じる">&times;</button>
+
+      <div class="modal-header">
+        <h3 class="modal-header__title" id="modalTitle">OFFICIAL RESERVATION</h3>
+        <p class="modal-header__sub">公式WEB予約リクエスト</p>
+      </div>
+
+      <div class="modal-benefit-alert">
+        ✨ <strong>公式HP予約限定特典</strong>：炭酸ヘッドスパ（15分）を無料プレゼント中
+      </div>
+
+      <form id="reservationForm">
+        <div class="form-group">
+          <label class="form-label" for="reserveStylist">希望スタイリスト<span class="required">※必須</span></label>
+          <select id="reserveStylist" class="form-control" required>
+            <option value="">指名なし（最も早くご案内できるスタッフ）</option>
+            <option value="田中 翔">田中 翔（オーナースタイリスト）</option>
+            <option value="高橋 愛">高橋 愛（チーフスタイリスト）</option>
+            <option value="佐藤 健人">佐藤 健人（トップスタイリスト）</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reserveMenu">希望メニュー<span class="required">※必須</span></label>
+          <select id="reserveMenu" class="form-control" required>
+            <option value="">メニューを選択してください</option>
+            <option value="カット">デザイナーズカット ¥7,700（税込）</option>
+            <option value="カット＋カラー">カット ＋ イルミナ＆高濃度美容液カラー ¥17,600（税込）</option>
+            <option value="カット＋カラー＋髪質改善">カット ＋ カラー ＋ 最高峰RICHE髪質改善TR ¥28,600（税込）</option>
+            <option value="カット＋パーマ">カット ＋ 低温コスメデジタルパーマ ¥22,000（税込）</option>
+            <option value="髪質改善トリートメント">最高峰RICHE髪質改善トリートメント ¥13,200（税込）</option>
+            <option value="その他・ご相談">ご来店後にスタイリストと相談して決める</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reserveDate">希望日時<span class="required">※必須</span></label>
+          <input type="datetime-local" id="reserveDate" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="customerName">お名前<span class="required">※必須</span></label>
+          <input type="text" id="customerName" class="form-control" placeholder="例：表参道 花子" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="customerTel">お電話番号<span class="required">※必須</span></label>
+          <input type="tel" id="customerTel" class="form-control" placeholder="例：090-1234-5678" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="customerEmail">メールアドレス<span class="required">※必須</span></label>
+          <input type="email" id="customerEmail" class="form-control" placeholder="例：example@riche-salon.jp" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="customerNotes">ご要望・髪のお悩み（任意）</label>
+          <textarea id="customerNotes" class="form-control" rows="3"
+            placeholder="髪のクセやダメージ、静かに過ごしたいなどご要望があればご記入ください。"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary form-submit-btn">上記内容で予約をリクエストする</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>

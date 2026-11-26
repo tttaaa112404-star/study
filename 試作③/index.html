@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="株式会社NextBridgeは、BtoB向けSaaSプロダクトを開発・提供するテクノロジー企業です。導入企業1,200社突破。業務効率化・DXを支援します。">
+  <title>株式会社NextBridge（ネクストブリッジ） | BtoB SaaSで次のビジネスへ</title>
+  <!-- Google Fonts：Inter & Noto Sans JP -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==================================================================
+       共通ヘッダー（全ページ共通 / ロゴは .brand-name テキストを差し替え）
+       ================================================================== -->
+  <header class="header" role="banner">
+    <div class="container header-container">
+
+      <!-- ▼ ロゴエリア ▼ -->
+      <!-- ロゴ画像に差し替える場合: .brand-icon の内容と .brand-name テキストを変更 -->
+      <a href="index.html" class="brand-logo" aria-label="NextBridge ホームへ">
+        <div class="brand-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <!-- ロゴ文字: 後から画像に差し替えやすいよう別要素で管理 -->
+          <span class="brand-name">NextBridge</span>
+          <span class="brand-sub">株式会社ネクストブリッジ</span>
+        </div>
+      </a>
+      <!-- ▲ ロゴエリア ▲ -->
+
+      <!-- ハンバーガーボタン（SP用） -->
+      <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="globalNav">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <!-- グローバルナビゲーション -->
+      <nav id="globalNav" aria-label="グローバルナビゲーション">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">トップ</a></li>
+          <li><a href="service.html" class="nav-link">サービス紹介</a></li>
+          <li><a href="about.html" class="nav-link">会社概要</a></li>
+          <li><a href="recruit.html" class="nav-link">採用情報</a></li>
+          <li><a href="contact.html" class="nav-link">お問い合わせ</a></li>
+        </ul>
+      </nav>
+
+      <!-- ヘッダー右側CTA -->
+      <div class="header-cta-group">
+        <a href="contact.html" class="btn btn-primary btn-sm btn-header-cta">お問い合わせ</a>
+      </div>
+    </div>
+  </header>
+  <!-- / ヘッダー -->
+
+
+  <main>
+
+    <!-- ==================================================================
+         1. ヒーローセクション
+         - キャッチコピー、CTA（資料請求・お問い合わせ）
+         - 控えめなグリッドパターン＋グローグラデーション背景アニメーション
+         ================================================================== -->
+    <section class="hero" aria-label="メインビジュアル">
+      <!-- 背景装飾（アニメーション） -->
+      <div class="hero-bg-pattern" aria-hidden="true"></div>
+      <div class="hero-glow-1" aria-hidden="true"></div>
+      <div class="hero-glow-2" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="hero-grid">
+          <!-- ヒーロー左：テキスト＆CTA -->
+          <div class="hero-content">
+            <div class="hero-badge">
+              <span class="hero-badge-dot" aria-hidden="true"></span>
+              新しいBtoBビジネスの標準を、ともに。
+            </div>
+
+            <!-- ▼ キャッチコピー ▼ 後から自由に変更可能 -->
+            <h1 class="hero-title">
+              ビジネスをつなぎ、<br>
+              <span class="hero-title-accent">次のステージへ。</span>
+            </h1>
+            <!-- ▲ キャッチコピー ▲ -->
+
+            <p class="hero-desc">
+              NextBridgeは、企業間のビジネスプロセスを革新するBtoB特化型SaaSを開発・提供しています。<br>
+              受発注・契約・データ分析──あらゆる業務を一気通貫でデジタル化し、あなたの企業の成長を加速させます。
+            </p>
+
+            <div class="hero-cta">
+              <a href="contact.html" class="btn btn-primary btn-lg">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.42 2 2 0 0 1 3.6 1.26h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9A16 16 0 0 0 15 16.09l1.09-1.14a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                まずはお問い合わせ
+              </a>
+              <a href="service.html" class="btn btn-secondary btn-lg">
+                サービスを詳しく見る
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+
+            <div class="hero-tags" aria-label="特徴タグ">
+              <span class="hero-tag-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                導入最短2週間
+              </span>
+              <span class="hero-tag-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                専任サポート付き
+              </span>
+              <span class="hero-tag-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                セキュリティ認証取得済み
+              </span>
+            </div>
+          </div>
+
+          <!-- ヒーロー右：ビジュアルカード（ダッシュボード風モック） -->
+          <div class="hero-visual">
+            <!-- 浮動バッジ（上右） -->
+            <div class="floating-metric-badge top-right fade-in delay-3">
+              <div class="metric-badge-icon success" aria-hidden="true">📈</div>
+              <div class="metric-badge-info">
+                <div class="badge-label">月間アクティブ企業</div>
+                <div class="badge-val">1,200<span style="font-size:0.875rem">社+</span></div>
+              </div>
+            </div>
+
+            <!-- メインカード -->
+            <div class="hero-card-main fade-in delay-2">
+              <div class="hero-card-header">
+                <div class="window-dots" aria-hidden="true">
+                  <span class="window-dot"></span>
+                  <span class="window-dot"></span>
+                  <span class="window-dot"></span>
+                </div>
+                <span style="font-size:0.75rem;color:#94A3B8;font-family:'Inter',sans-serif;">NextBridge Dashboard</span>
+              </div>
+              <!-- ▼ ヒーロー画像 ▼ Unsplash: オフィス・テクノロジー系 -->
+              <img
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=760&auto=format&fit=crop&q=80"
+                alt="NextBridgeのダッシュボード画面イメージ"
+                class="hero-card-img"
+                loading="eager"
+              >
+              <!-- ▲ ヒーロー画像（差し替え可：src="images/hero-dashboard.jpg" などに変更） ▲ -->
+            </div>
+
+            <!-- 浮動バッジ（下左） -->
+            <div class="floating-metric-badge bottom-left fade-in delay-4">
+              <div class="metric-badge-icon" aria-hidden="true">⚡</div>
+              <div class="metric-badge-info">
+                <div class="badge-label">継続率</div>
+                <div class="badge-val">99.2<span style="font-size:0.875rem">%</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- / ヒーロー -->
+
+
+    <!-- ==================================================================
+         2. 数字で見る実績（信頼感のコア・目立つ位置に配置）
+         ================================================================== -->
+    <section class="metrics-section" aria-label="主要実績データ">
+      <div class="container">
+        <dl class="metrics-grid">
+
+          <div class="metric-item">
+            <dt class="metric-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              導入企業数
+            </dt>
+            <dd class="metric-number">
+              <span data-count="1200" aria-label="1,200社突破">0</span><span class="metric-unit">社突破</span>
+            </dd>
+            <dd class="metric-note">累計・2026年11月時点</dd>
+          </div>
+
+          <div class="metric-item">
+            <dt class="metric-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              サービス継続率
+            </dt>
+            <dd class="metric-number">
+              <span data-count="99.2" aria-label="99.2%">0</span><span class="metric-unit accent">%</span>
+            </dd>
+            <dd class="metric-note">年間平均・直近3ヶ年</dd>
+          </div>
+
+          <div class="metric-item">
+            <dt class="metric-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              平均業務削減時間
+            </dt>
+            <dd class="metric-number">
+              <span data-count="45" aria-label="45%">0</span><span class="metric-unit">%</span>
+            </dd>
+            <dd class="metric-note">導入後6ヶ月比較・顧客調査</dd>
+          </div>
+
+          <div class="metric-item">
+            <dt class="metric-title">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              顧客満足度
+            </dt>
+            <dd class="metric-number">
+              <span data-count="4.8" aria-label="4.8点">0</span><span class="metric-unit"> / 5.0</span>
+            </dd>
+            <dd class="metric-note">NPS調査・直近12ヶ月平均</dd>
+          </div>
+
+        </dl>
+      </div>
+    </section>
+    <!-- / 実績数字 -->
+
+
+    <!-- ==================================================================
+         3. サービス紹介（3プロダクト概要）
+         ================================================================== -->
+    <section class="section" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Our Services</span>
+          <h2 class="section-title" id="services-heading">3つのSaaSプロダクトで<br>ビジネスを革新する</h2>
+          <p class="section-lead">受発注・契約・データ分析それぞれの領域に特化したプロダクトを通じ、企業間のビジネスプロセス全体をシームレスに繋げます。</p>
+        </div>
+
+        <div class="services-grid">
+
+          <!-- サービス1: BridgeOrder -->
+          <article class="service-card fade-in delay-1">
+            <div class="service-card-media">
+              <!-- ▼ サービス1画像（差し替え可：src="images/service-01.jpg" などに変更） ▼ -->
+              <img
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=75"
+                alt="BridgeOrder：BtoB受発注管理システムのイメージ"
+                loading="lazy"
+              >
+              <!-- ▲ サービス1画像 ▲ -->
+              <span class="service-category-badge">受発注管理</span>
+            </div>
+            <div class="service-card-body">
+              <h3 class="service-card-title">
+                BridgeOrder
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </h3>
+              <p class="service-card-desc">紙・FAX・電話による非効率な受発注業務をクラウドで一元管理。発注から納品まで可視化し、ヒューマンエラーをゼロに近づけます。</p>
+              <ul class="service-features-list" aria-label="主な機能">
+                <li class="service-feature-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  ステータスリアルタイム追跡
+                </li>
+                <li class="service-feature-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  EDI・基幹システム連携API
+                </li>
+                <li class="service-feature-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  平均40%の処理時間削減
+                </li>
+              </ul>
+              <div class="service-card-footer">
+                <a href="service.html#bridge-order" class="btn btn-secondary" style="width:100%">詳細を見る</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- サービス2: BridgeSign -->
+          <article class="service-card fade-in delay-2">
+            <div class="service-card-media">
+              <!-- ▼ サービス2画像（差し替え可） ▼ -->
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop&q=75"
+                alt="BridgeSign：電子契約・電子署名システムのイメージ"
+                loading="lazy"
+              >
+              <!-- ▲ サービス2画像 ▲ -->
+              <span class="service-category-badge">電子契約</span>
+            </div>
+            <div class="service-card-body">
+              <h3 class="service-card-title">
+                BridgeSign
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </h3>
+              <p class="service-card-desc">法的効力を持つ電子署名で、契約プロセスをデジタル完結。印紙代・郵送コストの削減と、契約締結スピードを劇的に向上させます。</p>
+              <ul class="service-features-list" aria-label="主な機能">
+                <li class="service-feature-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  電子帳簿保存法・e-文書法対応
+                </li>
+                <li class="service-feature-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  多段階承認ワークフロー
+                </li>
+                <li class="service-feature-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  契約締結期間 平均80%短縮
+                </li>
+              </ul>
+              <div class="service-card-footer">
+                <a href="service.html#bridge-sign" class="btn btn-secondary" style="width:100%">詳細を見る</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- サービス3: BridgeInsight -->
+          <article class="service-card fade-in delay-3">
+            <div class="service-card-media">
+              <!-- ▼ サービス3画像（差し替え可） ▼ -->
+              <img
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop&q=75"
+                alt="BridgeInsight：BtoB向けデータ分析・BIツールのイメージ"
+                loading="lazy"
+              >
+              <!-- ▲ サービス3画像 ▲ -->
+              <span class="service-category-badge">データ分析</span>
+            </div>
+            <div class="service-card-body">
+              <h3 class="service-card-title">
+                BridgeInsight
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </h3>
+              <p class="service-card-desc">散在する取引データを統合・可視化するBIダッシュボード。誰でも直感的に使えるノーコード分析で、意思決定の質とスピードを高めます。</p>
+              <ul class="service-features-list" aria-label="主な機能">
+                <li class="service-feature-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  ノーコードダッシュボード作成
+                </li>
+                <li class="service-feature-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  200以上のデータコネクタ
+                </li>
+                <li class="service-feature-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  レポート作成時間 60%削減
+                </li>
+              </ul>
+              <div class="service-card-footer">
+                <a href="service.html#bridge-insight" class="btn btn-secondary" style="width:100%">詳細を見る</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div style="text-align:center;margin-top:48px;">
+          <a href="service.html" class="btn btn-navy btn-lg">すべてのサービスを見る</a>
+        </div>
+      </div>
+    </section>
+    <!-- / サービス紹介 -->
+
+
+    <!-- ==================================================================
+         4. お客様の声（3社分）
+         ================================================================== -->
+    <section class="section section-sub" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Customer Voice</span>
+          <h2 class="section-title" id="testimonials-heading">導入企業の声</h2>
+          <p class="section-lead">NextBridgeを選んでいただいたお客様から、リアルな導入効果をお聞きしました。</p>
+        </div>
+
+        <div class="testimonials-grid">
+
+          <!-- 声1 -->
+          <article class="testimonial-card fade-in delay-1">
+            <div>
+              <span class="testimonial-metric">受発注処理時間 42%削減</span>
+              <blockquote class="testimonial-quote">
+                「導入前は毎朝1時間以上かかっていたFAXの受発注確認作業が、今ではほぼゼロになりました。担当スタッフが本来の業務に集中できるようになり、チーム全体のパフォーマンスが大きく上がっています。」
+              </blockquote>
+            </div>
+            <footer class="testimonial-author">
+              <!-- ▼ 顧客アバター画像（Unsplash / 後から実際の写真に差し替え可） ▼ -->
+              <img
+                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&auto=format&fit=crop&q=80"
+                alt="山田 誠一様の写真"
+                class="author-avatar"
+                loading="lazy"
+              >
+              <!-- ▲ 顧客アバター画像 ▲ -->
+              <div class="author-info">
+                <div class="author-company">株式会社東和商事</div>
+                <div class="author-name">山田 誠一 様</div>
+                <div class="author-role">執行役員 購買・物流本部長</div>
+              </div>
+            </footer>
+          </article>
+
+          <!-- 声2 -->
+          <article class="testimonial-card fade-in delay-2">
+            <div>
+              <span class="testimonial-metric">契約締結期間 75%短縮</span>
+              <blockquote class="testimonial-quote">
+                「BridgeSignを使って契約の電子化を進めたところ、平均2週間かかっていた契約締結が最短3〜4日で完了できるようになりました。印紙代・郵送コストの削減効果も年間で数百万円規模です。」
+              </blockquote>
+            </div>
+            <footer class="testimonial-author">
+              <img
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&auto=format&fit=crop&q=80"
+                alt="田中 亜希子様の写真"
+                class="author-avatar"
+                loading="lazy"
+              >
+              <div class="author-info">
+                <div class="author-company">マルフク産業株式会社</div>
+                <div class="author-name">田中 亜希子 様</div>
+                <div class="author-role">法務部 部長</div>
+              </div>
+            </footer>
+          </article>
+
+          <!-- 声3 -->
+          <article class="testimonial-card fade-in delay-3">
+            <div>
+              <span class="testimonial-metric">売上予測精度 38%向上</span>
+              <blockquote class="testimonial-quote">
+                「BridgeInsightで過去の取引データと市場データを統合分析できるようになり、売上予測の精度が格段に上がりました。経営会議の資料作成にかける時間が激減し、意思決定の質も高まっています。」
+              </blockquote>
+            </div>
+            <footer class="testimonial-author">
+              <img
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80"
+                alt="佐藤 健太様の写真"
+                class="author-avatar"
+                loading="lazy"
+              >
+              <div class="author-info">
+                <div class="author-company">ライズテック株式会社</div>
+                <div class="author-name">佐藤 健太 様</div>
+                <div class="author-role">経営企画部 マネージャー</div>
+              </div>
+            </footer>
+          </article>
+
+        </div>
+      </div>
+    </section>
+    <!-- / お客様の声 -->
+
+
+    <!-- ==================================================================
+         5. ニュース・プレスリリース
+         ================================================================== -->
+    <section class="section" aria-labelledby="news-heading">
+      <div class="container">
+        <div class="section-header" style="text-align:left;margin-bottom:40px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+            <div>
+              <span class="section-tag">News &amp; Press</span>
+              <h2 class="section-title" id="news-heading" style="margin-bottom:0;">最新情報</h2>
+            </div>
+            <a href="#" class="btn btn-secondary">すべて見る</a>
+          </div>
+        </div>
+
+        <div class="news-container" style="max-width:100%;">
+          <ul class="news-list" role="list">
+
+            <li class="news-item fade-in">
+              <time class="news-date" datetime="2026-11-15">2026.11.15</time>
+              <span class="news-badge press">プレスリリース</span>
+              <span class="news-title">BridgeOrder v3.0 リリース──AI需要予測機能を標準搭載</span>
+              <svg class="news-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </li>
+
+            <li class="news-item fade-in delay-1">
+              <time class="news-date" datetime="2026-11-01">2026.11.01</time>
+              <span class="news-badge">お知らせ</span>
+              <span class="news-title">NextBridgeが「2026年度 DXアワード」優秀賞を受賞しました</span>
+              <svg class="news-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </li>
+
+            <li class="news-item fade-in delay-2">
+              <time class="news-date" datetime="2026-10-20">2026.10.20</time>
+              <span class="news-badge press">プレスリリース</span>
+              <span class="news-title">シリーズBラウンドにて総額30億円の資金調達を完了</span>
+              <svg class="news-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </li>
+
+            <li class="news-item fade-in delay-3">
+              <time class="news-date" datetime="2026-10-05">2026.10.05</time>
+              <span class="news-badge">イベント</span>
+              <span class="news-title">「NextBridge DX Summit 2026」開催レポートを公開しました</span>
+              <svg class="news-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </li>
+
+            <li class="news-item fade-in delay-4">
+              <time class="news-date" datetime="2026-09-18">2026.09.18</time>
+              <span class="news-badge">お知らせ</span>
+              <span class="news-title">BridgeSign が電子帳簿保存法・改正対応を完了しました</span>
+              <svg class="news-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- / ニュース -->
+
+
+    <!-- ==================================================================
+         6. 採用情報ピックアップ
+         ================================================================== -->
+    <section class="section section-sub" aria-labelledby="recruit-heading">
+      <div class="container">
+        <div class="recruit-hero-box fade-in">
+          <!-- 左：採用メッセージ -->
+          <div class="recruit-hero-content">
+            <span class="section-tag" style="background:rgba(59,130,246,0.2);color:#93C5FD;">Career</span>
+            <h2 id="recruit-heading">次のビジネスを、<br>一緒につくりませんか。</h2>
+            <p>NextBridgeは今、次の成長ステージに向けて仲間を募集しています。エンジニア、デザイナー、ビジネス職──あなたの力でBtoBの世界を変えましょう。</p>
+            <a href="recruit.html" class="btn btn-primary btn-lg">採用情報を見る</a>
+          </div>
+          <!-- 右：ポジション一覧プレビュー -->
+          <div class="job-preview-list">
+            <a href="recruit.html#engineer" class="job-preview-item" style="color:#fff;">
+              <div>
+                <div class="job-preview-title">バックエンドエンジニア</div>
+                <div class="job-preview-type">正社員 / リモート可</div>
+              </div>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="recruit.html#frontend" class="job-preview-item" style="color:#fff;">
+              <div>
+                <div class="job-preview-title">フロントエンドエンジニア</div>
+                <div class="job-preview-type">正社員 / リモート可</div>
+              </div>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="recruit.html#sales" class="job-preview-item" style="color:#fff;">
+              <div>
+                <div class="job-preview-title">エンタープライズ営業</div>
+                <div class="job-preview-type">正社員 / 東京本社</div>
+              </div>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="recruit.html#csm" class="job-preview-item" style="color:#fff;">
+              <div>
+                <div class="job-preview-title">カスタマーサクセスマネージャー</div>
+                <div class="job-preview-type">正社員 / ハイブリッド</div>
+              </div>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- / 採用ピックアップ -->
+
+
+    <!-- ==================================================================
+         7. お問い合わせフォーム（トップページ版・簡易）
+         ================================================================== -->
+    <section class="section" id="contact-top" aria-labelledby="contact-top-heading">
+      <div class="container" style="max-width:860px;">
+        <div class="section-header">
+          <span class="section-tag">Contact</span>
+          <h2 class="section-title" id="contact-top-heading">お気軽にご相談ください</h2>
+          <p class="section-lead">資料請求・デモのご依頼・ご不明な点など、まずはお気軽にお問い合わせください。<br>担当者より2営業日以内にご連絡いたします。</p>
+        </div>
+
+        <div class="form-card fade-in">
+          <!-- ▼ お問い合わせフォーム（簡易版） ▼ -->
+          <form class="contact-form-js" novalidate aria-label="お問い合わせフォーム（簡易）">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+              <div class="form-group">
+                <label class="form-label" for="top-name">お名前<span class="form-badge-required">必須</span></label>
+                <input class="form-input" type="text" id="top-name" name="name" placeholder="山田 太郎" required autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="top-company">会社名<span class="form-badge-required">必須</span></label>
+                <input class="form-input" type="text" id="top-company" name="company" placeholder="株式会社〇〇" required autocomplete="organization">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="top-email">メールアドレス<span class="form-badge-required">必須</span></label>
+              <input class="form-input" type="email" id="top-email" name="email" placeholder="example@company.co.jp" required autocomplete="email">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="top-message">お問い合わせ内容<span class="form-badge-required">必須</span></label>
+              <textarea class="form-textarea" id="top-message" name="message" placeholder="ご質問・ご相談内容をご記入ください。" required rows="5"></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-check">
+                <input type="checkbox" name="privacy" required>
+                <span><a href="#" style="color:var(--color-accent);text-decoration:underline;">プライバシーポリシー</a>に同意する</span>
+              </label>
+            </div>
+            <div style="text-align:center;margin-top:8px;">
+              <button type="submit" class="btn btn-primary btn-lg" style="min-width:200px;">送信する</button>
+            </div>
+          </form>
+          <!-- ▲ お問い合わせフォーム ▲ -->
+        </div>
+      </div>
+    </section>
+    <!-- / お問い合わせフォーム -->
+
+  </main>
+
+
+  <!-- ==================================================================
+       共通フッター（全ページ共通）
+       ================================================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+
+        <!-- 会社情報 -->
+        <div>
+          <a href="index.html" class="brand-logo" style="color:#fff;">
+            <div class="brand-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <div class="brand-text">
+              <span class="brand-name" style="color:#fff;">NextBridge</span>
+              <span class="brand-sub">株式会社ネクストブリッジ</span>
+            </div>
+          </a>
+          <p class="footer-brand-desc">BtoB向けSaaSプロダクトを開発・提供するテクノロジー企業。受発注・契約・データ分析の3領域で、企業間ビジネスのDXを支援します。</p>
+          <!-- SNSリンク -->
+          <div class="footer-sns" aria-label="SNSリンク">
+            <a href="#" class="sns-btn" aria-label="X（旧Twitter）">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.713 5.892zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="sns-btn" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="#" class="sns-btn" aria-label="Wantedly">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.5 3h-13A2.5 2.5 0 0 0 3 5.5v13A2.5 2.5 0 0 0 5.5 21h13a2.5 2.5 0 0 0 2.5-2.5v-13A2.5 2.5 0 0 0 18.5 3zm-1.56 11.76l-2.19-6.52h2.06l1.14 3.72 1.1-3.72H21l-2.19 6.52h-1.87zm-5.44 0l-2.19-6.52h2.06l1.14 3.72 1.1-3.72h1.95l-2.19 6.52H11.5zm-5.44 0L3.87 8.24h2.06l1.14 3.72 1.1-3.72h1.95l-2.19 6.52H6.06z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- サイトマップ：サービス -->
+        <nav aria-label="フッターナビ：サービス">
+          <p class="footer-heading">サービス</p>
+          <ul class="footer-links">
+            <li><a href="service.html#bridge-order">BridgeOrder</a></li>
+            <li><a href="service.html#bridge-sign">BridgeSign</a></li>
+            <li><a href="service.html#bridge-insight">BridgeInsight</a></li>
+            <li><a href="contact.html">資料請求</a></li>
+          </ul>
+        </nav>
+
+        <!-- サイトマップ：会社 -->
+        <nav aria-label="フッターナビ：会社">
+          <p class="footer-heading">会社</p>
+          <ul class="footer-links">
+            <li><a href="about.html">会社概要</a></li>
+            <li><a href="about.html#mission">ミッション・ビジョン</a></li>
+            <li><a href="about.html#leadership">経営陣</a></li>
+            <li><a href="recruit.html">採用情報</a></li>
+          </ul>
+        </nav>
+
+        <!-- サイトマップ：サポート -->
+        <nav aria-label="フッターナビ：サポート">
+          <p class="footer-heading">サポート</p>
+          <ul class="footer-links">
+            <li><a href="contact.html">お問い合わせ</a></li>
+            <li><a href="#">よくある質問</a></li>
+            <li><a href="#">ヘルプセンター</a></li>
+            <li><a href="#">セキュリティ</a></li>
+          </ul>
+        </nav>
+
+      </div>
+
+      <!-- フッター下部 -->
+      <div class="footer-bottom">
+        <small>&copy; 2026 NextBridge, Inc. All rights reserved.</small>
+        <nav class="footer-legal-links" aria-label="法的リンク">
+          <a href="#">プライバシーポリシー</a>
+          <a href="#">利用規約</a>
+          <a href="#">特定商取引法に基づく表記</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+  <!-- / フッター -->
+
+  <script src="js/main.js"></script>
+</body>
+</html>

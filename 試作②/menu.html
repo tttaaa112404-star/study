@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MENU &amp; PRICE（メニュー＆料金） | Hair Salon RICHE 表参道</title>
+  <meta name="description"
+    content="表参道の美容サロン「Hair Salon RICHE（ヘアサロン リッシュ）」のメニュー・料金一覧。カット、カラー、パーマ、髪質改善トリートメントなど、すべて税込表記にてご案内しております。">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+JP:wght@300;400;500;600&family=Shippori+Mincho:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+  <!-- ==========================================================================
+       ヘッダー（全ページ共通）
+       ========================================================================== -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        <span class="header__logo-text">Hair Salon <span>RICHE</span></span>
+        <span class="header__logo-sub">Omotesando</span>
+      </a>
+
+      <nav class="header__nav">
+        <ul class="header__menu">
+          <li><a href="index.html" class="header__menu-link">TOP</a></li>
+          <li><a href="menu.html" class="header__menu-link is-active">MENU &amp; PRICE</a></li>
+          <li><a href="salon.html" class="header__menu-link">SALON</a></li>
+        </ul>
+
+        <div class="header__actions">
+          <button type="button" class="btn btn-primary header__btn-reserve" data-open-modal="reservation">WEB予約</button>
+          <!-- 【リンク差し替え箇所】サロン専用ホットペッパービューティーURL -->
+          <a href="https://beauty.hotpepper.jp/" target="_blank" rel="noopener noreferrer"
+            class="btn btn-hotpepper header__btn-hpb">HOT PEPPER</a>
+        </div>
+      </nav>
+
+      <button type="button" class="hamburger" aria-label="メニューを開く">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- スマホ用ドロワーメニュー -->
+  <div class="mobile-nav">
+    <ul class="mobile-nav__menu">
+      <li>
+        <a href="index.html" class="mobile-nav__link">
+          TOP
+          <span class="mobile-nav__sub">トップページ</span>
+        </a>
+      </li>
+      <li>
+        <a href="menu.html" class="mobile-nav__link">
+          MENU &amp; PRICE
+          <span class="mobile-nav__sub">メニュー＆料金</span>
+        </a>
+      </li>
+      <li>
+        <a href="salon.html" class="mobile-nav__link">
+          SALON
+          <span class="mobile-nav__sub">サロン案内・アクセス</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="mobile-nav__actions">
+      <button type="button" class="btn btn-primary" data-open-modal="reservation"
+        style="width: 100%;">公式WEB予約（限定特典付）</button>
+      <!-- 【リンク差し替え箇所】サロン専用ホットペッパービューティーURL -->
+      <a href="https://beauty.hotpepper.jp/" target="_blank" rel="noopener noreferrer" class="btn btn-hotpepper"
+        style="width: 100%;">HOT PEPPER 予約</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         サブページ ヒーローセクション
+         ========================================================================== -->
+    <section class="subhero"
+      style="background-image: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1920&q=80');">
+      <div class="subhero__overlay"></div>
+      <div class="subhero__content">
+        <h1 class="subhero__title">MENU &amp; PRICE</h1>
+        <p class="subhero__sub">メニュー＆料金一覧</p>
+        <div class="breadcrumb">
+          <a href="index.html">HOME</a>
+          <span>/</span>
+          <span>MENU &amp; PRICE</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         自社WEB予約限定キャンペーン・特典バナー
+         ========================================================================== -->
+    <aside class="section-benefit">
+      <div class="container">
+        <div class="benefit-card">
+          <div class="benefit-content">
+            <span class="benefit-badge">OFFICIAL WEB SPECIAL</span>
+            <h2 class="benefit-title">公式HPからのご予約限定 <span>「濃密炭酸ヘッドスパ（15分）」</span> を無料プレゼント</h2>
+            <p class="benefit-desc">当公式サイトからWEB予約いただいたすべてのお客様へ、髪と頭皮を芯から浄化する炭酸ヘッドスパをサービスいたします。</p>
+          </div>
+          <div class="benefit-action">
+            <button type="button" class="btn btn-primary" data-open-modal="reservation">今すぐ特典付きで予約</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ==========================================================================
+         メニュー一覧セクション（4カテゴリー）
+         ========================================================================== -->
+    <section class="section-menu-full">
+      <div class="container container--narrow">
+        <div class="menu-intro fade-in">
+          <p class="menu-intro__text">
+            Hair Salon RICHEでは、お客様の大切な髪と頭皮の未来を見据え、厳選された最高品質の薬剤と高度な技術のみをご提供しております。<br>
+            すべてのメニュー料金は<strong>「税込表記」</strong>となっております。丁寧なカウンセリングのもと、お一人おひとりのご要望に合わせた最適な施術プランをご提案いたします。
+          </p>
+        </div>
+
+        <!-- ① カット（CUT） -->
+        <section class="menu-category-block fade-in" id="cut">
+          <div class="menu-category-header">
+            <h2 class="menu-category-header__en">01. CUT</h2>
+            <span class="menu-category-header__ja">カット</span>
+          </div>
+
+          <div class="menu-list">
+            <!-- デザイナーズカット -->
+            <div class="menu-item">
+              <div class="menu-item__head">
+                <div class="menu-item__name-wrap">
+                  <h3 class="menu-item__name">デザイナーズカット</h3>
+                  <span class="menu-item__badge">定番人気</span>
+                </div>
+                <span class="menu-item__price">¥7,700<small>（税込）</small></span>
+              </div>
+              <p class="menu-item__desc">
+                シャンプー・ブロー込。骨格・毛流・毛量を見極め、お客様の美しさを最大限に引き出すオーダーメイドカット。翌朝からの再現性の高さをご実感いただけます。
+              </p>
+            </div>
+
+            <!-- オーナー田中翔 指名カット -->
+            <div class="menu-item">
+              <div class="menu-item__head">
+                <div class="menu-item__name-wrap">
+                  <h3 class="menu-item__name">オーナー田中翔 指名カット</h3>
+                  <span class="menu-item__badge">代表指名</span>
+                </div>
+                <span class="menu-item__price">¥9,900<small>（税込）</small></span>
+              </div>
+              <p class="menu-item__desc">
+                シャンプー・ブロー込。オーナースタイリスト田中翔によるプレミアムカット。大人の女性に向けた極上のショート・ボブや、凛とした横顔・うなじの美シルエットをご提案します。
+              </p>
+            </div>
+
+            <!-- 前髪・メンテナンスカット -->
+            <div class="menu-item">
+              <div class="menu-item__head">
+                <div class="menu-item__name-wrap">
+                  <h3 class="menu-item__name">フロント（前髪）デザインカット</h3>
+                </div>
+                <span class="menu-item__price">¥2,200<small>（税込）</small></span>
+              </div>
+              <p class="menu-item__desc">
+                お顔の印象を左右する前髪とフェイスラインの繊細な似合わせカット。伸ばしかけの方やお仕事帰りのメンテナンスにもおすすめです。（シャンプー別）
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ② カラー（COLOR） -->
+        <section class="menu-category-block fade-in" id="color">
+          <div class="menu-category-header">
+            <h2 class="menu-category-header__en">02. COLOR</h2>
+            <span class="menu-category-header__ja">カラー</span>
+          </div>
+
+          <div class="menu-list">
+            <!-- イルミナ＆高濃度美容液カラー -->
+            <div class="menu-item">
+              <div class="menu-item__head">
+                <div class="menu-item__name-wrap">
+                  <h3 class="menu-item__name">イルミナ＆高濃度美容液カラー</h3>
+                  <span class="menu-item__badge">おすすめ</span>
+                </div>
+                <span class="menu-item__price">¥9,900<small>（税込）</small></span>
+              </div>
+              <p class="menu-item__desc">
+                日本人特有の髪の赤みを打ち消し、光が溶け込むような透明感と滑らかな艶感を実現。美容液成分を贅沢に配合し、カラーと同時に毛髪補修を行います。
+              </p>
+            </div>
+
+            <!-- プレミアムオーガニックカラー -->
+            <div class="menu-item">
+              <div class="menu-item__head">
+                <div class="menu-item__name-wrap">
+                  <h3 class="menu-item__name">プレミアムオーガニックカラー（白髪染め対応）</h3>
+                </div>
+                <span class="menu-item__price">¥8,800<small>（税込）</small></span>
+              </div>
+              <p class="menu-item__desc">
+                92%天然由来のオーガニック成分配合。頭皮への刺激を最小限に抑えつつ、深みのある上品な色味と輝くような艶を与えます。大人のグレイカラーにも最適です。
+              </p>
+            </div>
+
+            <!-- シークレットハイライト / 3Dハイライト -->
+            <div class="menu-item">
+              <div class="menu-item__head">
+                <div class="menu-item__name-wrap">
+                  <h3 class="menu-item__name">大人のシークレットハイライト（フル）</h3>
+                  <span class="menu-item__badge">白髪ぼかし</span>
+                </div>
+                <span class="menu-item__price">¥12,100<small>（税込）</small></span>
+              </div>
+              <p class="menu-item__desc">
+                極細の毛束を計算して入れることで、自然な立体感と透明感をプラス。白髪を活かしたカラーリングや、髪をかき上げた時に上品に揺れる陰影をデザインします。
+              </p>
+            </div>
+
+            <!-- ケアブリーチ＆ダブルカラー -->
+            <div class="menu-item">
+              <div class="menu-item__head">
+                <div class="menu-item__name-wrap">
+                  <h3 class="menu-item__name">ケアブリーチ ＋ プレミアムダブルカラー</h3>
+                </div>
+                <span class="menu-item__price">¥18,700<small>（税込）</small></span>
+              </div>
+              <p class="menu-item__desc">
+                プレックス系処理剤で毛髪結合を強化しながら色素を脱色。ダメージを抑えつつ、まろやかなミルクティーベージュや淡いニュアンスグレージュを叶えます。
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ③ パーマ（PERM） -->
+        <section class="menu-category-block fade-in" id="perm">
+          <div class="menu-category-header">
+            <h2 class="menu-category-header__en">03. PERM</h2>
+            <span class="menu-category-header__ja">パーマ</span>
+          </div>
+
+          <div class="menu-list">
+            <!-- 低温コスメデジタルパーマ -->
+            <div class="menu-item">
+              <div class="menu-item__head">
+                <div class="menu-item__name-wrap">
+                  <h3 class="menu-item__name">低温コスメデジタルパーマ</h3>
+                  <span class="menu-item__badge">一番人気</span>
+                </div>
+                <span class="menu-item__price">¥14,300<small>（税込）</small></span>
+              </div>
+              <p class="menu-item__desc">
+                熱ダメージを与えない特殊な低温加温技術により、指先でくるくると乾かすだけでコテ巻きのような弾力カールが完成。柔らかな手触りが長持ちします。
+              </p>
+            </div>
+
+            <!-- ニュアンスコスメパーマ -->
+            <div class="menu-item">
+              <div class="menu-item__head">
+                <div class="menu-item__name-wrap">
+                  <h3 class="menu-item__name">デザインコスメパーマ</h3>
+                </div>
+                <span class="menu-item__price">¥9,900<small>（税込）</small></span>
+              </div>
+              <p class="menu-item__desc">
+                化粧品登録の優しい薬剤を使用し、トップの自然な立ち上がりや毛先のニュアンスウェーブを演出。ふんわりとした柔らかい女性らしさを引き立てます。
+              </p>
+            </div>
+
+            <!-- 美革・極上酸性ストレート -->
+            <div class="menu-item">
+              <div class="menu-item__head">
+                <div class="menu-item__name-wrap">
+                  <h3 class="menu-item__name">極上酸性ストレート（縮毛矯正）</h3>
+                  <span class="menu-item__badge">人気急上昇</span>
+                </div>
+                <span class="menu-item__price">¥22,000<small>（税込）</small></span>
+              </div>
+              <p class="menu-item__desc">
+                従来のアルカリ縮毛矯正とは異なり、髪本来の等電点（弱酸性）領域でじっくりとクセを伸ばします。まるで地毛のような自然な丸みと、絹のようなサラサラの手触りを実現。
+              </p>
+            </div>
+
+            <!-- 前髪・ポイントストレート -->
+            <div class="menu-item">
+              <div class="menu-item__head">
+                <div class="menu-item__name-wrap">
+                  <h3 class="menu-item__name">ポイント前髪酸性ストレート</h3>
+                </div>
+                <span class="menu-item__price">¥7,700<small>（税込）</small></span>
+              </div>
+              <p class="menu-item__desc">
+                汗や湿気でうねりやすい前髪やもみあげ部分だけをピンポイントで滑らかに。自然に流れるナチュラルなストレートに仕上げます。
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ④ トリートメント（TREATMENT） -->
+        <section class="menu-category-block fade-in" id="treatment">
+          <div class="menu-category-header">
+            <h2 class="menu-category-header__en">04. TREATMENT</h2>
+            <span class="menu-category-header__ja">トリートメント</span>
+          </div>
+
+          <div class="menu-list">
+            <!-- 最高峰RICHE髪質改善トリートメント -->
+            <div class="menu-item">
+              <div class="menu-item__head">
+                <div class="menu-item__name-wrap">
+                  <h3 class="menu-item__name">最高峰RICHE髪質改善酸熱トリートメント</h3>
+                  <span class="menu-item__badge">極上ケア</span>
+                </div>
+                <span class="menu-item__price">¥13,200<small>（税込）</small></span>
+              </div>
+              <p class="menu-item__desc">
+                グリオキシル酸とレブリン酸を独自ブレンド。アイロンの熱反応で毛髪内部に新たな結合を生成し、年齢によるうねりやブリーチ毛のダメージを芯から補修して輝く艶を与えます。
+              </p>
+            </div>
+
+            <!-- 5Step システムオージュアトリートメント -->
+            <div class="menu-item">
+              <div class="menu-item__head">
+                <div class="menu-item__name-wrap">
+                  <h3 class="menu-item__name">5Step プレミアムオーダートリートメント</h3>
+                </div>
+                <span class="menu-item__price">¥7,700<small>（税込）</small></span>
+              </div>
+              <p class="menu-item__desc">
+                お一人おひとりの髪質やダメージレベルに合わせて数千通りの組み合わせから選定。超音波アイロン「ケアプロ」を用いて有効成分を毛髪深部まで瞬間浸透させます。
+              </p>
+            </div>
+
+            <!-- スカルプ炭酸アロマスパ -->
+            <div class="menu-item">
+              <div class="menu-item__head">
+                <div class="menu-item__name-wrap">
+                  <h3 class="menu-item__name">極上アロマスカルプスパ（30分）</h3>
+                </div>
+                <span class="menu-item__price">¥6,600<small>（税込）</small></span>
+              </div>
+              <p class="menu-item__desc">
+                高濃度炭酸泉とオーガニックエッセンシャルオイルを使用。頭皮の毛穴汚れをすっきり除去し、筋膜リリース手技で首・肩・頭皮のコリを深くほぐす至福のリラクゼーション。
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 施術に関するご案内・注記 -->
+        <div class="menu-notice-box fade-in">
+          <h3 class="menu-notice-box__title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            施術・料金に関するご案内
+          </h3>
+          <ul class="menu-notice-box__list">
+            <li>・単品メニュー（カラーのみ、トリートメントのみ等）をご利用の場合、別途シャンプー・ブロー料金 ¥3,300（税込）を頂戴いたします。</li>
+            <li>・ロング料金：ミディアム（鎖骨まで）＋¥1,100（税込） / ロング（胸上まで）＋¥2,200（税込） / スーパーロング＋¥3,300（税込）</li>
+            <li>・施術日より10日間のスタイル技術保証期間を設けております。気になる点がございましたらお気兼ねなくお申し付けください。</li>
+            <li>・クレジットカード（VISA / Master / JCB / AMEX / Diners）、各種QRコード決済に対応しております。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         全ページ共通：予約導線（CTAセクション）
+         ========================================================================== -->
+    <section class="section-cta">
+      <div class="container">
+        <div class="cta-box fade-in">
+          <h2 class="cta-box__title">RESERVATION</h2>
+          <p class="cta-box__sub">ご予約・お問い合わせ</p>
+          <p class="cta-box__text">
+            メニュー選びに迷われているお客様も、当日のカウンセリングにてスタイリストが最適なプランをご提案いたします。<br>
+            当公式サイトWEB予約、またはホットペッパービューティーよりお気軽にご予約ください。
+          </p>
+
+          <div class="cta-box__buttons">
+            <button type="button" class="btn btn-primary cta-box__btn" data-open-modal="reservation">
+              公式WEB予約（限定特典付）
+            </button>
+            <!-- 【リンク差し替え箇所】サロン専用ホットペッパービューティーURL -->
+            <a href="https://beauty.hotpepper.jp/" target="_blank" rel="noopener noreferrer"
+              class="btn btn-hotpepper cta-box__btn">
+              HOT PEPPER BEAUTY で予約
+            </a>
+          </div>
+
+          <div class="cta-box__tel">
+            <span>お電話でのご予約・お問い合わせ：</span>
+            <a href="tel:03-1234-5678">03-1234-5678</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       フッター（全ページ共通）
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">Hair Salon <span>RICHE</span></div>
+          <p class="footer-desc">
+            〒150-0001<br>
+            東京都渋谷区神宮前4丁目XX-XX 表参道テラス 2F<br>
+            表参道駅 A2出口より徒歩3分<br>
+            TEL: 03-1234-5678<br>
+            営業時間: 平日 11:00〜21:00 / 土日祝 10:00〜20:00<br>
+            定休日: 毎週火曜日・第3水曜日
+          </p>
+          <div class="footer-sns">
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="footer-sns__link"
+              aria-label="Instagram">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-links-wrap">
+          <div class="footer-col">
+            <h4 class="footer-col__title">PAGES</h4>
+            <ul class="footer-col__list">
+              <li><a href="index.html" class="footer-col__link">トップページ</a></li>
+              <li><a href="menu.html" class="footer-col__link">メニュー＆料金一覧</a></li>
+              <li><a href="salon.html" class="footer-col__link">サロン案内・アクセス</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col__title">RESERVATION</h4>
+            <ul class="footer-col__list">
+              <li><a href="#" class="footer-col__link" data-open-modal="reservation">公式WEB予約（特典付）</a></li>
+              <li><a href="https://beauty.hotpepper.jp/" target="_blank" rel="noopener noreferrer"
+                  class="footer-col__link">HOT PEPPER BEAUTY</a></li>
+              <li><a href="tel:03-1234-5678" class="footer-col__link">電話予約：03-1234-5678</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; Hair Salon RICHE. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- スマホ用 画面下部追従予約バー -->
+  <aside class="floating-reserve-bar">
+    <div class="floating-reserve-bar__inner">
+      <button type="button" class="btn btn-primary floating-reserve-bar__btn" data-open-modal="reservation">
+        公式WEB予約
+      </button>
+      <a href="https://beauty.hotpepper.jp/" target="_blank" rel="noopener noreferrer"
+        class="btn btn-hotpepper floating-reserve-bar__btn">
+        HOT PEPPER 予約
+      </a>
+    </div>
+  </aside>
+
+  <!-- 自社WEB予約モーダル -->
+  <div class="modal-overlay" id="webReservationModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-container">
+      <button type="button" class="modal-close" aria-label="予約画面を閉じる">&times;</button>
+
+      <div class="modal-header">
+        <h3 class="modal-header__title" id="modalTitle">OFFICIAL RESERVATION</h3>
+        <p class="modal-header__sub">公式WEB予約リクエスト</p>
+      </div>
+
+      <div class="modal-benefit-alert">
+        ✨ <strong>公式HP予約限定特典</strong>：炭酸ヘッドスパ（15分）を無料プレゼント中
+      </div>
+
+      <form id="reservationForm">
+        <div class="form-group">
+          <label class="form-label" for="reserveStylist">希望スタイリスト<span class="required">※必須</span></label>
+          <select id="reserveStylist" class="form-control" required>
+            <option value="">指名なし（最も早くご案内できるスタッフ）</option>
+            <option value="田中 翔">田中 翔（オーナースタイリスト）</option>
+            <option value="高橋 愛">高橋 愛（チーフスタイリスト）</option>
+            <option value="佐藤 健人">佐藤 健人（トップスタイリスト）</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reserveMenu">希望メニュー<span class="required">※必須</span></label>
+          <select id="reserveMenu" class="form-control" required>
+            <option value="">メニューを選択してください</option>
+            <option value="カット">デザイナーズカット ¥7,700（税込）</option>
+            <option value="カット＋カラー">カット ＋ イルミナ＆高濃度美容液カラー ¥17,600（税込）</option>
+            <option value="カット＋カラー＋髪質改善">カット ＋ カラー ＋ 最高峰RICHE髪質改善TR ¥28,600（税込）</option>
+            <option value="カット＋パーマ">カット ＋ 低温コスメデジタルパーマ ¥22,000（税込）</option>
+            <option value="髪質改善トリートメント">最高峰RICHE髪質改善トリートメント ¥13,200（税込）</option>
+            <option value="その他・ご相談">ご来店後にスタイリストと相談して決める</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reserveDate">希望日時<span class="required">※必須</span></label>
+          <input type="datetime-local" id="reserveDate" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="customerName">お名前<span class="required">※必須</span></label>
+          <input type="text" id="customerName" class="form-control" placeholder="例：表参道 花子" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="customerTel">お電話番号<span class="required">※必須</span></label>
+          <input type="tel" id="customerTel" class="form-control" placeholder="例：090-1234-5678" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="customerEmail">メールアドレス<span class="required">※必須</span></label>
+          <input type="email" id="customerEmail" class="form-control" placeholder="例：example@riche-salon.jp" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="customerNotes">ご要望・髪のお悩み（任意）</label>
+          <textarea id="customerNotes" class="form-control" rows="3"
+            placeholder="髪のクセやダメージ、静かに過ごしたいなどご要望があればご記入ください。"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary form-submit-btn">上記内容で予約をリクエストする</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>

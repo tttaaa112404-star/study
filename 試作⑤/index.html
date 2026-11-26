@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URBAN CLOSET | 都市で生きる人の、新しいワードローブ</title>
+  <meta name="description" content="都市で生きる人の、新しいワードローブ「URBAN CLOSET（アーバンクローゼット）」。ミニマル、モード、洗練されたジェンダーレスなユニセックスアパレル。">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ==========================================
+       SITE HEADER (Logo Centered, Nav Left, Icons Right)
+       ========================================== -->
+  <header class="main-header">
+    <div class="site-container header-inner">
+      <!-- Left: Hamburger Trigger -->
+      <div class="header-left-zone">
+        <button type="button" class="menu-trigger-btn" aria-label="メニューを開く">
+          <div class="hamburger-bars">
+            <span></span>
+            <span></span>
+          </div>
+          <span class="menu-trigger-text">Menu</span>
+        </button>
+      </div>
+
+      <!-- Center: Brand Logo -->
+      <div class="header-center-zone">
+        <!-- 
+          【ロゴ画像差し替え枠】
+          ロゴ画像を提供された場合は、下のspanを非表示にし、imgタグを有効化してください。
+          例: <img src="images/logo.svg" alt="URBAN CLOSET" style="max-height:26px;">
+        -->
+        <a href="#home" data-nav="#home" class="brand-logo-link">
+          <span class="brand-logo-text">URBAN CLOSET</span>
+        </a>
+      </div>
+
+      <!-- Right: Search & Cart Icons -->
+      <div class="header-right-zone">
+        <button type="button" class="header-action-btn" data-action="open-search" aria-label="商品検索">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+
+        <button type="button" class="header-action-btn" data-action="open-cart" aria-label="ショッピングバッグ">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-indicator-badge">2</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       FULLSCREEN NAVIGATION OVERLAY
+       ========================================== -->
+  <div class="fullscreen-nav-overlay" aria-hidden="true">
+    <div class="fullscreen-nav-header">
+      <span class="brand-logo-text" style="font-size: 1.15rem;">URBAN CLOSET</span>
+      <button type="button" class="overlay-close-btn" aria-label="メニューを閉じる">
+        <span>Close</span>
+        <span class="cross-icon">&times;</span>
+      </button>
+    </div>
+
+    <nav class="fullscreen-nav-links">
+      <div class="fullscreen-nav-item">
+        <a href="#home" data-nav="#home" class="fullscreen-nav-anchor">Top</a>
+        <span class="fullscreen-nav-sub">トップ</span>
+      </div>
+      <div class="fullscreen-nav-item">
+        <a href="#products" data-nav="#products" class="fullscreen-nav-anchor">Products</a>
+        <span class="fullscreen-nav-sub">商品一覧</span>
+      </div>
+      <div class="fullscreen-nav-item">
+        <a href="#about" data-nav="#about" class="fullscreen-nav-anchor">About</a>
+        <span class="fullscreen-nav-sub">ブランドストーリー</span>
+      </div>
+      <div class="fullscreen-nav-item">
+        <a href="#lookbook" data-nav="#lookbook" class="fullscreen-nav-anchor">Lookbook</a>
+        <span class="fullscreen-nav-sub">ルックブック</span>
+      </div>
+      <div class="fullscreen-nav-item">
+        <a href="#contact" data-nav="#contact" class="fullscreen-nav-anchor">Contact</a>
+        <span class="fullscreen-nav-sub">お問い合わせ / FAQ</span>
+      </div>
+    </nav>
+
+    <div class="fullscreen-nav-footer">
+      <p>NEW WARDROBE FOR URBAN LIFE</p>
+      <p><a href="https://instagram.com" target="_blank" rel="noopener">Instagram: @urbancloset_official &nearr;</a></p>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       SEARCH OVERLAY MODAL (Real-time Filtering)
+       ========================================== -->
+  <div class="search-modal-overlay" role="dialog" aria-modal="true" aria-label="サイト内検索">
+    <div class="search-modal-inner">
+      <div class="search-modal-close-row">
+        <button type="button" class="overlay-close-btn" aria-label="検索を閉じる">
+          <span>Close</span>
+          <span class="cross-icon">&times;</span>
+        </button>
+      </div>
+
+      <div class="search-input-field-wrap">
+        <input type="text" id="search-keyword-input" class="search-large-input" placeholder="Search collection..."
+          autocomplete="off">
+      </div>
+
+      <div class="search-quick-tags">
+        <span>Quick Links:</span>
+        <span class="search-tag-pill">Tシャツ</span>
+        <span class="search-tag-pill">コート</span>
+        <span class="search-tag-pill">パンツ</span>
+        <span class="search-tag-pill">バッグ</span>
+        <span class="search-tag-pill">リネン</span>
+        <span class="search-tag-pill">TOPS</span>
+      </div>
+
+      <div class="search-live-results"></div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       CART DRAWER (Slide-in UI with Free Shipping Bar)
+       ========================================== -->
+  <div class="cart-drawer-backdrop"></div>
+  <aside class="cart-drawer-panel" aria-label="ショッピングバッグ">
+    <div class="cart-drawer-header">
+      <h3 class="cart-drawer-title">Shopping Bag</h3>
+      <button type="button" class="cart-drawer-close-btn" aria-label="バッグを閉じる">&times;</button>
+    </div>
+
+    <!-- Free Shipping Progress Bar (¥20,000 threshold) -->
+    <div class="shipping-progress-box">
+      <p class="shipping-progress-text">あと <strong>¥1,500</strong> で送料無料です。</p>
+      <div class="shipping-progress-bar-bg">
+        <div class="shipping-progress-bar-fill"></div>
+      </div>
+    </div>
+
+    <div class="cart-drawer-items-list">
+      <!-- Items dynamically injected by script.js -->
+    </div>
+
+    <div class="cart-drawer-footer">
+      <div class="cart-subtotal-row">
+        <span>Subtotal (税込)</span>
+        <strong id="cart-subtotal-val">&yen;18,500</strong>
+      </div>
+      <p class="cart-notice-small">送料・配送オプションはチェックアウト時に計算されます。</p>
+      <button type="button" class="btn-minimal btn-minimal-black btn-full-width"
+        onclick="alert('ショールームUIのため実際の決済機能は連携していません。Shopify等のECカートと完全に連携可能です。');">
+        CHECKOUT
+      </button>
+    </div>
+  </aside>
+
+  <!-- ==========================================
+       MAIN CONTENT WRAPPER (SPA View Switcher)
+       ========================================== -->
+  <div class="site-content-wrapper">
+
+    <!-- ========================================
+         PAGE VIEW 1: HOME (Top Page)
+         ======================================== -->
+    <section class="page-view is-active" data-view="home">
+      <!-- 1. Full Screen Hero -->
+      <div class="hero-full-wrap">
+        <!-- 
+          【ヒーローメイン画像差し替え枠】
+        -->
+        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1600&q=80"
+          alt="2025 SPRING COLLECTION Key Visual" class="hero-bg-media">
+
+        <div class="hero-overlay-content">
+          <span class="hero-tagline-text">URBAN CLOSET — 2025 SPRING COLLECTION</span>
+          <h1 class="hero-main-typography">
+            Form Without<br>
+            <span>Boundaries.</span>
+          </h1>
+          <a href="#products" data-nav="#products" class="btn-minimal btn-minimal-black"
+            style="background-color: var(--color-white); color: var(--color-black); border-color: var(--color-white);">
+            SHOP NOW
+          </a>
+        </div>
+      </div>
+
+      <!-- 2. New Arrivals (4 Items) -->
+      <section class="section-spacer">
+        <div class="site-container">
+          <div class="section-heading-wrap">
+            <div>
+              <span class="section-eyebrow">Spring 2025</span>
+              <h2 class="section-title-large">New Arrivals</h2>
+            </div>
+            <a href="#products" data-nav="#products" class="view-more-link">VIEW ALL PRODUCTS &rarr;</a>
+          </div>
+
+          <!-- Dynamic 4-item grid injected by script.js -->
+          <div id="home-new-arrivals-grid" class="products-uniform-grid home-four-grid"></div>
+        </div>
+      </section>
+
+      <!-- 3. Brand Concept Teaser -->
+      <section class="section-spacer" style="background-color: var(--color-light-gray);">
+        <div class="site-container">
+          <div class="concept-teaser-grid">
+            <div class="concept-teaser-visual">
+              <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80"
+                alt="URBAN CLOSET Atelier Scene">
+            </div>
+            <div class="concept-teaser-text">
+              <span class="section-eyebrow">CONCEPT</span>
+              <h2 class="concept-lead-quote">都市で生きる人の、<br>新しいワードローブ。</h2>
+              <p class="concept-paragraph">
+                性別の境界を溶かし、余白と上質なカッティングが生み出すモードの現在地。
+                過度な主張を排したミニマルな佇まいに、厳選されたファブリックと緻密なプロポーションを宿し、日常と調和するモダンな衣服を提案します。
+              </p>
+              <a href="#about" data-nav="#about" class="view-more-link">READ OUR STORY &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Lookbook Preview (3 Photos) -->
+      <section class="section-spacer">
+        <div class="site-container">
+          <div class="section-heading-wrap">
+            <div>
+              <span class="section-eyebrow">Editorial</span>
+              <h2 class="section-title-large">Lookbook Preview</h2>
+            </div>
+            <a href="#lookbook" data-nav="#lookbook" class="view-more-link">VIEW ALL LOOKS &rarr;</a>
+          </div>
+
+          <div class="lookbook-preview-row">
+            <div class="lookbook-preview-col" onclick="navigateTo('#lookbook')">
+              <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=80"
+                alt="Look 01 Preview">
+            </div>
+            <div class="lookbook-preview-col" onclick="navigateTo('#lookbook')">
+              <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1000&q=80"
+                alt="Look 02 Preview">
+            </div>
+            <div class="lookbook-preview-col" onclick="navigateTo('#lookbook')">
+              <img src="https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=1000&q=80"
+                alt="Look 03 Preview">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Newsletter Sign-up -->
+      <section class="newsletter-banner-box">
+        <div class="newsletter-box-inner">
+          <span class="section-eyebrow">JOIN OUR COMMUNITY</span>
+          <h2 class="section-title-large" style="font-size: clamp(1.75rem, 3.5vw, 2.5rem); margin-bottom: 1rem;">
+            NEWSLETTER</h2>
+          <p style="font-size: 0.9rem; color: var(--color-gray); line-height: 1.8;">
+            新作コレクション、ポップアップストアの開催日程、限定アイテムの先行案内をお届けします。
+          </p>
+
+          <form id="site-newsletter-form" class="newsletter-input-group">
+            <input type="email" placeholder="Enter your email address" class="newsletter-input-field" required>
+            <button type="submit" class="newsletter-submit-btn">SUBSCRIBE</button>
+          </form>
+          <div id="newsletter-success-toast" class="newsletter-success-toast">
+            ✓ ニュースレターの購読を受け付けました。
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ========================================
+         PAGE VIEW 2: PRODUCTS (Product List Page)
+         ======================================== -->
+    <section class="page-view" data-view="products">
+      <div class="site-container section-spacer">
+        <!-- Title & Count -->
+        <div class="section-heading-wrap">
+          <div>
+            <span class="section-eyebrow">COLLECTION</span>
+            <h1 class="section-title-large">ALL PRODUCTS</h1>
+          </div>
+          <span id="product-count-display"
+            style="font-size: 0.85rem; letter-spacing: 0.15em; color: var(--color-gray);">12 ITEMS</span>
+        </div>
+
+        <!-- Filter & Sort Bar -->
+        <div class="products-control-bar">
+          <div class="category-filter-tabs">
+            <button type="button" class="filter-tab-btn is-active" data-filter="ALL">ALL</button>
+            <button type="button" class="filter-tab-btn" data-filter="TOPS">TOPS</button>
+            <button type="button" class="filter-tab-btn" data-filter="BOTTOMS">BOTTOMS</button>
+            <button type="button" class="filter-tab-btn" data-filter="OUTERWEAR">OUTERWEAR</button>
+            <button type="button" class="filter-tab-btn" data-filter="ACCESSORIES">ACCESSORIES</button>
+          </div>
+
+          <div class="sort-select-wrapper">
+            <label for="product-sort-select">SORT:</label>
+            <select id="product-sort-select" class="sort-dropdown">
+              <option value="featured">新着順</option>
+              <option value="price-asc">価格が安い順</option>
+              <option value="price-desc">価格が高い順</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Product Grid (3 cols x 4 rows = 12 items) -->
+        <div id="all-products-grid" class="products-uniform-grid">
+          <!-- Injected dynamically by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         PAGE VIEW 3: PRODUCT DETAIL (Single View)
+         ======================================== -->
+    <section class="page-view" data-view="product-detail">
+      <div class="site-container section-spacer" id="product-detail-container">
+        <!-- Dynamic content injected by script.js when clicking product cards -->
+      </div>
+    </section>
+
+    <!-- ========================================
+         PAGE VIEW 4: ABOUT (Brand Story Page)
+         ======================================== -->
+    <section class="page-view" data-view="about">
+      <div class="site-container section-spacer">
+        <div class="section-heading-wrap center-align" style="margin-bottom: 6rem;">
+          <span class="section-eyebrow">OUR PHILOSOPHY</span>
+          <h1 class="section-title-large">BRAND STORY</h1>
+          <p style="max-width: 640px; margin: 1.5rem auto 0; color: var(--color-gray); font-size: 0.95rem;">
+            都市で生きる人の、新しいワードローブ。過飾を削ぎ落とした先に立ち現れる、個人の美しさと静寂。
+          </p>
+        </div>
+
+        <div class="story-editorial-section">
+          <!-- Section 1 -->
+          <div class="story-editorial-row">
+            <div class="story-editorial-visual">
+              <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1200&q=80"
+                alt="The Origin">
+            </div>
+            <div class="story-editorial-content">
+              <span class="story-section-number">01 / THE ORIGIN</span>
+              <h2 class="story-section-title">性別の境界を溶かす、<br>自由なプロポーション</h2>
+              <p class="story-body-text">
+                「メンズ」「レディース」という従来の二元論から解放された服作りを目指し、URBAN CLOSETは誕生しました。
+                身幅や肩線、ドレープの余白を緻密に設計することで、どんな体型にも自然と馴染み、纏う人のパーソナリティを引き立てます。
+                男性が着ればシャープなモード感に、女性が着ればモダンでエフォートレスな表情に。着る人によって自在に変化するユニセックスの可能性を探求しています。
+              </p>
+            </div>
+          </div>
+
+          <!-- Section 2 -->
+          <div class="story-editorial-row reverse-row">
+            <div class="story-editorial-visual">
+              <img src="https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=1200&q=80"
+                alt="Material & Craft">
+            </div>
+            <div class="story-editorial-content">
+              <span class="story-section-number">02 / MATERIAL &amp; CRAFT</span>
+              <h2 class="story-section-title">素材の誠実さと、<br>幾何学的な余白の美</h2>
+              <p class="story-body-text">
+                無駄を極限まで削ぎ落としたデザインだからこそ、素材のクオリティと仕立ての精度がすべてを語ります。
+                日本国内の熟練アトリエや名産地と協働し、触れるたびに心地よさを実感できる天然繊維や、持続可能な高密度ファブリックを厳選。
+                「足し算の美」ではなく、引くことによって立ち現れる空気感。静謐なモノトーンパレットが、都会の雑踏の中で凛とした個性を放ちます。
+              </p>
+            </div>
+          </div>
+
+          <!-- Section 3 -->
+          <div class="story-editorial-row">
+            <div class="story-editorial-visual">
+              <img src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=1200&q=80"
+                alt="Future Vision">
+            </div>
+            <div class="story-editorial-content">
+              <span class="story-section-number">03 / FUTURE VISION</span>
+              <h2 class="story-section-title">対話から育まれる、<br>未来のスタンダード</h2>
+              <p class="story-body-text">
+                現在はInstagramとポップアップショップを中心に、一人ひとりのお客様との直接のコミュニケーションを大切にしながらものづくりを深めています。
+                将来的なShopifyへの移行やグローバル展開を見据え、デジタルとリアルの両面で洗練されたユーザー体験を追求。
+                鏡の前に立ったときの高揚感と安心感を届ける、次世代のスタンダードを提案し続けます。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Brand Movie Area -->
+        <div class="brand-movie-container" onclick="alert('【BRAND MOVIE】\nショートフィルム「Silence & Form」再生UI（動画埋め込み対応可能）');">
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1600&q=80"
+            alt="Brand Movie Poster" class="brand-movie-poster">
+          <div class="brand-movie-play-btn" aria-label="ブランドムービーを再生">
+            <svg viewBox="0 0 24 24">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         PAGE VIEW 5: LOOKBOOK (Editorial Gallery)
+         ======================================== -->
+    <section class="page-view" data-view="lookbook">
+      <div class="site-container section-spacer">
+        <div class="lookbook-header-box">
+          <span class="section-eyebrow">EDITORIAL ARCHIVE</span>
+          <h1 class="section-title-large">2025 SPRING</h1>
+          <p class="lookbook-statement-en">Form, Fabric and Negative Space.</p>
+          <p class="lookbook-statement-jp">
+            削ぎ落とされた空間に息づく、衣服と身体の美しい関係性。写真をクリックすると全画面ライトボックスでご覧いただけます。
+          </p>
+        </div>
+
+        <!-- Lookbook Gallery (9 Editorial Cuts) -->
+        <div id="lookbook-gallery-grid" class="lookbook-uniform-grid">
+          <!-- Injected by script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================
+         PAGE VIEW 6: CONTACT & FAQ (Inquiry Page)
+         ======================================== -->
+    <section class="page-view" data-view="contact">
+      <div class="site-container section-spacer">
+        <div class="section-heading-wrap">
+          <div>
+            <span class="section-eyebrow">GET IN TOUCH</span>
+            <h1 class="section-title-large">CONTACT &amp; FAQ</h1>
+          </div>
+        </div>
+
+        <div class="contact-page-layout">
+          <!-- Left: Contact Form -->
+          <div class="contact-form-column">
+            <p style="color: var(--color-gray); font-size: 0.95rem; line-height: 1.85; margin-bottom: 2rem;">
+              商品についてのご質問、ポップアップショップや取材・お仕事のご依頼など、以下のフォームよりお気軽にお問い合わせください。
+            </p>
+
+            <div id="contact-feedback-box" class="form-submit-feedback">
+              <strong>お問い合わせを受け付けました。</strong><br>
+              内容を確認の上、通常2営業日以内に担当者よりご返信いたします。（※ショーケースUIのため外部送信は行われません）
+            </div>
+
+            <form id="inquiry-contact-form" class="contact-styled-form">
+              <div class="form-field-group">
+                <label for="form-name" class="form-field-label">お名前 (Full Name) *</label>
+                <input type="text" id="form-name" class="form-text-input" placeholder="例：山田 太郎" required>
+              </div>
+
+              <div class="form-field-group">
+                <label for="form-email" class="form-field-label">メールアドレス (Email Address) *</label>
+                <input type="email" id="form-email" class="form-text-input" placeholder="name@example.com" required>
+              </div>
+
+              <div class="form-field-group">
+                <label for="form-category" class="form-field-label">お問い合わせ種別 (Category)</label>
+                <select id="form-category" class="form-select-input">
+                  <option value="product" selected>商品・サイズ感について</option>
+                  <option value="popup">ポップアップショップについて</option>
+                  <option value="order">ご注文・配送について</option>
+                  <option value="press">取材・スタイリスト様へのリース</option>
+                  <option value="other">その他のお問い合わせ</option>
+                </select>
+              </div>
+
+              <div class="form-field-group">
+                <label for="form-message" class="form-field-label">お問い合わせ内容 (Message) *</label>
+                <textarea id="form-message" class="form-textarea-input" placeholder="お問い合わせ内容をご記入ください"
+                  required></textarea>
+              </div>
+
+              <div>
+                <button type="submit" class="btn-minimal btn-minimal-black btn-full-width">
+                  SEND MESSAGE
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Right: FAQ Accordions & Customer Support -->
+          <div class="contact-faq-column">
+            <span class="section-eyebrow">FREQUENTLY ASKED QUESTIONS</span>
+            <h3 style="font-size: 1.35rem; font-weight: 300; letter-spacing: 0.06em; margin-bottom: 1.5rem;">よくあるご質問
+            </h3>
+
+            <div class="faq-accordion-container">
+              <!-- FAQ 1 -->
+              <div class="faq-accordion-item is-open">
+                <button type="button" class="faq-accordion-trigger">
+                  <span>Q. サイズ感はメンズ・レディースどちら基準ですか？</span>
+                  <span class="faq-icon-indicator">+</span>
+                </button>
+                <div class="faq-accordion-content">
+                  <p>URBAN
+                    CLOSETの全アイテムはユニセックス設計となっております。標準的なメンズサイズ感よりも程よくゆとりを持たせたパターンを採用しており、女性の方は通常サイズでオーバーシルエット、ワンサイズ下でジャストフィットとして美しくご着用いただけます。
+                  </p>
+                </div>
+              </div>
+
+              <!-- FAQ 2 -->
+              <div class="faq-accordion-item">
+                <button type="button" class="faq-accordion-trigger">
+                  <span>Q. ポップアップショップで試着は可能ですか？</span>
+                  <span class="faq-icon-indicator">+</span>
+                </button>
+                <div class="faq-accordion-content">
+                  <p>はい、すべてのポップアップ会場にフィッティングルームをご用意しております。実際に生地感やシルエットをお確かめいただきながらご試着いただけます。</p>
+                </div>
+              </div>
+
+              <!-- FAQ 3 -->
+              <div class="faq-accordion-item">
+                <button type="button" class="faq-accordion-trigger">
+                  <span>Q. 配送にかかる日数と送料を教えてください。</span>
+                  <span class="faq-icon-indicator">+</span>
+                </button>
+                <div class="faq-accordion-content">
+                  <p>ご注文確定後、2〜3営業日以内に発送いたします。送料は全国一律¥650（税込）ですが、¥20,000以上のお買い上げで送料無料となります。</p>
+                </div>
+              </div>
+
+              <!-- FAQ 4 -->
+              <div class="faq-accordion-item">
+                <button type="button" class="faq-accordion-trigger">
+                  <span>Q. サイズ交換や返品は受け付けていますか？</span>
+                  <span class="faq-icon-indicator">+</span>
+                </button>
+                <div class="faq-accordion-content">
+                  <p>商品到着後7日以内、タグ付き・未使用品に限りサイズ交換を承ります。お問い合わせフォームよりご注文番号を記載の上ご連絡ください。</p>
+                </div>
+              </div>
+
+              <!-- FAQ 5 -->
+              <div class="faq-accordion-item">
+                <button type="button" class="faq-accordion-trigger">
+                  <span>Q. ギフトラッピングの対応は可能ですか？</span>
+                  <span class="faq-icon-indicator">+</span>
+                </button>
+                <div class="faq-accordion-content">
+                  <p>ブランドオリジナルのミニマルなギフトバッグ（リボン付き）をご用意しております。ご注文手続き時にギフトラッピングをご選択いただけます。</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Support Info Box -->
+            <div class="support-hours-box">
+              <h4 class="support-hours-title">CUSTOMER SUPPORT</h4>
+              <p class="support-hours-desc">
+                Email: support@urbancloset-example.com<br>
+                営業時間: 平日 11:00 - 18:00（土日祝日休業）<br>
+                Instagram: <a href="https://instagram.com" target="_blank" rel="noopener"
+                  style="text-decoration: underline;">@urbancloset_official &nearr;</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ==========================================
+       LIGHTBOX MODAL (Shared for Lookbook)
+       ========================================== -->
+  <div class="lightbox-modal-wrap" role="dialog" aria-modal="true" aria-label="画像拡大表示">
+    <button type="button" class="lightbox-btn-close" aria-label="閉じる">&times;</button>
+    <button type="button" class="lightbox-arrow-nav nav-prev" aria-label="前の画像">&#8249;</button>
+    <button type="button" class="lightbox-arrow-nav nav-next" aria-label="次の画像">&#8250;</button>
+    <div class="lightbox-modal-content">
+      <img id="lightbox-active-img" src="" alt="Lookbook View" class="lightbox-view-image">
+      <p id="lightbox-active-number" class="lightbox-look-number"></p>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       SITE FOOTER (All Pages Common)
+       ========================================== -->
+  <footer class="site-footer">
+    <div class="site-container">
+      <div class="footer-top-columns">
+        <div class="footer-col-brand">
+          <span class="brand-logo-text" style="font-size: 1.2rem; display:block; margin-bottom: 1rem;">URBAN
+            CLOSET</span>
+          <p style="font-size: 0.85rem; color: var(--color-gray); line-height: 1.85;">
+            都市で生きる人の、新しいワードローブ。過飾を削ぎ落とし、余白と上質なカッティングが生み出すモードの現在地。
+          </p>
+        </div>
+
+        <div class="footer-col-links-wrap">
+          <div>
+            <h4 class="footer-column-heading">Navigation</h4>
+            <ul class="footer-nav-list">
+              <li><a href="#home" data-nav="#home" class="footer-nav-link">Top</a></li>
+              <li><a href="#products" data-nav="#products" class="footer-nav-link">Products</a></li>
+              <li><a href="#about" data-nav="#about" class="footer-nav-link">Brand Story</a></li>
+              <li><a href="#lookbook" data-nav="#lookbook" class="footer-nav-link">Lookbook</a></li>
+              <li><a href="#contact" data-nav="#contact" class="footer-nav-link">Contact</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-column-heading">Information</h4>
+            <ul class="footer-nav-list">
+              <li><a href="#contact" data-nav="#contact" class="footer-nav-link">FAQ &amp; Guide</a></li>
+              <li><a href="#" onclick="alert('利用規約（UIサンプル）'); return false;" class="footer-nav-link">Terms of
+                  Service</a></li>
+              <li><a href="#" onclick="alert('プライバシーポリシー（UIサンプル）'); return false;" class="footer-nav-link">Privacy
+                  Policy</a></li>
+              <li><a href="#" onclick="alert('特定商取引法に基づく表記（UIサンプル）'); return false;" class="footer-nav-link">Legal
+                  Notice</a></li>
+              <li><a href="https://instagram.com" target="_blank" rel="noopener" class="footer-nav-link">Instagram
+                  &nearr;</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p>&copy; 2025 URBAN CLOSET. All Rights Reserved.</p>
+        <p>Tokyo, Japan / Designed for Modern Urban Minimalists</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trattoria SOLE（トラットリア ソーレ）| 代々木上原のイタリアンレストラン</title>
+  <meta name="description" content="東京・代々木上原で15年。オーナーシェフ松本隆司が織りなす本場イタリアの味と温もりある空間。大切な記念日や特別なディナーに、心に残るひとときをお届けします。">
+
+  <!-- Google Fonts（欧文: Cormorant Garamond / 和文: Noto Serif JP） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Noto+Serif+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- 共通スタイルシート -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       画面常時固定 予約ボタン（いつでも簡単に予約ページへアクセス可能）
+       ========================================================================== -->
+  <a href="reservation.html" class="fixed-floating-cta" aria-label="オンラインご予約ページへ">
+    <span class="cta-sparkle">✦</span>
+    <span>WEBオンライン予約</span>
+  </a>
+
+  <!-- ==========================================================================
+       共通ヘッダー（ロゴ、ナビゲーション、予約ボタン）
+       ========================================================================== -->
+  <header id="site-header" class="header-transparent">
+    <div class="container header-container">
+
+      <!-- 店舗ロゴ -->
+      <a href="index.html" class="site-logo-link">
+        <span class="logo-main-text">Trattoria SOLE</span>
+        <span class="logo-sub-text">Yoyogi-Uehara · Italian · 15th Anniv.</span>
+      </a>
+
+      <!-- デスクトップ用ナビゲーション -->
+      <nav class="header-nav">
+        <ul class="nav-links-list">
+          <li class="nav-link-item">
+            <a href="index.html" class="active">HOME<span class="sub-ja">トップ</span></a>
+          </li>
+          <li class="nav-link-item">
+            <a href="menu.html">MENU<span class="sub-ja">お料理</span></a>
+          </li>
+          <li class="nav-link-item">
+            <a href="wine.html">WINE<span class="sub-ja">ワイン</span></a>
+          </li>
+          <li class="nav-link-item">
+            <a href="reservation.html">RESERVATION<span class="sub-ja">ご予約</span></a>
+          </li>
+        </ul>
+        <a href="reservation.html" class="btn btn-primary header-reserve-btn">ご予約</a>
+      </nav>
+
+      <!-- スマートフォン用ハンバーガー開閉ボタン -->
+      <button id="hamburger-btn" class="hamburger-toggle-btn" aria-label="メニューを開く" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- モバイル用ドロワーメニュー -->
+  <div id="mobile-backdrop" class="mobile-nav-backdrop"></div>
+  <aside id="mobile-drawer" class="mobile-nav-drawer">
+    <a href="index.html" class="site-logo-link" style="margin-bottom: 2rem;">
+      <span class="logo-main-text" style="color: var(--color-wine);">Trattoria SOLE</span>
+      <span class="logo-sub-text">Yoyogi-Uehara · Italian</span>
+    </a>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="mobile-nav-link active">HOME<span class="sub-ja">トップページ</span></a></li>
+      <li><a href="menu.html" class="mobile-nav-link">MENU<span class="sub-ja">お料理・コース</span></a></li>
+      <li><a href="wine.html" class="mobile-nav-link">WINE<span class="sub-ja">厳選ワインリスト</span></a></li>
+      <li><a href="reservation.html" class="mobile-nav-link">RESERVATION<span class="sub-ja">WEBオンライン予約</span></a></li>
+    </ul>
+    <a href="reservation.html" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">ご予約はこちら</a>
+  </aside>
+
+  <!-- ==========================================================================
+       メインコンテンツ
+       ========================================================================== -->
+  <main>
+
+    <!-- ------------------------------------------------------------------------
+         1. ヒーローセクション（全画面表示・高品質料理写真・キャッチコピー）
+         ------------------------------------------------------------------------ -->
+    <section class="hero-fullscreen">
+      <!-- Unsplash高品質イタリアン料理写真（画面いっぱいに表示） -->
+      <div class="hero-bg-media"></div>
+      <div class="hero-gradient-overlay"></div>
+
+      <div class="hero-center-box fade-in-element">
+        <span class="hero-subcopy-en">Autentica Cucina Italiana Dal 2011</span>
+        <h1 class="hero-main-catch">
+          大切な人と、<br>心に残るひとときを。
+        </h1>
+        <p class="hero-sub-catch">
+          本場イタリアの味と、特別な時間を。
+        </p>
+        <div class="hero-action-buttons">
+          <a href="reservation.html" class="btn btn-primary">WEBオンライン予約</a>
+          <a href="menu.html" class="btn btn-outline-white">お料理を見る</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------------
+         2. レストランコンセプト ＆ オーナーシェフ松本隆司のこだわり
+         ------------------------------------------------------------------------ -->
+    <section class="section-padding bg-white" id="concept">
+      <div class="container">
+        <div class="chef-story-flex">
+
+          <!-- シェフの写真（Unsplash） -->
+          <div class="chef-photo-wrapper fade-in-element">
+            <!--
+             * 【シェフ写真】
+             * 出典: Unsplash (高品質レストランシェフ写真)
+             * https://images.unsplash.com/photo-1577219491135-ce391730fb2c
+             -->
+            <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=900&q=80&auto=format&fit=crop" alt="Trattoria SOLE オーナーシェフ 松本隆司">
+            <div class="chef-years-badge">
+              <span class="years-num">15</span>
+              <span class="years-label">Years of Passion</span>
+            </div>
+          </div>
+
+          <!-- ストーリーテキスト -->
+          <div class="chef-story-text fade-in-element">
+            <span class="section-label-en">Our Story & Passion</span>
+            <h2 class="section-main-heading">
+              太陽のように温かい、<br>飾らない本場の味を。
+            </h2>
+            <div class="gold-accent-line left"></div>
+
+            <p class="text-paragraph">
+              代々木上原の静かな街角で看板を掲げて15年。<br>
+              「Trattoria SOLE（トラットリア ソーレ）」は、イタリア語で“太陽”を意味する名を冠したイタリアンレストランです。
+            </p>
+
+            <p class="text-paragraph">
+              オーナーシェフの松本隆司は、20代で単身イタリアへ渡り、トスカーナの素朴なトラットリアやシチリアの名店で7年間にわたり修行を積みました。
+            </p>
+
+            <div class="chef-quote-card">
+              「料理とは大地の恵みであり、人と人の心を結ぶもの。<br>
+              気取らず、一口ごとに心から満たされる本物の温もりを届けたい」
+            </div>
+
+            <p class="text-paragraph">
+              毎朝シェフ自ら市場で目利きする旬の鮮魚や有機野菜、イタリア各地から直輸入するオリーブオイルやチーズ。<br>
+              素材が持つ力強い旨味を最大限に引き出し、大切な方と過ごす特別なテーブルを華やかに彩ります。
+            </p>
+
+            <div style="margin-top: 2rem;">
+              <a href="menu.html" class="btn btn-gold">メニュー詳細を見る</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------------
+         3. おすすめメニュー紹介（写真を大きく配置した雑誌風レイアウト）
+         ------------------------------------------------------------------------ -->
+    <section class="section-padding bg-beige" id="featured-dishes">
+      <div class="container">
+        <div class="section-header-block fade-in-element">
+          <span class="section-label-en">Signature Dishes</span>
+          <h2 class="section-main-heading">シェフおすすめのスペシャリテ</h2>
+          <div class="gold-accent-line"></div>
+          <p class="section-lead-text">
+            15年間の歴史の中で愛され続けてきた、SOLEを象徴する自慢の逸品。<br>
+            香り、食感、余韻に至るまで計算し尽くされた一皿をご堪能ください。
+          </p>
+        </div>
+
+        <div class="featured-dishes-grid">
+
+          <!-- 1. 前菜の盛り合わせ -->
+          <article class="dish-large-card fade-in-element">
+            <div class="dish-card-media">
+              <!--
+               * 【料理写真1: 前菜盛り合わせ】
+               * 出典: Unsplash
+               * https://images.unsplash.com/photo-1543362906-acfc16c67564
+               -->
+              <img src="https://images.unsplash.com/photo-1543362906-acfc16c67564?w=800&q=80&auto=format&fit=crop" alt="Antipasto Misto 前菜の盛り合わせ">
+            </div>
+            <div class="dish-card-body">
+              <div>
+                <h3 class="dish-it-headline">Antipasto Misto</h3>
+                <h4 class="dish-ja-headline">旬の厳選食材 前菜の盛り合わせ</h4>
+                <div class="dish-desc-block">
+                  <p>
+                    パルマ産24ヶ月熟成プロシュート、水牛モッツァレラ、季節野菜のマリネなど、本日の厳選前菜を彩り豊かに一皿へ。
+                  </p>
+                  <p>
+                    ディナーの幕開けを華やかに演出する、ワインとの相性も抜群な自慢のプレートです。
+                  </p>
+                </div>
+              </div>
+              <div class="dish-price-tag">¥2,400 <span style="font-size: 0.85rem; font-weight: normal; color: var(--color-text-sub);">（税込）</span></div>
+            </div>
+          </article>
+
+          <!-- 2. 手打ちタリアテッレ ラグー -->
+          <article class="dish-large-card fade-in-element">
+            <div class="dish-card-media">
+              <!--
+               * 【料理写真2: タリアテッレ ラグーソース】
+               * 出典: Unsplash
+               * https://images.unsplash.com/photo-1551183053-bf91a1d81141
+               -->
+              <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=800&q=80&auto=format&fit=crop" alt="Tagliatelle al Ragù 自家製手打ちタリアテッレ">
+            </div>
+            <div class="dish-card-body">
+              <div>
+                <h3 class="dish-it-headline">Tagliatelle al Ragù</h3>
+                <h4 class="dish-ja-headline">自家製手打ちタリアテッレ 和牛のラグーソース</h4>
+                <div class="dish-desc-block">
+                  <p>
+                    毎朝シェフが卵とセモリナ粉を手ごねして仕上げるモチモチ食感の手打ち平打ちパスタ。
+                  </p>
+                  <p>
+                    粗挽き和牛と香味野菜を赤ワインで8時間じっくり煮込み、24ヶ月熟成パルミジャーノを贅沢に削りかけた伝統の味です。
+                  </p>
+                </div>
+              </div>
+              <div class="dish-price-tag">¥1,800 <span style="font-size: 0.85rem; font-weight: normal; color: var(--color-text-sub);">（税込）</span></div>
+            </div>
+          </article>
+
+          <!-- 3. フィレンツェ風ステーキ -->
+          <article class="dish-large-card fade-in-element">
+            <div class="dish-card-media">
+              <!--
+               * 【料理写真3: ビステッカ ステーキ】
+               * 出典: Unsplash
+               * https://images.unsplash.com/photo-1544025162-d76694265947
+               -->
+              <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80&auto=format&fit=crop" alt="Bistecca alla Fiorentina フィレンツェ風ステーキ">
+            </div>
+            <div class="dish-card-body">
+              <div>
+                <h3 class="dish-it-headline">Bistecca alla Fiorentina</h3>
+                <h4 class="dish-ja-headline">特選黒毛和牛のフィレンツェ風ステーキ</h4>
+                <div class="dish-desc-block">
+                  <p>
+                    選び抜かれた上質な黒毛和牛を、高温の炭火で表面は香ばしく、中は艶やかなロゼ色に焼き上げました。
+                  </p>
+                  <p>
+                    トスカーナ産海塩と初摘みエクストラバージンオリーブオイルだけで味わう、極上の肉料理です。
+                  </p>
+                </div>
+              </div>
+              <div class="dish-price-tag">¥4,800 <span style="font-size: 0.85rem; font-weight: normal; color: var(--color-text-sub);">（税込）</span></div>
+            </div>
+          </article>
+
+        </div>
+
+        <div style="text-align: center; margin-top: 4.5rem;" class="fade-in-element">
+          <a href="menu.html" class="btn btn-primary">すべてのメニューを見る</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------------
+         4. コース料理への導線 ＆ ワインへの導線（大型ビジュアルバナー）
+         ------------------------------------------------------------------------ -->
+    <section class="section-padding bg-white">
+      <div class="container">
+        <div class="section-header-block fade-in-element">
+          <span class="section-label-en">Experience SOLE</span>
+          <h2 class="section-main-heading">特別な夜を彩るプラン</h2>
+          <div class="gold-accent-line"></div>
+        </div>
+
+        <div class="dual-banner-grid">
+
+          <!-- コース料理への導線バナー -->
+          <div class="visual-link-banner fade-in-element">
+            <!-- 出典: Unsplash https://images.unsplash.com/photo-1517248135467-4c7edcad34c4 -->
+            <div class="visual-link-bg" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&q=80&auto=format&fit=crop');"></div>
+            <div class="visual-link-overlay"></div>
+            <div class="visual-link-content">
+              <span class="visual-banner-label">Course Menu</span>
+              <h3 class="visual-banner-title">コース料理のご案内</h3>
+              <p class="visual-banner-text">
+                ランチ（¥3,800〜）、ディナー（¥8,500〜）、記念日コース（¥12,000）。<br>
+                季節の旬を五感で味わう至高のフルコースをご用意しております。
+              </p>
+              <a href="menu.html#courses" class="btn btn-outline-white">コースを見る</a>
+            </div>
+          </div>
+
+          <!-- ワインへの導線バナー -->
+          <div class="visual-link-banner fade-in-element">
+            <!-- 出典: Unsplash https://images.unsplash.com/photo-1510812431401-41d2bd2722f3 -->
+            <div class="visual-link-bg" style="background-image: url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=900&q=80&auto=format&fit=crop');"></div>
+            <div class="visual-link-overlay"></div>
+            <div class="visual-link-content">
+              <span class="visual-banner-label">Wine Selection</span>
+              <h3 class="visual-banner-title">厳選ワインとペアリング</h3>
+              <p class="visual-banner-text">
+                イタリア全土から届く約80銘柄の自然派ワイン。<br>
+                ソムリエが料理一皿ごとに最高の相乗効果をもたらす一杯を提案します。
+              </p>
+              <a href="wine.html" class="btn btn-outline-white">ワインを見る</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------------
+         5. 記念日利用の紹介（アニバーサリー特別演出）
+         ------------------------------------------------------------------------ -->
+    <section class="section-padding bg-beige" id="anniversary">
+      <div class="container">
+        <div class="anniversary-showcase fade-in-element">
+
+          <!-- 記念日ディナーイメージ写真（Unsplash） -->
+          <div class="anniversary-gallery">
+            <!-- 出典: Unsplash https://images.unsplash.com/photo-1551024601-bec78aea704b -->
+            <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=900&q=80&auto=format&fit=crop" alt="Trattoria SOLE 記念日デザートプレート">
+          </div>
+
+          <!-- 記念日のご案内文 -->
+          <div class="anniversary-content">
+            <span class="section-label-en">Special Anniversary</span>
+            <h2 class="section-main-heading" style="color: var(--color-wine);">
+              記念日に、<br>心に残るサプライズを。
+            </h2>
+            <div class="gold-accent-line left"></div>
+
+            <p class="text-paragraph">
+              お誕生日、結婚記念日、ご昇進のお祝い、大切なプロポーズの夜に。<br>
+              Trattoria SOLEでは、お二人の特別な一日が一生の思い出となるよう、心づくしのおもてなしでお迎えいたします。
+            </p>
+
+            <p class="text-paragraph">
+              乾杯の最高峰スパークリング「フランチャコルタ」から始まり、シェフ特製のメッセージ付きデザートプレートや、思い出に残る花束の手配まで細やかにサポートいたします。
+            </p>
+
+            <div style="margin-top: 2.2rem;">
+              <a href="reservation.html" class="btn btn-primary">記念日コースを予約する</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------------------
+         6. 店舗情報・アクセス
+         ------------------------------------------------------------------------ -->
+    <section class="section-padding bg-white" id="access">
+      <div class="container">
+        <div class="section-header-block fade-in-element">
+          <span class="section-label-en">Location & Hours</span>
+          <h2 class="section-main-heading">店舗情報・アクセス</h2>
+          <div class="gold-accent-line"></div>
+        </div>
+
+        <div class="access-content-grid fade-in-element">
+          <div>
+            <h3 style="font-size: 1.6rem; color: var(--color-wine); margin-bottom: 1.5rem; font-weight: 500;">
+              Trattoria SOLE（トラットリア ソーレ）
+            </h3>
+
+            <table class="info-table-custom">
+              <tbody>
+                <tr>
+                  <th>Address</th>
+                  <td>
+                    〒151-0066 東京都渋谷区西原3-XX-XX<br>
+                    小田急小田原線・東京メトロ千代田線「代々木上原駅」北口より徒歩3分
+                  </td>
+                </tr>
+                <tr>
+                  <th>Telephone</th>
+                  <td>03-XXXX-XXXX（受付時間 11:00〜22:00）</td>
+                </tr>
+                <tr>
+                  <th>Lunch</th>
+                  <td>11:30 〜 14:30（L.O. 14:00）</td>
+                </tr>
+                <tr>
+                  <th>Dinner</th>
+                  <td>17:30 〜 23:00（L.O. 22:00）</td>
+                </tr>
+                <tr>
+                  <th>Closed</th>
+                  <td>毎週月曜日・第2火曜日</td>
+                </tr>
+                <tr>
+                  <th>Seats</th>
+                  <td>全24席（カウンター6席 / テーブル18席 / 半個室あり）</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Googleマップ埋め込み風プレースホルダー -->
+          <div>
+            <div class="map-embed-placeholder">
+              <span style="font-size: 2.5rem; margin-bottom: 0.6rem;">📍</span>
+              <strong style="font-size: 1.15rem; margin-bottom: 0.4rem; color: var(--color-wine);">Google Map プレースホルダー</strong>
+              <p style="font-size: 0.88rem; color: var(--color-text-sub); line-height: 1.9;">
+                代々木上原駅 北口 徒歩3分<br>
+                （実運用時にiframe埋め込みコードへ差し替え可能）
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       共通フッター
+       ========================================================================== -->
+  <footer id="site-footer">
+    <div class="container">
+      <div class="footer-grid-layout">
+
+        <!-- 店舗ブランド情報 -->
+        <div>
+          <h2 class="footer-brand-title">Trattoria SOLE</h2>
+          <p class="footer-concept-quote">
+            「大切な人と、心に残るひとときを。」<br>
+            東京・代々木上原で15年。太陽のように温かい本場イタリアの味と、心地よい空間をお届けします。
+          </p>
+          <div class="footer-chef-badge">
+            オーナーシェフ : 松本 隆司
+          </div>
+        </div>
+
+        <!-- ナビゲーションリンク -->
+        <div>
+          <h3 class="footer-nav-title">Navigation</h3>
+          <ul class="footer-nav-list">
+            <li><a href="index.html">トップページ</a></li>
+            <li><a href="menu.html">お料理・コース</a></li>
+            <li><a href="wine.html">ワインセレクション</a></li>
+            <li><a href="reservation.html">WEBオンライン予約</a></li>
+          </ul>
+        </div>
+
+        <!-- 営業時間・連絡先 -->
+        <div>
+          <h3 class="footer-nav-title">Information</h3>
+          <dl class="footer-info-details">
+            <dt>Address</dt>
+            <dd>〒151-0066 東京都渋谷区西原3-XX-XX<br>代々木上原駅 北口徒歩3分</dd>
+
+            <dt>Telephone</dt>
+            <dd>03-XXXX-XXXX（受付 11:00〜22:00）</dd>
+
+            <dt>Opening Hours</dt>
+            <dd>
+              ランチ: 11:30 〜 14:30（L.O. 14:00）<br>
+              ディナー: 17:30 〜 23:00（L.O. 22:00）<br>
+              定休日: 毎週月曜・第2火曜
+            </dd>
+          </dl>
+        </div>
+
+      </div>
+
+      <div class="footer-copyright-bar">
+        &copy; 2026 Trattoria SOLE. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- 共通JavaScript -->
+  <script src="js/script.js"></script>
+
+</body>
+</html>
